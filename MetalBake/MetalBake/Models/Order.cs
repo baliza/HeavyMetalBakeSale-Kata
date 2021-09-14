@@ -6,5 +6,7 @@ namespace MetalBake.Models
 {
     public class Order
     {
+
+        public decimal Total;
     }
 }

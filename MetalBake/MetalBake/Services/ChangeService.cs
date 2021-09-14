@@ -23,11 +23,11 @@ namespace MetalBake.Services
 
         public decimal GetChange(Order order, decimal amount)
         {
-            if(amount < order.Total)
+            if(amount < order.TotalPrice)
             {
                 throw new Exception("Not enougth money");
             }
-            return order.Total - amount;
+            return Math.Abs(order.TotalPrice - amount);
         }
     }
 }

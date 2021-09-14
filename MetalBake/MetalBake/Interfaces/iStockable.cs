@@ -6,7 +6,7 @@ namespace MetalBake.Interfaces
 {
      public interface IStockable
     {
-        int GetItemStock(char key);
-        void ReduceItemStock(char key, int value);
+        void CheckItemStock(char key);
+        void ReduceItemStock(char key);
     }
 }

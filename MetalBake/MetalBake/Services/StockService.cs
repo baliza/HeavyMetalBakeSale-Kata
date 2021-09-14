@@ -15,14 +15,18 @@ namespace MetalBake.Services
             {'W', 30 }
         };
 
-        public int GetItemStock(char key)
-        {
-            return _itemsStock[key];
-        }
+      
 
-        public void ReduceItemStock(char key, int value)
+        public void CheckItemStock(char key)
         {
-            _itemsStock[key] -= value;
+            if(_itemsStock[key] <= 0)
+            {
+                throw new Exception("Not enought stock");
+            }
+        }
+        public void ReduceItemStock(char key)
+        {
+            _itemsStock[key] -= 1;
         }
     }
 }

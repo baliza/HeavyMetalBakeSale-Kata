@@ -27,7 +27,7 @@ namespace MetalBake.Services
             {
                 throw new Exception("Not enougth money");
             }
-            return Math.Abs(order.TotalPrice - amount);
+            return  amount - order.TotalPrice;
         }
     }
 }

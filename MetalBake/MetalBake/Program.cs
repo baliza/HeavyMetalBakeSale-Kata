@@ -31,12 +31,13 @@ namespace MetalBake
                     var itemPrice = priceService.GetItemPrice(keyChar);
 
                     // A la orden le añado el nuevo item
-                    order.BuyItemsList.Add(new Item("", keyChar));
+                    PurchaseItems.Add(new Item(keyChar));
                     // Resto 1 del stock
                     stockService.ReduceItemStock(keyChar);
                     // Precio total de la compra
                     order.TotalPrice += itemPrice;
                 }
+                order.BuyItemsList = PurchaseItems;
                 Console.WriteLine($"Total price is {order.TotalPrice}");
                 Console.WriteLine($"How much money do you want to enter?");
 
@@ -44,6 +45,18 @@ namespace MetalBake
 
                 decimal.TryParse(Console.ReadLine(), out amount);
                 Console.WriteLine($"Your change is ${changeService.GetChange(order, amount)}");
+
+                string names = "";
+                List<string> aux = new List<string>();
+                foreach (var item in PurchaseItems)
+                {
+                    if (!aux.Contains(item.Name))
+                    {
+                        aux.Add(item.Name);
+                        names += $"{item.Name}, ";
+                    }  
+                }
+                Console.WriteLine($"Thank you for purchasing: {names}");
 
             }
             catch (Exception exception)

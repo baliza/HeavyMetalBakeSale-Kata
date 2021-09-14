@@ -20,9 +20,8 @@ namespace MetalBake.services
             _brownie = brownie;
         }
 
-        public void PurchaseItems(string shoppingCart)
+        public double SumItemPrices(char[] totalItems)
         {
-            char[] totalItems = shoppingCart.Replace(",", string.Empty).ToCharArray();
             double total = 0;
             foreach (var item in totalItems)
             {
@@ -31,7 +30,6 @@ namespace MetalBake.services
                     if (_cakePop.stock > 0)
                     {
                         total += _cakePop.price;
-                        _cakePop.stock--;
                     }
                     else
                     {
@@ -43,7 +41,6 @@ namespace MetalBake.services
                     if (_brownie.stock > 0)
                     {
                         total += _brownie.price;
-                        _brownie.stock--;
                     }
                     else
                     {
@@ -55,7 +52,6 @@ namespace MetalBake.services
                     if(_muffin.stock > 0)
                     {
                         total += _muffin.price;
-                        _muffin.stock--;
                     }
                     else
                     {
@@ -67,7 +63,6 @@ namespace MetalBake.services
                     if (_water.stock > 0)
                     {
                         total += _water.price;
-                        _water.stock--;
                     } else
                     {
                         Console.WriteLine("No queda stock de Brownie");
@@ -78,7 +73,7 @@ namespace MetalBake.services
                     Console.WriteLine($"El producto {item} no existe");
                 }
             }
-            Console.WriteLine(total);
+            return total;
         }
         public void PrintStocks()
         {

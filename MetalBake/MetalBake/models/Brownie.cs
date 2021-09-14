@@ -4,14 +4,11 @@ using System.Text;
 
 namespace MetalBake.models
 {
-    class Brownie : Cake
+    class Brownie : IProduct
     {
-        public Brownie ()
-        {
-            shortName = 'B';
-            name = "Brownie";
-            price = 0.65;
-            stock = 40;
-        }
+        public readonly double price = 0.65;
+        public readonly char shortName = 'B';
+        public readonly string name = "Brownie";
+        public int stock = 40;
     }
 }

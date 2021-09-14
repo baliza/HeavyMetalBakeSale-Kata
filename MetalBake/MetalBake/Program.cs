@@ -6,7 +6,12 @@ namespace MetalBake
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine(@"Choose a product
+            Brownie: B,
+            Mufflin:M,
+            Cake Pop:C,
+            Water: W");
+            
         }
     }
 }

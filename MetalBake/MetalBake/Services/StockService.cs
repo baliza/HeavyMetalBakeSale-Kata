@@ -14,7 +14,10 @@ namespace MetalBake.Services
             {'C', 24 },
             {'W', 30 }
         };
-
+        public int GetItemStock(char key)
+        {
+            return _itemsStock[key];
+        }
         public void CheckItemStock(char key)
         {
             if(_itemsStock[key] <= 0)

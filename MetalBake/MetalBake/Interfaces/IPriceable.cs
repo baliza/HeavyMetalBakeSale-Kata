@@ -6,5 +6,6 @@ namespace MetalBake.Interfaces
 {
     public interface IPriceable
     {
+        decimal GetItemPrice(char key);
     }
 }

@@ -6,7 +6,12 @@ namespace MetalBake.Models
 {
     public class Order
     {
+        public List<Item> BuyItemsList;
+        public decimal TotalPrice;
 
-        public decimal Total;
+        public Order()
+        {
+
+        }
     }
 }

@@ -9,30 +9,11 @@ namespace MetalBake.Models
         public string Name;
         public char Sort;
 
-        public Item(char key)
+        public Item(char key, string name)
         {
-            SetName(key);
+            Name = name;
             Sort = key;
         }
 
-        private void SetName(char key)
-        {
-            if (key.Equals('B'))
-            {
-                Name = "Brownie";
-            }
-            if(key.Equals('M'))
-            {
-                Name = "Muffin";
-            }
-            if (key.Equals('C'))
-            {
-                Name = "Cake Pop";
-            }
-            if (key.Equals('W'))
-            {
-                Name = "Water";
-            }
-        }
     }
 }

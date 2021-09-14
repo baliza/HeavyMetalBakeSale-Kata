@@ -15,6 +15,7 @@ namespace MetalBake
             PriceService priceService = new PriceService();
             StockService stockService = new StockService();
             ChangeService changeService = ChangeService.GetInstance();
+          
 
             try
             {
@@ -29,9 +30,9 @@ namespace MetalBake
                     stockService.CheckItemStock(keyChar);
                     // Devuelvo el precio del item
                     var itemPrice = priceService.GetItemPrice(keyChar);
-
-                    // A la orden le añado el nuevo item
-                    PurchaseItems.Add(new Item(keyChar));
+                    // Creo un item y lo añado a la orden
+                    Item item = ItemsFactory.CreateItem(keyChar);
+                    PurchaseItems.Add(item);
                     // Resto 1 del stock
                     stockService.ReduceItemStock(keyChar);
                     // Precio total de la compra

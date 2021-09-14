@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    class StockService : IStockable
+    public class StockService : IStockable
     {
         private Dictionary<char, int> _inventory = new Dictionary<char, int>
         {
@@ -33,6 +33,13 @@ namespace MetalBake.Services
         public void ReduceStock(char item, int amount)
         {
             _inventory[item]-=amount;
+        }
+        public void PrintStock()
+        {
+            foreach (var item in _inventory)
+            {
+                Console.WriteLine($"Sort: {item.Key}  Amount: {item.Value}");
+            }
         }
     }
 }

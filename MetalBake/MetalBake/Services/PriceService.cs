@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    class PriceService
+    public class PriceService
     {
         private Dictionary<char, decimal> _listPrices = new Dictionary<char, decimal>
         {
@@ -23,6 +23,13 @@ namespace MetalBake.Services
                 totalPrice += item.Item2 * _listPrices[item.Item1];
             }
             return totalPrice;
+        }
+        public void PrintPrice()
+        {
+            foreach (var item in _listPrices)
+            {
+                Console.WriteLine($"Sort: {item.Key} Price: {item.Value}");
+            }
         }
 
     }

@@ -6,6 +6,6 @@ namespace MetalBake.Interfaces
 {
     interface IChangeable
     {
-        decimal CalculateChange();
+        decimal CalculateChange(decimal coste, decimal pago);
     }
 }

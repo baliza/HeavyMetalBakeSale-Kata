@@ -1,10 +1,12 @@
-﻿using System;
+﻿using MetalBake.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    class IPriceable
+    interface IPriceable
     {
+        decimal CalculateOrderPrice(List<Tuple<char, int>> orderList);
     }
 }

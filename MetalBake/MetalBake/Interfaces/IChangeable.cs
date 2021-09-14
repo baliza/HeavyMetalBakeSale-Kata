@@ -4,7 +4,8 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    class IChangeable
+    interface IChangeable
     {
+        decimal CalculateChange();
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MetalBake.models;
+using MetalBake.services;
+using System;
 
 namespace MetalBake
 {
@@ -6,7 +8,11 @@ namespace MetalBake
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            InventoryManagerService ims = new InventoryManagerService(new CakePop(), new Muffin(), new Water(), new Brownie());
+            Console.WriteLine("Introduce los productos que quieras comprar");
+            string shoppingCart = Console.ReadLine();
+            ims.PurchaseItems(shoppingCart);
+            ims.PrintStocks();
         }
     }
 }

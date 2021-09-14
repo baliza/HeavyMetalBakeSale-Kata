@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.services
 {
-    class InventoryManagerService
+    public class InventoryManagerService
     {
         private Dictionary<Type, decimal> priceList = SetItemValue();
         private Dictionary<Type, int> stockList = SetItemStock();

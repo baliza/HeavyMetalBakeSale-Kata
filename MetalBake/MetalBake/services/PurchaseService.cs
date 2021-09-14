@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MetalBake.services
 {
-    class PurchaseService
+    public class PurchaseService
     {
         private static PurchaseService _instance;
         public decimal Purchase(decimal totalPrice, decimal payed)

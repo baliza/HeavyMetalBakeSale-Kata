@@ -15,7 +15,7 @@ namespace MetalBake.Models
             itemList.Add(new Item('C',"Cake", 10));
             itemList.Add(new Item('W', "Water", 7));
             itemList.Add(new Item('B', "Brownie", 21));
-            itemList.Add(new Item('M', "Muffin", 5));
+            itemList.Add(new Item('M', "Muffin", 2));
             ItemList = itemList;
         }
 

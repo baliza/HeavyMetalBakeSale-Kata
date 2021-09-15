@@ -32,18 +32,19 @@ namespace MetalBake.Services
             {
                 if (item.Code == code)
                 {
-                    return new Item(item.Code, item.Name, 1, item.Price);
+                    return item;
                 }
             }
             return null;
         }
 
+       
         public override string ToString()
         {
             return MetalBakeInventory.ToString();
         }
 
-        internal void DelItem(Item item)
+        public void DelItem(Item item)
         {
             foreach(var copyItem in MetalBakeInventory.ItemList)
             {

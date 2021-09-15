@@ -30,6 +30,7 @@ namespace MetalBake
                     break;
                 case 1:
                     BuyItem(inventory);
+                    CheckItems(inventory);
                     break;
                 case 2:
                     CheckItems(inventory);
@@ -60,13 +61,17 @@ namespace MetalBake
                 answer = Console.ReadLine();
                 if (answer != "n")
                 {
-                    item = iService.checkItemByChar(Char.Parse(answer));
+                    item = iService.checkItemByChar(Char.Parse(answer));            
                     if (item != null)
                     {
                         if (iService.MetalBakeInventory.isOnStock(item))
                         {
-                            itemList.Add(item);
                             iService.DelItem(item);
+                            itemList.Add(new Item(item.Code, item.Name, 1, item.Price));
+                        }
+                        else
+                        {
+                            Console.WriteLine($"{item.Name} is not in Stock");
                         }
                     }
                     else

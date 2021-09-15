@@ -15,9 +15,11 @@ namespace MetalBake
             Console.WriteLine("Introduce los productos que quieras comprar");
             string selectedItems = Console.ReadLine();
             StringBuilder receipt = new StringBuilder();
-            decimal totalPrice = ims.PriceCount(selectedItems);
+            Tuple<decimal, string> orderData = ims.PurchaseData(selectedItems);
+            decimal totalPrice = orderData.Item1;
+            string orderItems = orderData.Item2;
             Console.WriteLine($"Precio total: {totalPrice}");
-            receipt.Append($"Items a comprar > {selectedItems}, Total > ${totalPrice}");
+            receipt.Append($"Items a comprar > {orderItems}, Total > ${totalPrice}");
             Console.WriteLine("Introducir dinero");
             decimal payed = 0;
             Decimal.TryParse(Console.ReadLine(), out payed);

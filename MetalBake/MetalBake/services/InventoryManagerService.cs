@@ -33,10 +33,11 @@ namespace MetalBake.services
 
         }
 
-        public decimal PriceCount(string selectedItems)
+        public Tuple<decimal, string> PurchaseData(string selectedItems)
         {
             decimal total = 0;
             char[] totalItems = selectedItems.Replace(",", string.Empty).ToCharArray();
+            StringBuilder stringBuilder = new StringBuilder();
             foreach(var item in totalItems)
             {
                 if (item.Equals(_cakePop.shortName))
@@ -45,6 +46,7 @@ namespace MetalBake.services
                     {
                         stockList[typeof(CakePop)]--;
                         total += priceList[typeof(CakePop)];
+                        stringBuilder.Append($"{item},");
                     }
                     else
                     {
@@ -57,6 +59,7 @@ namespace MetalBake.services
                     {
                         stockList[typeof(Water)]--;
                         total += priceList[typeof(Water)];
+                        stringBuilder.Append($"{item},");
                     }
                     else
                     {
@@ -69,6 +72,7 @@ namespace MetalBake.services
                     {
                         stockList[typeof(Muffin)]--;
                         total += priceList[typeof(Muffin)];
+                        stringBuilder.Append($"{item},");
                     }
                     else
                     {
@@ -81,6 +85,7 @@ namespace MetalBake.services
                     {
                         stockList[typeof(Brownie)]--;
                         total += priceList[typeof(Brownie)];
+                        stringBuilder.Append($"{item},");
                     }
                     else
                     {
@@ -92,7 +97,9 @@ namespace MetalBake.services
                     Console.WriteLine($"El item {item} no existe");
                 }
             }
-            return total;
+            string availableItems = stringBuilder.ToString();
+            availableItems = availableItems.Remove(availableItems.Length-1);
+            return new Tuple<decimal, string>(total, availableItems);
         }
     }
 

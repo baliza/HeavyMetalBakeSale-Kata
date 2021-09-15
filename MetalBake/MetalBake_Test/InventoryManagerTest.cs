@@ -10,14 +10,14 @@ namespace MetalBake_Test
         public void PriceCount_B_C_W_Test()
         {
             InventoryManagerService ims = new InventoryManagerService();
-            Assert.AreEqual(3.50m, ims.PriceCount("B,C,W"));
+            Assert.AreEqual(3.50m, ims.PurchaseData("B,C,W"));
         }
 
         [TestMethod]
         public void PriceCount_Non_Registered_Product_Test()
         {
             InventoryManagerService ims = new InventoryManagerService();
-            Assert.AreEqual(0, ims.PriceCount("A"));
+            Assert.AreEqual(0, ims.PurchaseData("A"));
         }
 
 

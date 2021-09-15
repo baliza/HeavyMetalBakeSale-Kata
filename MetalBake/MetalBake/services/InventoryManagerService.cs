@@ -33,7 +33,7 @@ namespace MetalBake.services
 
         }
 
-        public Tuple<decimal, string> PurchaseData(string selectedItems)
+        public ShoppingCart PurchaseData(string selectedItems)
         {
             decimal total = 0;
             char[] totalItems = selectedItems.Replace(",", string.Empty).ToCharArray();
@@ -99,7 +99,7 @@ namespace MetalBake.services
             }
             string availableItems = stringBuilder.ToString();
             availableItems = availableItems.Remove(availableItems.Length-1);
-            return new Tuple<decimal, string>(total, availableItems);
+            return new ShoppingCart { totalPrice = total, itemList = availableItems};
         }
     }
 

@@ -4,8 +4,9 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IChangeable
+    interface IItemable
     {
-        public decimal CalculateChange(decimal coste, decimal pago);
+        public string GetShort();
+        public string GetName();
     }
 }

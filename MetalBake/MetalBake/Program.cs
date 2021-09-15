@@ -1,6 +1,8 @@
 ﻿using MetalBake.Models;
 using MetalBake.Interfaces;
 using MetalBake.Services;
+using Microsoft.Extensions.DependencyInjection;
+
 using System;
 
 namespace MetalBake
@@ -9,47 +11,69 @@ namespace MetalBake
     {
         static void Main(string[] args)
         {
-            PriceService priceService = new PriceService();
-            StockService stockService = new StockService();
-            ChangeService changeService = new ChangeService();
+            //PriceService priceService = new PriceService();
+            //StockService stockService = new StockService();
+            //ChangeService changeService = new ChangeService();
+            //ItemService itemService = new ItemService();
+            //OrderService orderService = new OrderService();
 
-    //        Console.WriteLine(@"Bienvenido a la tienda de pasteles: Seleccione la opción que desea realizar:
-    //1-Comprar
-    //2-Ver stock
-    //3-Ver precios");
-    //        var option = Console.ReadLine();
-
-            Console.WriteLine("Items to Purchase?");
-            var orderString = Console.ReadLine();
-            Order orderList = new Order();
-            PriceService priceable = new PriceService();
-            var finalOrder = orderList.MakeOrder(orderString);  //pedido completoList <Tuple<char, int>>
-            var priceToPay = priceable.CalculateOrderPrice(finalOrder); //precio a pagar del pedido
-            //Check si hay stock
-            foreach (var item in finalOrder)
+            var containerProvider = Container.Build();
+            var itemService = containerProvider.GetService<IItemServable>();
+            var orderService = containerProvider.GetService<IOrderable>();
+            var stockService = containerProvider.GetService<IStockable>();
+            var priceService = containerProvider.GetService<IPriceable>();
+            var changeService = containerProvider.GetService<IChangeable>();
+            var option = "0";
+            do
             {
-                if (!stockService.CheckStock(item.Item1, item.Item2))
+                Console.WriteLine(@"Bienvenido a la tienda de pasteles: Seleccione la opción que desea realizar:
+    1-Comprar
+    2-Ver lista de productos
+    3-Terminar");
+                option = Console.ReadLine();
+                switch (option)
                 {
-                    Console.WriteLine($"Not enough stock of {item}");
-                }
-            }
-            //Respuesta de precio total de la compra
-            Console.WriteLine($@"Precio total a pagar: {priceToPay}
+                    case "1":
+                        Console.WriteLine("Items to Purchase?");
+                        itemService.PrintItemList();
+                        var orderString = Console.ReadLine();
+                        var finalOrder = orderService.MakeOrder(orderString);  //pedido completo finalorder<Tuple<char, int>>                         
+                        //Check si hay stock
+                        bool allStock = true;
+                        foreach (var item in finalOrder)
+                        {
+                            if (!stockService.CheckStock(item.Item1, item.Item2))
+                            {
+                                Console.WriteLine($"Not enough stock of {item.Item1}, only {stockService.GetStock(item.Item1)} left");
+                                allStock = false;
+                            }
+                        }
+                        if (!allStock)
+                        {
+                            break;
+                        }
+                        var priceToPay = priceService.CalculateOrderPrice(finalOrder); //precio a pagar del pedido
+                        Console.WriteLine($@"Precio total a pagar: {priceToPay}
 Cuanto dinero entregará para pagar:");
-            Decimal.TryParse(Console.ReadLine(), out decimal amountPaid);
-            if (amountPaid<priceToPay)
-            {
-                Console.WriteLine("Not enough money paid");
-            }
-            Console.WriteLine($"Su cambio es: {changeService.CalculateChange(priceToPay, amountPaid)}");
-            foreach (var item in finalOrder)
-            {
-                stockService.ReduceStock(item.Item1, item.Item2);
-            }
-
-            //2-Ver stock
-            stockService.PrintStock();
-            priceService.PrintPrice();
+                        Decimal.TryParse(Console.ReadLine(), out decimal amountPaid);
+                        if (amountPaid < priceToPay)
+                        {
+                            Console.WriteLine("Not enough money paid");
+                            break;
+                        }
+                        Console.WriteLine($"Su cambio es: {changeService.CalculateChange(priceToPay, amountPaid)}");
+                        foreach (var item in finalOrder)
+                        {
+                            stockService.ReduceStock(item.Item1, item.Item2);
+                        }
+                        break;
+                    case "2":
+                        itemService.PrintItemList();
+                        break;
+                    case "3": break;
+                }
+                Console.WriteLine(Environment.NewLine);
+            } while (!option.Equals("3"));
         }
     }
 }

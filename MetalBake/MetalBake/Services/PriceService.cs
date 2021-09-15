@@ -1,11 +1,12 @@
-﻿using MetalBake.Models;
+﻿using MetalBake.Interfaces;
+using MetalBake.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MetalBake.Services
 {
-    public class PriceService
+    class PriceService : IPriceable
     {
         private Dictionary<char, decimal> _listPrices = new Dictionary<char, decimal>
         {
@@ -23,6 +24,17 @@ namespace MetalBake.Services
                 totalPrice += item.Item2 * _listPrices[item.Item1];
             }
             return totalPrice;
+        }
+        public decimal GetPrice(char key)
+        {
+            foreach (var item in _listPrices)
+            {
+                if (key.Equals(item.Key))
+                {
+                    return item.Value;
+                }
+            }
+            return 0;
         }
         public void PrintPrice()
         {

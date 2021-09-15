@@ -22,7 +22,6 @@ namespace Metal_Bake_Tests
                 service.ReduceStock(key,1);
             }
             Assert.ThrowsException<Exception>(()=>service.CheckStock(key,1));
-
         }
         [TestMethod]
         public void Test_Check_Reduce_Stock()

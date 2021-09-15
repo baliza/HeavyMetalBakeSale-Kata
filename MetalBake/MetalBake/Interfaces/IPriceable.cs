@@ -7,6 +7,7 @@ namespace MetalBake.Interfaces
 {
     interface IPriceable
     {
-        decimal CalculateOrderPrice(List<Tuple<char, int>> orderList);
+        public decimal GetPrice(char key);
+        public decimal CalculateOrderPrice(List<Tuple<char, int>> orderList);
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    public class ChangeService : IChangeable
+    class ChangeService : IChangeable
     {
         public decimal CalculateChange(decimal coste, decimal pago)
         {

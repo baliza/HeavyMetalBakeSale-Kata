@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    public class StockService : IStockable
+    class StockService : IStockable
     {
         private Dictionary<char, int> _inventory = new Dictionary<char, int>
         {
@@ -17,14 +17,19 @@ namespace MetalBake.Services
         };
         public bool Exist(char item)
         {
-            if (item.Equals(_inventory[item]))
+           return item.Equals(_inventory[item]);       
+        }
+        public int GetStock(char key)
+        {
+            foreach (var item in _inventory)
             {
-                return true;
+                if (key.Equals(item.Key))
+                {
+                    return item.Value;
+                }
             }
-            else
-            {
-                return false;
-            }
+            return 0;
+
         }
         public bool CheckStock(char item, int amount)
         {

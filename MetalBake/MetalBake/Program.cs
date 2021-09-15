@@ -9,7 +9,12 @@ namespace MetalBake
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("What items do you want to buy?");
+            Console.WriteLine(@$"What items do you want to buy?
+            B = Brownie  | $0.65
+            M = Muffin   | $1
+            C = Cake Pop | $1.35
+            W = Water    | $1.5
+");
             List<Item> PurchaseItems = new List<Item>();
             Order order = new Order(PurchaseItems);
             PriceService priceService = new PriceService();

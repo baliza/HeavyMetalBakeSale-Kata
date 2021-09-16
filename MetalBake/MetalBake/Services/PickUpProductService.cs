@@ -49,24 +49,21 @@ namespace MetalBake.Services
                 return;
             }
 
-            if (!_paymentService.CoinsAreEnough(product, totalCoins)) {
+            if (!_paymentService.CoinsAreEnough(product._price, totalCoins)) {
                 Console.WriteLine($"Total Coins ({totalCoins.ToString()}) are less than {product._price.ToString()}$");
                 return;
             }
 
-            if (_paymentService.NeedMoneyBack(product, totalCoins))
+            if (_paymentService.NeedMoneyBack(product._price, totalCoins))
             {
-                decimal diff = totalCoins - product._price;
-                _coinsService.AddCoins(totalCoins-diff);
-                _iStockService.RemoveUnit(product);
-                Console.WriteLine($"You get back {diff}$ coins");
-                Console.WriteLine($"Enjoy your {product._name}!");
+                _coinsService.AddCoins(totalCoins-(totalCoins - product._price));
+                Console.WriteLine($"You get back {(totalCoins - product._price)}$");
             }
             else {
                 _coinsService.AddCoins(totalCoins);
-                _iStockService.RemoveUnit(product);
-                Console.WriteLine($"Enjoy your {product._name}!");
             }
+            _iStockService.RemoveUnit(product);
+            Console.WriteLine($"Enjoy your {product._name}!");
         }
 
         public void PickProducts(Dictionary<Product, int> products, decimal totalCoins)

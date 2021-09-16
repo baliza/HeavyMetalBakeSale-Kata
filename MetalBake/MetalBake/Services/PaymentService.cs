@@ -7,18 +7,18 @@ namespace MetalBake.Services
 {
     public class PaymentService : IPaymentServiceable
     {
-        public bool NeedMoneyBack(Product product, decimal totalCoins)
+        public bool NeedMoneyBack(decimal price, decimal totalCoins)
         {
-            if (totalCoins > product._price)
+            if (totalCoins > price)
             {
                 return true;
             }
             return false;
         }
 
-        public bool CoinsAreEnough(Product product, decimal totalCoins)
+        public bool CoinsAreEnough(decimal price, decimal totalCoins)
         {
-            if (totalCoins < product._price)
+            if (totalCoins < price)
             {
                 return false;
             }

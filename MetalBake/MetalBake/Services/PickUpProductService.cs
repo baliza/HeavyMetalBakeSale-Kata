@@ -10,6 +10,7 @@ namespace MetalBake.Services
         private readonly IStockProductServiceable _iStockService;
         private readonly IPaymentServiceable _paymentService;
         private readonly ICoinsServiceable _coinsService;
+        private readonly ICalculatorServiceable _calculatorService;
 
         public static Dictionary<char, Product> _currentProducts = Setup();
         private static Dictionary<char, Product> Setup()
@@ -23,11 +24,12 @@ namespace MetalBake.Services
         }
         
         public PickUpProductService(IStockProductServiceable iStockService, IPaymentServiceable paymentService,
-                                    ICoinsServiceable coinsService)
+                                    ICoinsServiceable coinsService, ICalculatorServiceable calculatorService)
         {
             _iStockService = iStockService;
             _paymentService = paymentService;
             _coinsService = coinsService;
+            _calculatorService = calculatorService;
         }
 
         public List<Product> GetCurrentProducts()
@@ -77,32 +79,28 @@ namespace MetalBake.Services
                 }
             }
 
-            if (!_paymentService.CoinsAreEnoughMultiple(products, totalCoins))
+            decimal totalOfDictionary = _calculatorService.CalculateTotalOfDictionary(products);
+
+            if (!_paymentService.CoinsAreEnough(totalOfDictionary, totalCoins))
             {
                 Console.WriteLine($"Total Coins ({totalCoins.ToString()}) are less than {totalCoins.ToString()}$");
                 return;
             }
 
-            if (_paymentService.NeedMoneyBackMultiple(products, totalCoins))
+            if (_paymentService.NeedMoneyBack(totalOfDictionary, totalCoins))
             {
-                decimal diff = _paymentService.CalculateDifference(products, totalCoins);
+                decimal diff = _calculatorService.CalculateDifference(products, totalCoins);
                 _coinsService.AddCoins(totalCoins - diff);
-                foreach (var i in products)
-                {
-                    _iStockService.RemoveUnitMultiple(i.Key, i.Value);
-                }
-
                 Console.WriteLine($"You get back {diff}$ coins");
-                Console.WriteLine($"Enjoy your products!");
             } else {
                 _coinsService.AddCoins(totalCoins);
-                foreach (var i in products)
-                {
-                    _iStockService.RemoveUnitMultiple(i.Key, i.Value);
-                }
-
-                Console.WriteLine($"Enjoy your products!");
             }
+
+            foreach (var i in products)
+            {
+                _iStockService.RemoveUnitMultiple(i.Key, i.Value);
+            }
+            Console.WriteLine($"Enjoy your products!");
         }
     }
 }

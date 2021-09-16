@@ -14,8 +14,9 @@ namespace MetalBake.Builders
                 .AddSingleton<IPickUpProductServiceable, PickUpProductService>()
                 .AddSingleton<IStockProductServiceable, StockProductService>()
                 .AddSingleton<IPaymentServiceable, PaymentService>()
-                .AddSingleton<ICoinsServiceable, CoinsService>()         
-                .AddSingleton<IBinddingProductServiceable, BinddingProductService>();
+                .AddSingleton<ICoinsServiceable, CoinsService>()
+                .AddSingleton<IBinddingProductServiceable, BinddingProductService>()
+                .AddSingleton<ICalculatorServiceable, CalculatorService>();
 
             return ServiceProvider.BuildServiceProvider();
         }

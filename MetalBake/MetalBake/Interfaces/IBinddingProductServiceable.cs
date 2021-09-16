@@ -2,7 +2,7 @@
 
 namespace MetalBake.Services
 {
-    interface IBinddingProductServiceable
+    public interface IBinddingProductServiceable
     {
         char GetProductShort(Product product);
     }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    class PaymentService : IPaymentServiceable
+    public class PaymentService : IPaymentServiceable
     {
         public bool NeedMoneyBack(Product product, decimal totalCoins)
         {

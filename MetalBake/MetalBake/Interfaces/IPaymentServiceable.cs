@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MetalBake.Services
 {
-    interface IPaymentServiceable
+    public interface IPaymentServiceable
     {
         bool CoinsAreEnough(Product product, decimal totalCoins);
         bool NeedMoneyBack(Product product, decimal totalCoins);

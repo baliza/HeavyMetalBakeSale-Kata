@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MetalBake.Models
 {
-    class Product
+    public class Product
     {
         public int _id { get; protected set; }
         public string _name { get; protected set; }

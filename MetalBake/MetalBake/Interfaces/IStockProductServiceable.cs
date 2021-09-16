@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MetalBake.Services
 {
-    interface IStockProductServiceable
+    public interface IStockProductServiceable
     {
         int GetProductStock(Product product);
         bool AddStock(Product product, int quantity);

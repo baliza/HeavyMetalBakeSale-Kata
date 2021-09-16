@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    class StockProductService : IStockProductServiceable
+    public class StockProductService : IStockProductServiceable
     {
         /// <summary>
         /// Max Stock Will Be 25.

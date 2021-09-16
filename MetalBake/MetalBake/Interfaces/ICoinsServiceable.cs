@@ -1,6 +1,6 @@
 ﻿namespace MetalBake.Services
 {
-    interface ICoinsServiceable
+    public interface ICoinsServiceable
     {
         void AddCoins(decimal coins);
     }

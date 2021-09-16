@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    class CoinsService : ICoinsServiceable
+    public class CoinsService : ICoinsServiceable
     {
         public decimal _totalCoins;
         public void AddCoins(decimal coins)

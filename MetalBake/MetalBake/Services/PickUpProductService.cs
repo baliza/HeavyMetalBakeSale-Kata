@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    class PickUpProductService : IPickUpProductServiceable
+    public class PickUpProductService : IPickUpProductServiceable
     {
         private readonly IStockProductServiceable _iStockService;
         private readonly IPaymentServiceable _paymentService;

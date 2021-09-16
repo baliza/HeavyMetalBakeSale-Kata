@@ -33,8 +33,6 @@ namespace MetalBake
                 purchaseOp = "";
                 insertedCoins = 0;
                 totalBuy = 0;
-
-                //Show Products
                 Console.WriteLine(ShowProducts(sb, currentProducts, binddingService, stockService));
 
                 //Get Option and Validate it

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    class BinddingProductService : IBinddingProductServiceable
+    public class BinddingProductService : IBinddingProductServiceable
     {
         public static Dictionary<Product, char> _currentBindings = Setup();
 
@@ -27,6 +27,10 @@ namespace MetalBake.Services
 
         public char GetProductShort(Product product)
         {
+            if (product == null)
+            {
+                throw new ArgumentNullException();
+            }
             return _currentBindings[product];
         }
     }

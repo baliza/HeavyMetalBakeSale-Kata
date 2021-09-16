@@ -7,9 +7,7 @@ namespace MetalBake.Services
     public class RepaymentCalculator : IRepaymentCalculator
     {
         private static RepaymentCalculator _PriceCalculator;
-
         private RepaymentCalculator() { }
-
         public static RepaymentCalculator GetInstance()
         {
             if (_PriceCalculator == null)
@@ -18,7 +16,6 @@ namespace MetalBake.Services
             }
             return _PriceCalculator;
         }
-
         public double getRepayment(double totalMoney, double userMoney)
         {
             if (isEnoughtMoney(totalMoney, userMoney))

@@ -23,7 +23,37 @@ namespace MetalBake.Models
         {
             return item.Amount > 0;
         }
+        public double calculateAmountPrice(double[] priceList, int[] amountList)
+        {
+            double totalPrice = 0;
+            for (int i = 0; i < priceList.Length; i++)
+            {
+                totalPrice += priceList[i] * amountList[i];
+            }
 
+            return totalPrice;
+        }
+        public Item checkItemByChar(char code)
+        {
+            foreach (var item in ItemList)
+            {
+                if (item.Code == code)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public void DelItem(Item item)
+        {
+            foreach (var copyItem in ItemList)
+            {
+                if (copyItem.Code == item.Code)
+                {
+                    copyItem.Amount--;
+                }
+            }
+        }
         public override string ToString()
         {
             string first = string.Join("\n", ItemList.Select(e => e.ToString()).ToArray());

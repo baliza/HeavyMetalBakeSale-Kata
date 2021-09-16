@@ -29,8 +29,8 @@ namespace MetalBake
                     Console.WriteLine("IS A WRONG OPTION, PLEASE REWRITE IT");
                     break;
                 case 1:
-                    BuyItem(inventory);
-                    CheckItems(inventory);
+                    BuyItemByArray(inventory);
+                    //CheckItems(inventory);
                     break;
                 case 2:
                     CheckItems(inventory);
@@ -67,7 +67,7 @@ namespace MetalBake
                         if (iService.MetalBakeInventory.isOnStock(item))
                         {
                             iService.DelItem(item);
-                            itemList.Add(new Item(item.Code, item.Name, 1, item.Price));
+                            itemList.Add(new Item(item.Code, item.Name, 1));
                         }
                         else
                         {
@@ -81,6 +81,55 @@ namespace MetalBake
                 }      
             }
             Console.WriteLine($"Your list --> \n {string.Join("\n", itemList.Select(e => e.ToString()).ToArray())}");
+        }
+
+        private static void BuyItemByArray(InventoryService iService)
+        {
+            Console.WriteLine("Write code of products separated by commas EJ = C,W,B,B,W ");
+            string answer = Console.ReadLine();
+            string[] newList = answer.Split(',');
+            List<Item> itemList = new List<Item>();
+            Item item;
+            foreach(var code in newList)
+            {
+                item = iService.checkItemByChar(Char.Parse(code.Trim().ToUpper()));
+                if (item != null)
+                {
+                    if (iService.MetalBakeInventory.isOnStock(item))
+                    {
+                        iService.DelItem(item);
+                        itemList.Add(new Item(item.Code, item.Name, 1));
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{item.Name} is not in Stock");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"WRONG CODE = {code}");
+                }
+            }
+            Console.WriteLine($"Your list --> \n {string.Join("\n", itemList.Select(e => e.ToString()).ToArray())}");
+            double totalPrice = 0;
+            foreach(var copyItem in itemList)
+            {
+                totalPrice += PieMarketService.GetPrice(copyItem);
+            }
+            Console.WriteLine($"The total price of your cart is: {totalPrice}");
+            RepaymentCalculator repaymentCalculator = RepaymentCalculator.GetInstance();
+            Console.WriteLine("Introduce your money:");
+            double price;
+            Double.TryParse(Console.ReadLine(), out price);
+            totalPrice = repaymentCalculator.getRepayment(totalPrice,price);
+            if(totalPrice == -1)
+            {
+                Console.WriteLine("Is not enought");
+            }
+            else
+            {
+                Console.WriteLine($"${totalPrice} is the repayment");
+            }
         }
     }
 }

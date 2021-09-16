@@ -23,7 +23,7 @@ namespace MetalBake.Services
         {
             if (isEnoughtMoney(totalMoney, userMoney))
             {
-                return totalMoney - userMoney;
+                return userMoney - totalMoney;
             }
 
             return -1;

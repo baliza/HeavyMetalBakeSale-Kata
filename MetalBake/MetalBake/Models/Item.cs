@@ -9,28 +9,18 @@ namespace MetalBake.Models
     {
         public char Code;
         public string Name;
-        public double Price;
         public int Amount;
 
-
-        public Item(char code,string name, int amount, double price = 0)
+        public Item(char code,string name, int amount)
         {
             Code = code;
             Name = name;
-            if (price == 0)
-            {
-                Price = PieMarketService.GenerateNewPrice();
-            }
-            else
-            {
-                Price = price;
-            }
             Amount = amount;
         }
 
         public override string ToString()
         {
-            return $"Code: {Code} - Name: {Name} - Price: {Price} - Amount: {Amount}";
+            return $"Code: {Code} - Name: {Name} - Amount: {Amount} - Price: {PieMarketService.GetPrice(this)}";
         }
     }
 }

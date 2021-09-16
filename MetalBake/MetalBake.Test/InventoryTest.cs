@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace MetalBake.Test
 {
-    public class Tests
+    public class InventoryTest
     {
         [SetUp]
         public void Setup()

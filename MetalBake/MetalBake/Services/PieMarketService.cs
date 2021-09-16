@@ -7,14 +7,12 @@ namespace MetalBake.Services
 {
     public class PieMarketService
     {
-
         public static double GenerateNewPrice()
         {
             Random random = new Random();
 
             return Math.Round(random.NextDouble() * (0.5) + 0.5, 2);
         }
-
         public static double GetPrice(Item item)
         {
             if (item.Code == 'M')

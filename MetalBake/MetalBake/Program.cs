@@ -14,7 +14,7 @@ namespace MetalBake
             /*var container = ServiceContainer.Build();
             IInventoryService InventoryService = container.GetService<IInventoryService>();
             IRepaymentCalculator IRepaymentCalculator = container.GetService<IRepaymentCalculator>();*/
-            InventoryService inventory = new InventoryService(new Inventory());
+            Inventory inventory = new Inventory();
             Console.WriteLine(@"HI ROCKSTARS, WELCOME TO PIE-SHOP
     1.- BUY AN ITEM.
     2.- CHECK ITEM STORE.
@@ -29,8 +29,8 @@ namespace MetalBake
                     Console.WriteLine("IS A WRONG OPTION, PLEASE REWRITE IT");
                     break;
                 case 1:
+                    CheckItems(inventory);
                     BuyItemByArray(inventory);
-                    //CheckItems(inventory);
                     break;
                 case 2:
                     CheckItems(inventory);
@@ -43,47 +43,11 @@ namespace MetalBake
                     break;
             }
         }
-
-        private static void CheckItems(InventoryService iService)
+        private static void CheckItems(Inventory iService)
         {
-            Console.WriteLine(iService.MetalBakeInventory);
+            Console.WriteLine(iService);
         }
-
-        private static void BuyItem(InventoryService iService)
-        {
-            Console.WriteLine($"List of items: \n {iService.MetalBakeInventory}");
-            string answer = "";
-            Item item;
-            List<Item> itemList = new List<Item>();
-            while(answer != "n")
-            {
-                Console.WriteLine("Click on code item or click (n) to exit");
-                answer = Console.ReadLine();
-                if (answer != "n")
-                {
-                    item = iService.checkItemByChar(Char.Parse(answer));            
-                    if (item != null)
-                    {
-                        if (iService.MetalBakeInventory.isOnStock(item))
-                        {
-                            iService.DelItem(item);
-                            itemList.Add(new Item(item.Code, item.Name, 1));
-                        }
-                        else
-                        {
-                            Console.WriteLine($"{item.Name} is not in Stock");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("WRONG CODE ^^");
-                    }
-                }      
-            }
-            Console.WriteLine($"Your list --> \n {string.Join("\n", itemList.Select(e => e.ToString()).ToArray())}");
-        }
-
-        private static void BuyItemByArray(InventoryService iService)
+        private static void BuyItemByArray(Inventory metalInventory)
         {
             Console.WriteLine("Write code of products separated by commas EJ = C,W,B,B,W ");
             string answer = Console.ReadLine();
@@ -92,12 +56,12 @@ namespace MetalBake
             Item item;
             foreach(var code in newList)
             {
-                item = iService.checkItemByChar(Char.Parse(code.Trim().ToUpper()));
+                item = metalInventory.checkItemByChar(Char.Parse(code.Trim().ToUpper()));
                 if (item != null)
                 {
-                    if (iService.MetalBakeInventory.isOnStock(item))
+                    if (metalInventory.isOnStock(item))
                     {
-                        iService.DelItem(item);
+                        metalInventory.DelItem(item);
                         itemList.Add(new Item(item.Code, item.Name, 1));
                     }
                     else

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    public interface IChangeable
+    public interface IChangeService
     {
         decimal GetChange(Order order, decimal amount);
     }

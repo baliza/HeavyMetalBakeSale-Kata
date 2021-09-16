@@ -4,10 +4,12 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-     public interface IStockable
+    public interface IStockService
     {
         int GetItemStock(char key);
+
         void CheckItemStock(char key);
+
         void ReduceItemStock(char key);
     }
 }

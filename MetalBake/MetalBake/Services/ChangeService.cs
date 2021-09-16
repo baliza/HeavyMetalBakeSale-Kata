@@ -6,15 +6,17 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    public class ChangeService : IChangeable
+    public class ChangeService : IChangeService
     {
         private static ChangeService _changeService;
 
-        private ChangeService() {}
+        private ChangeService()
+        {
+        }
 
         public static ChangeService GetInstance()
         {
-            if(_changeService == null)
+            if (_changeService == null)
             {
                 _changeService = new ChangeService();
             }
@@ -23,11 +25,11 @@ namespace MetalBake.Services
 
         public decimal GetChange(Order order, decimal amount)
         {
-            if(amount < order.TotalPrice)
+            if (amount < order.TotalPrice)
             {
                 throw new Exception("Not enougth money");
             }
-            return  amount - order.TotalPrice;
+            return amount - order.TotalPrice;
         }
     }
 }

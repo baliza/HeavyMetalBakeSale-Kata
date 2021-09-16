@@ -8,7 +8,7 @@ using System.Text;
 namespace MetalBlake.Test
 {
     [TestClass]
-    public class ChangeTest
+    public class ChangeServiceTest
     {
         [TestMethod]
         public void Test_ChangeService_IsUnique()

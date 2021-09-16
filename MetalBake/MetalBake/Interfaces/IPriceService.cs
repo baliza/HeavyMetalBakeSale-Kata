@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    public interface IPriceable
+    public interface IPriceService
     {
         decimal GetItemPrice(char key);
     }

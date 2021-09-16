@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    public class StockService : IStockable
+    public class StockService : IStockService
     {
         private Dictionary<char, int> _itemsStock = new Dictionary<char, int>
         {
@@ -14,20 +14,23 @@ namespace MetalBake.Services
             {'C', 24 },
             {'W', 30 }
         };
-        public int GetItemStock(char key)
+
+        public int GetItemStock(char itemId)
         {
-            return _itemsStock[key];
+            return _itemsStock[itemId];
         }
-        public void CheckItemStock(char key)
+
+        public void CheckItemStock(char itemId)
         {
-            if(_itemsStock[key] <= 0)
+            if (_itemsStock[itemId] <= 0)
             {
                 throw new Exception("Not enought stock");
             }
         }
-        public void ReduceItemStock(char key)
+
+        public void ReduceItemStock(char itemId)
         {
-            _itemsStock[key] -= 1;
+            _itemsStock[itemId] -= 1;
         }
     }
 }

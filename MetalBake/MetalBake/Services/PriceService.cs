@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    public class PriceService : IPriceable
+    public class PriceService : IPriceService
     {
         private Dictionary<char, decimal> _itemsPrices = new Dictionary<char, decimal>
         {
@@ -15,11 +15,9 @@ namespace MetalBake.Services
             {'W', 1.5M }
         };
 
-        public decimal GetItemPrice(char key)
+        public decimal GetItemPrice(char itemId)
         {
-            return _itemsPrices[key];
+            return _itemsPrices[itemId];
         }
-
-       
     }
 }

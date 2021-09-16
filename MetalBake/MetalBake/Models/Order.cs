@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,13 +6,18 @@ namespace MetalBake.Models
 {
     public class Order
     {
-        public List<Item> BuyItemsList;
-        public decimal TotalPrice;
+        private readonly List<Item> _buyItemsList;
+        public decimal TotalPrice { get; set; }
 
-        public Order(List<Item> itemsList)
+        public Order()
         {
-            BuyItemsList = itemsList;
-          
+            _buyItemsList = new List<Item>();
+        }
+
+        public void AddItem(Item item, decimal price)
+        {
+            _buyItemsList.Add(item);
+            TotalPrice += price;
         }
     }
 }

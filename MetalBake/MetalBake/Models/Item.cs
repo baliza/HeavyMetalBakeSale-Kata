@@ -6,14 +6,13 @@ namespace MetalBake.Models
 {
     public class Item
     {
-        public string Name;
-        public char Sort;
+        private readonly string _name;
+        private readonly char _sort;
 
-        public Item(char key, string name)
+        public Item(string name, char sort)
         {
-            Name = name;
-            Sort = key;
+            _sort = sort;
+            _name = name;
         }
-
     }
 }

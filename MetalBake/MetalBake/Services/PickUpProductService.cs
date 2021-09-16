@@ -94,15 +94,16 @@ namespace MetalBake.Services
                 {
                     _iStockService.RemoveUnitMultiple(i.Key, i.Value);
                 }
+
                 Console.WriteLine($"You get back {diff}$ coins");
                 Console.WriteLine($"Enjoy your products!");
-            } else
-            {
+            } else {
                 _coinsService.AddCoins(totalCoins);
                 foreach (var i in products)
                 {
                     _iStockService.RemoveUnitMultiple(i.Key, i.Value);
                 }
+
                 Console.WriteLine($"Enjoy your products!");
             }
         }

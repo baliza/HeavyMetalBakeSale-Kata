@@ -27,23 +27,18 @@ namespace MetalBake.Services
 
         public bool CoinsAreEnoughMultiple(Dictionary<Product, int> products, decimal totalCoins)
         {
-            Console.WriteLine("TotalCoins: " + totalCoins);
-
             decimal tot = 0;
             decimal aux = 0;
             foreach (var i in products)
             {
-                Console.WriteLine(i.Key._price + " - " + i.Value);
                 aux = i.Value * i.Key._price;
                 tot += aux;
             }
-            Console.WriteLine("Total: " + tot);
+
             if (totalCoins >= tot)
             {
-                Console.WriteLine("TRUE");
                 return true;
             }
-            Console.WriteLine("FALSE");
             return false;
         }
 
@@ -57,7 +52,7 @@ namespace MetalBake.Services
                 tot = tot + aux;
             }
 
-            if (tot > totalCoins)
+            if (totalCoins > tot)
             {
                 return true;
             }

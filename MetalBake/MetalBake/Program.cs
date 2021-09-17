@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text;
+using MetalBake.Services;
+
 namespace MetalBake
 {
     class Program
@@ -13,6 +15,7 @@ C | Cacke Pop | 1.35$
 W | Water | 1.50$
 Choose a product:");
             sort = Console.ReadLine().ToUpper();
+            StockService stockService = new StockService();
         }
             
 

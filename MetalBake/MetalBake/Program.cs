@@ -10,11 +10,11 @@ namespace MetalBake
         private static void Main(string[] args)
         {
             Console.WriteLine(@$"What items do you want to buy?
-            B = Brownie  | $0.65
-            M = Muffin   | $1
-            C = Cake Pop | $1.35
-            W = Water    | $1.5
-");
+                        B = Brownie  | $0.65
+                        M = Muffin   | $1
+                        C = Cake Pop | $1.35
+                        W = Water    | $1.5
+            ");
             List<Item> purchaseItems = new List<Item>();
             Order order = new Order(PurchaseItems);
             PriceService priceService = new PriceService();
@@ -49,18 +49,6 @@ namespace MetalBake
 
                 decimal.TryParse(Console.ReadLine(), out amount);
                 Console.WriteLine($"Your change is ${changeService.GetChange(order, amount)}");
-
-                string names = "";
-                List<string> aux = new List<string>();
-                foreach (var item in purchaseItems)
-                {
-                    if (!aux.Contains(item.Name))
-                    {
-                        aux.Add(item.Name);
-                        names += $"{item.Name}, ";
-                    }
-                }
-                Console.WriteLine($"Thank you for purchasing: {names}");
             }
             catch (Exception exception)
             {
@@ -70,7 +58,7 @@ namespace MetalBake
 
         private static void checkeoQueHayStock(StockService stockService, char keyChar)
         {
-            stockService.CheckItemStock(keyChar);
+            stockService.GetItemStock(keyChar);
         }
     }
 }

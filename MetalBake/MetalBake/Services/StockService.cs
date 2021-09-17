@@ -7,28 +7,24 @@ namespace MetalBake.Services
 {
     public class StockService : IStockService
     {
-        private Dictionary<char, int> _itemsStock = new Dictionary<char, int>
+        private Dictionary<string, int> _itemsStock = new Dictionary<string, int>
         {
-            {'B', 40 },
-            {'M', 36},
-            {'C', 24 },
-            {'W', 30 }
+            {"B", 40 },
+            {"M", 36},
+            {"C", 24 },
+            {"W", 30 }
         };
 
-        public int GetItemStock(char itemId)
-        {
-            return _itemsStock[itemId];
-        }
-
-        public void CheckItemStock(char itemId)
+        public int GetItemStock(string itemId)
         {
             if (_itemsStock[itemId] <= 0)
             {
-                throw new Exception("Not enought stock");
+                return -1;
             }
+            return _itemsStock[itemId];
         }
 
-        public void ReduceItemStock(char itemId)
+        public void ReduceItemStock(string itemId)
         {
             _itemsStock[itemId] -= 1;
         }

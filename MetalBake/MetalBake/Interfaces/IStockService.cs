@@ -6,10 +6,8 @@ namespace MetalBake.Interfaces
 {
     public interface IStockService
     {
-        int GetItemStock(char key);
+        int GetItemStock(string itemId);
 
-        void CheckItemStock(char key);
-
-        void ReduceItemStock(char key);
+        void ReduceItemStock(string itemId);
     }
 }

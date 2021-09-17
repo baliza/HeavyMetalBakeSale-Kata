@@ -18,13 +18,13 @@ namespace MetalBlake.Test
         [TestMethod]
         public void Test_Get_Item_Price()
         {
-            Assert.AreEqual(1, GetSut().GetItemPrice('M'));
+            Assert.AreEqual(1, GetSut().GetItemPrice("M"));
         }
 
         [TestMethod]
         public void Test_Get_NonExistingItem_Price()
         {
-            Assert.ThrowsException<KeyNotFoundException>(() => GetSut().GetItemPrice('H'));
+            Assert.ThrowsException<KeyNotFoundException>(() => GetSut().GetItemPrice("H"));
         }
     }
 }

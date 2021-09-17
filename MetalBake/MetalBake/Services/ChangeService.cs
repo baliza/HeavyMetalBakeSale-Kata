@@ -27,7 +27,8 @@ namespace MetalBake.Services
         {
             if (amount < order.TotalPrice)
             {
-                throw new Exception("Not enougth money");
+                Console.WriteLine("Not enougth money");
+                return -1;
             }
             return amount - order.TotalPrice;
         }

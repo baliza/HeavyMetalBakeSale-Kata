@@ -7,12 +7,17 @@ namespace MetalBake.Models
     public class Item
     {
         private readonly string _name;
-        private readonly char _sort;
+        private readonly string _itemId;
 
-        public Item(string name, char sort)
+        public Item(string name, string itemId)
         {
-            _sort = sort;
+            _itemId = itemId;
             _name = name;
+        }
+
+        public string GetName()
+        {
+            return _name;
         }
     }
 }

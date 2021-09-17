@@ -19,11 +19,11 @@ namespace MetalBlake.Test
         public void Test_Check_Stock_Zero()
         {
             char key = 'B';
-            while (GetSut().GetItemStock(key) > 0)
+            while (GetSut().GetItemStock(itemId) > 0)
             {
-                GetSut().ReduceItemStock(key);
+                GetSut().ReduceItemStock(itemId);
             }
-            Assert.ThrowsException<Exception>(() => GetSut().CheckItemStock(key));
+            Assert.ThrowsException<Exception>(() => GetSut().CheckItemStock(itemId));
         }
 
         [TestMethod]
@@ -31,9 +31,9 @@ namespace MetalBlake.Test
         {
             char key = 'C';
 
-            int previousStock = GetSut().GetItemStock(key);
-            GetSut().ReduceItemStock(key);
-            int actualStock = GetSut().GetItemStock(key);
+            int previousStock = GetSut().GetItemStock(itemId);
+            GetSut().ReduceItemStock(itemId);
+            int actualStock = GetSut().GetItemStock(itemId);
             Assert.AreEqual(previousStock - 1, actualStock);
         }
     }

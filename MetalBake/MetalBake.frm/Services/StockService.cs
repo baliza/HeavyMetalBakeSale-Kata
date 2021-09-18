@@ -1,4 +1,5 @@
 ﻿using MetalBake.frm.Interfaces;
+using MetalBake.frm.ServiceReference1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,26 +10,16 @@ namespace MetalBake.frm.Services
 {
     public class StockService : IStockService
     {
-        private Dictionary<string, int> _itemsStock = new Dictionary<string, int>
-        {
-            {"B", 40 },
-            {"M", 36},
-            {"C", 24 },
-            {"W", 0 }
-        };
+        private ServiceClient _serviceWCF = new ServiceClient();
 
         public int GetItemStock(string itemId)
         {
-            if (_itemsStock[itemId] <= 0)
-            {
-                return -1;
-            }
-            return _itemsStock[itemId];
+            return _serviceWCF.GetItemStock(itemId);
         }
 
         public void ReduceItemStock(string itemId)
         {
-            _itemsStock[itemId] -= 1;
+            _serviceWCF.ReduceItemStock(itemId);
         }
     }
 }

@@ -6,24 +6,27 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
-// NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
 public class Service : IService
 {
-	public string GetData(int value)
-	{
-		return string.Format("You entered: {0}", value);
-	}
+    private static Dictionary<string, int> _itemsStock = new Dictionary<string, int>
+        {
+            {"B", 40 },
+            {"M", 36},
+            {"C", 24 },
+            {"W", 0 }
+        };
 
-	public CompositeType GetDataUsingDataContract(CompositeType composite)
-	{
-		if (composite == null)
-		{
-			throw new ArgumentNullException("composite");
-		}
-		if (composite.BoolValue)
-		{
-			composite.StringValue += "Suffix";
-		}
-		return composite;
-	}
+    public int GetItemStock(string itemId)
+    {
+        if (_itemsStock[itemId] <= 0)
+        {
+            return -1;
+        }
+        return _itemsStock[itemId];
+    }
+
+    public void ReduceItemStock(string itemId)
+    {
+        _itemsStock[itemId] -= 1;
+    }
 }

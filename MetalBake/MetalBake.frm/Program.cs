@@ -12,7 +12,6 @@ namespace MetalBake.frm
     {
         private static void Main(string[] args)
         {
-            var service = new ServiceClient();
             var orderManagerService = new OrderManagerService();
             try
             {

@@ -9,34 +9,19 @@ namespace MetalBake_Test
     public class InventoryManagerTest
     {
         [TestMethod]
-        public void PurchaseData_B_C_W_Price_Test()
+        public void InventoryFilter_B_C_W_Item_List_Test()
         {
-            InventoryManagerService ims = new InventoryManagerService();
-            ShoppingCart shoppingCart = ims.InventoryFilter("B,C,W");
-            Assert.AreEqual(3.50m, shoppingCart.totalPrice);
+            InventoryManagerService sut = new InventoryManagerService();
+            string itemList = sut.InventoryFilter("B,C,W");
+            Assert.AreEqual("B,C,W", itemList);
         }
 
         [TestMethod]
-        public void PurchaseData_Non_Registered_Product_Total_Price_Test()
+        public void InventoryFilter_Invalid_Chars_Item_List_Test()
         {
-            InventoryManagerService ims = new InventoryManagerService();
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => ims.InventoryFilter("A"));
-        }
-
-        [TestMethod]
-        public void PurchaseData_B_C_W_Item_List_Test()
-        {
-            InventoryManagerService ims = new InventoryManagerService();
-            ShoppingCart shoppingCart = ims.InventoryFilter("B,C,W");
-            Assert.AreEqual("B,C,W", shoppingCart.itemList);
-        }
-
-        [TestMethod]
-        public void PurchaseData_Invalid_Chars_Item_List_Test()
-        {
-            InventoryManagerService ims = new InventoryManagerService();
-            ShoppingCart shoppingCart = ims.InventoryFilter("AAAAAB,M,W,,,XXXX");
-            Assert.AreEqual("B,M,W", shoppingCart.itemList);
+            InventoryManagerService sut = new InventoryManagerService();
+            string itemList = sut.InventoryFilter("AAAAAB,M,W,,,XXXX");
+            Assert.AreEqual("B,M,W", itemList);
         }
     }
 }

@@ -10,18 +10,26 @@ namespace MetalBake_Test
     public class PurchaseServiceTest
     {
         [TestMethod]
-        public void PurchaseServcie_GetInstance_Test()
+        public void GetInstance_Test()
         {
-            PurchaseService ps = PurchaseService.GetInstance();
-            PurchaseService ps2 = PurchaseService.GetInstance();
-            Assert.AreEqual(ps, ps2);
+            PurchaseService sut = PurchaseService.GetInstance();
+            PurchaseService sut2 = PurchaseService.GetInstance();
+            Assert.AreEqual(sut, sut2);
         }
 
         [TestMethod]
-        public void PurchaseService_Purchase_Test()
+        public void Purchase_Test()
         {
-            PurchaseService ps = PurchaseService.GetInstance();
-            Assert.AreEqual(2, ps.Purchase(2, 4));
+            PurchaseService sut = PurchaseService.GetInstance();
+            Assert.AreEqual(2, sut.Purchase(2, 4));
+        }
+
+        [TestMethod]
+        public void OrderPrice_Test()
+        {
+            PurchaseService sut = PurchaseService.GetInstance();
+            decimal total = sut.OrderPrice("B,C,W");
+            Assert.AreEqual(3.50m, total);
         }
     }
 }

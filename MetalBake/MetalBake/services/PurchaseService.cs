@@ -26,7 +26,7 @@ namespace MetalBake.services
 
         private static PurchaseService _instance;
 
-        internal decimal OrderPrice(string orderItems)
+        public decimal OrderPrice(string orderItems)
         {
             decimal total = 0;
             char[] totalItems = orderItems.Replace(",", string.Empty).ToCharArray();

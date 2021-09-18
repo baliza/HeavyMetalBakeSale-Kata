@@ -7,6 +7,6 @@ namespace MetalBake.Interfaces
 {
     public interface IChangeService
     {
-        decimal GetChange(Order order, decimal amount);
+        decimal GetChange(decimal totalPrice, decimal amountForPay);
     }
 }

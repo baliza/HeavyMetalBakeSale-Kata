@@ -12,7 +12,7 @@ namespace MetalBake.Services
             {"B", 40 },
             {"M", 36},
             {"C", 24 },
-            {"W", 30 }
+            {"W", 0 }
         };
 
         public int GetItemStock(string itemId)

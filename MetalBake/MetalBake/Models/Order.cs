@@ -55,7 +55,7 @@ namespace MetalBake.Models
             string summary = "";
             foreach (var item in cuantityItems)
             {
-                summary += $"{item.Item2}{item.Item1}, ";
+                summary += $"{item.Item2} {item.Item1}, ";
             }
             return $"Thank you for purchasing: { summary}";
         }

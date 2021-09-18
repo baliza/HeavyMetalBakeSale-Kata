@@ -9,15 +9,28 @@ namespace MetalBake.Models
         private readonly string _name;
         private readonly string _itemId;
 
-        public Item(string name, string itemId)
+        public static Dictionary<string, string> ItemsNames = new Dictionary<string, string>
+        {
+            {"B", "Brownie" },
+            {"M", "Muffin" },
+            {"C", "Cake Pop" },
+            {"W", "Water" }
+        };
+
+        public Item(string itemId)
         {
             _itemId = itemId;
-            _name = name;
+            _name = ItemsNames[itemId];
         }
 
         public string GetName()
         {
             return _name;
+        }
+
+        public string GetItemId()
+        {
+            return _itemId;
         }
     }
 }

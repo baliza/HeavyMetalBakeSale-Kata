@@ -18,22 +18,23 @@ namespace MetalBlake.Test
         [TestMethod]
         public void Test_Check_Stock_Zero()
         {
-            char key = 'B';
-            while (GetSut().GetItemStock(itemId) > 0)
+            string itemId = "B";
+            IStockService stockService = GetSut();
+            while (stockService.GetItemStock(itemId) > 0)
             {
-                GetSut().ReduceItemStock(itemId);
+                stockService.ReduceItemStock(itemId);
             }
-            Assert.ThrowsException<Exception>(() => GetSut().CheckItemStock(itemId));
+            Assert.AreEqual(-1, stockService.GetItemStock(itemId));
         }
 
         [TestMethod]
         public void Test_Check_Reduce_Stock()
         {
-            char key = 'C';
-
-            int previousStock = GetSut().GetItemStock(itemId);
-            GetSut().ReduceItemStock(itemId);
-            int actualStock = GetSut().GetItemStock(itemId);
+            string itemId = "C";
+            IStockService stockService = GetSut();
+            int previousStock = stockService.GetItemStock(itemId);
+            stockService.ReduceItemStock(itemId);
+            int actualStock = stockService.GetItemStock(itemId);
             Assert.AreEqual(previousStock - 1, actualStock);
         }
     }

@@ -1,4 +1,5 @@
-﻿using MetalBake.Models;
+﻿using MetalBake.Interfaces;
+using MetalBake.Models;
 using MetalBake.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -10,34 +11,21 @@ namespace MetalBlake.Test
     [TestClass]
     public class ChangeServiceTest
     {
-        [TestMethod]
-        public void Test_ChangeService_IsUnique()
+        public IChangeService GetSut()
         {
-            ChangeService service1 = ChangeService.GetInstance();
-            ChangeService service2 = ChangeService.GetInstance();
-            Assert.AreEqual(service1, service2);
+            return new ChangeService();
         }
 
         [TestMethod]
         public void Test_Get_Change()
         {
-            List<Item> PurchaseItems = new List<Item>();
-            Order order = new Order(PurchaseItems);
-            order.TotalPrice = 2;
+            Assert.AreEqual(2, GetSut().GetChange(4, 6));
+        }
 
-            ChangeService service1 = ChangeService.GetInstance();
-            Assert.AreEqual(2, service1.GetChange(order, 4));
-        }        
-        
         [TestMethod]
-        public void Test_Get_Change_With_Insuficient_Money()
+        public void Test_Get_Change_Without_Enougth_Money()
         {
-            List<Item> PurchaseItems = new List<Item>();
-            Order order = new Order(PurchaseItems);
-            order.TotalPrice = 2;
-
-            ChangeService service1 = ChangeService.GetInstance();
-            Assert.ThrowsException<Exception>(() => { service1.GetChange(order, 1); });
+            Assert.AreEqual(-1, GetSut().GetChange(4, 2));
         }
     }
 }

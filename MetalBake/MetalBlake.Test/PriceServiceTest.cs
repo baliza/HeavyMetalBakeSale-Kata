@@ -22,7 +22,7 @@ namespace MetalBlake.Test
         }
 
         [TestMethod]
-        public void Test_Get_NonExistingItem_Price()
+        public void Test_Get_Non_Existing_Item_Price()
         {
             Assert.ThrowsException<KeyNotFoundException>(() => GetSut().GetItemPrice("H"));
         }

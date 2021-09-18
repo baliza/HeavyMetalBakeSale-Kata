@@ -5,9 +5,15 @@ using System.Text;
 
 namespace MetalBake.models
 {
-    class Muffin : IProduct
+    internal class Muffin : IProduct
     {
-        public readonly char shortName = 'M';
-        public readonly string name = "Muffin";   
+        public char ShortName { get; set; }
+        public string Name { get; set; }
+
+        public Muffin()
+        {
+            ShortName = 'M';
+            Name = "Muffin";
+        }
     }
 }

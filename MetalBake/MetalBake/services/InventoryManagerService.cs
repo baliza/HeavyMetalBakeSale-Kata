@@ -1,4 +1,5 @@
-﻿using MetalBake.models;
+﻿using MetalBake.interfaces;
+using MetalBake.models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,21 +8,12 @@ namespace MetalBake.services
 {
     public class InventoryManagerService
     {
-        private Dictionary<Type, decimal> priceList = SetItemValue();
         private Dictionary<Type, int> stockList = SetItemStock();
         private Brownie _brownie = new Brownie();
         private CakePop _cakePop = new CakePop();
         private Muffin _muffin = new Muffin();
         private Water _water = new Water();
-        private static Dictionary<Type, decimal> SetItemValue ()
-        {
-            Dictionary<Type, decimal> list = new Dictionary<Type, decimal>();
-            list.Add(typeof(CakePop), 1.35m);
-            list.Add(typeof(Brownie), 0.65m);
-            list.Add(typeof(Water), 1.50m);
-            list.Add(typeof(Muffin), 1);
-            return list;
-        }
+
         private static Dictionary<Type, int> SetItemStock()
         {
             Dictionary<Type, int> list = new Dictionary<Type, int>();
@@ -30,67 +22,29 @@ namespace MetalBake.services
             list.Add(typeof(Water), 30);
             list.Add(typeof(Muffin), 36);
             return list;
-
         }
 
-        public ShoppingCart PurchaseData(string selectedItems)
+        public string InventoryFilter(string selectedItems)
         {
-            decimal total = 0;
             char[] totalItems = selectedItems.Replace(",", string.Empty).ToCharArray();
             StringBuilder stringBuilder = new StringBuilder();
-            foreach(var item in totalItems)
+            foreach (var item in totalItems)
             {
-                if (item.Equals(_cakePop.shortName))
+                if (item.Equals(_cakePop.ShortName))
                 {
-                    if (stockList[typeof(CakePop)] > 0)
-                    {
-                        stockList[typeof(CakePop)]--;
-                        total += priceList[typeof(CakePop)];
-                        stringBuilder.Append($"{item},");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No hay suficiente stock");
-                    }
+                    stringBuilder.Append(CheckStock(_cakePop));
                 }
-                else if (item.Equals(_water.shortName))
+                else if (item.Equals(_water.ShortName))
                 {
-                    if (stockList[typeof(Water)] > 0)
-                    {
-                        stockList[typeof(Water)]--;
-                        total += priceList[typeof(Water)];
-                        stringBuilder.Append($"{item},");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No hay suficiente stock");
-                    }
+                    stringBuilder.Append(CheckStock(_water));
                 }
-                else if (item.Equals(_muffin.shortName))
+                else if (item.Equals(_muffin.ShortName))
                 {
-                    if (stockList[typeof(Muffin)] > 0)
-                    {
-                        stockList[typeof(Muffin)]--;
-                        total += priceList[typeof(Muffin)];
-                        stringBuilder.Append($"{item},");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No hay suficiente stock");
-                    }
+                    stringBuilder.Append(CheckStock(_muffin));
                 }
-                else if (item.Equals(_brownie.shortName))
+                else if (item.Equals(_brownie.ShortName))
                 {
-                    if (stockList[typeof(Brownie)] > 0)
-                    {
-                        stockList[typeof(Brownie)]--;
-                        total += priceList[typeof(Brownie)];
-                        stringBuilder.Append($"{item},");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No hay suficiente stock");
-                    }
+                    stringBuilder.Append(CheckStock(_brownie));
                 }
                 else
                 {
@@ -98,9 +52,22 @@ namespace MetalBake.services
                 }
             }
             string availableItems = stringBuilder.ToString();
-            availableItems = availableItems.Remove(availableItems.Length-1);
-            return new ShoppingCart { totalPrice = total, itemList = availableItems};
+            availableItems = availableItems.Remove(availableItems.Length - 1);
+            return availableItems;
+        }
+
+        private string CheckStock(IProduct product)
+        {
+            if (stockList[product.GetType()] > 0)
+            {
+                stockList[product.GetType()]--;
+                return $"{product.ShortName},";
+            }
+            else
+            {
+                Console.WriteLine("No hay suficiente stock");
+                return string.Empty;
+            }
         }
     }
-
 }

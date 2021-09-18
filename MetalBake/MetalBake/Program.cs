@@ -6,19 +6,18 @@ using System.Text;
 
 namespace MetalBake
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             InventoryManagerService ims = new InventoryManagerService();
             PurchaseService ps = PurchaseService.GetInstance();
             Console.WriteLine("Introduce los productos que quieras comprar");
             string selectedItems = Console.ReadLine();
             StringBuilder receipt = new StringBuilder();
-            ShoppingCart order = ims.PurchaseData(selectedItems);
-            decimal totalPrice = order.totalPrice;
-            string orderItems = order.itemList;
-            Console.WriteLine($"Precio total: {totalPrice}");
+            string orderItems = ims.InventoryFilter(selectedItems);
+            decimal totalPrice = ps.OrderPrice(orderItems);
+            Console.WriteLine($"Precio total: ${totalPrice}");
             receipt.Append($"Items a comprar > {orderItems}, Total > ${totalPrice}");
             Console.WriteLine("Introducir dinero");
             decimal payed = 0;
@@ -37,7 +36,6 @@ namespace MetalBake
             {
                 receipt.Append(", No es suficiente");
             }
-
             Console.WriteLine(receipt.ToString());
         }
     }

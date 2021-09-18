@@ -5,9 +5,15 @@ using System.Text;
 
 namespace MetalBake.models
 {
-    class Water : IProduct
+    internal class Water : IProduct
     {
-        public readonly char shortName = 'W';
-        public readonly string name = "Water";
+        public char ShortName { get; set; }
+        public string Name { get; set; }
+
+        public Water()
+        {
+            ShortName = 'W';
+            Name = "Water";
+        }
     }
 }

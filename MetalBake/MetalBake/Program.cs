@@ -4,6 +4,7 @@ using MetalBake.Services;
 using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
+using ServiceReference1;
 
 namespace MetalBake
 {
@@ -11,6 +12,8 @@ namespace MetalBake
     {
         private static void Main(string[] args)
         {
+            var service = new ServiceClient();
+
             var container = new Container().Build();
             var orderManagerService = container.GetService<IOrderManagerService>();
             try

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MetalBake.frm.ServiceReference1;
+using MetalBake.frm.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +8,21 @@ using System.Threading.Tasks;
 
 namespace MetalBake.frm
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            var service = new ServiceClient();
+            var orderManagerService = new OrderManagerService();
+            try
+            {
+                orderManagerService.MakeAnOrder();
+                Console.ReadLine();
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
     }
 }

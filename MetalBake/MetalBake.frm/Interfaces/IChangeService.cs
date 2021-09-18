@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MetalBake.frm.Interfaces
 {
-    interface IChangeService
+    public interface IChangeService
     {
+        decimal GetChange(decimal totalPrice, decimal amountForPay);
     }
 }

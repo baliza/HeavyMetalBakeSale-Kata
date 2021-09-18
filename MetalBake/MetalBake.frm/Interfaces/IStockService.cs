@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace MetalBake.frm.Interfaces
 {
-    interface IStockService
+    public interface IStockService
     {
+        int GetItemStock(string itemId);
+
+        void ReduceItemStock(string itemId);
     }
 }

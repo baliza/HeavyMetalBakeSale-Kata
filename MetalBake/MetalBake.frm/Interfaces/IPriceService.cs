@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MetalBake.frm.Interfaces
 {
-    interface IPriceService
+    public interface IPriceService
     {
+        decimal GetItemPrice(string itemId);
     }
 }

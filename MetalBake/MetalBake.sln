@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalBake", "MetalBake\MetalBake.csproj", "{29460A5F-A4B2-4BEF-B16B-45E2F0F70965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.Test", "MetalBake.Test\MetalBake.Test.csproj", "{3E533D35-3565-47BC-9BD4-3552C63E4633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalBake.Test", "MetalBake.Test\MetalBake.Test.csproj", "{3E533D35-3565-47BC-9BD4-3552C63E4633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBakeLibrary", "MetalBakeLibrary\MetalBakeLibrary.csproj", "{29BD47FC-52AA-4E02-9643-C0FA4CABD35F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3E533D35-3565-47BC-9BD4-3552C63E4633}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E533D35-3565-47BC-9BD4-3552C63E4633}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E533D35-3565-47BC-9BD4-3552C63E4633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29BD47FC-52AA-4E02-9643-C0FA4CABD35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29BD47FC-52AA-4E02-9643-C0FA4CABD35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29BD47FC-52AA-4E02-9643-C0FA4CABD35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29BD47FC-52AA-4E02-9643-C0FA4CABD35F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

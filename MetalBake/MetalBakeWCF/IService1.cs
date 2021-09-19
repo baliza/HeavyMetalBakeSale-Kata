@@ -17,6 +17,7 @@ namespace MetalBakeWCF
         bool isOnStock(Item item);
 
         [OperationContract]
+        [WebGet(UriTemplate = "/calculateAmountPrice?priceList={priceList}&amountList={amountList}")]
         double calculateAmountPrice(double priceList, int amountList);
 
         [OperationContract]
@@ -26,9 +27,8 @@ namespace MetalBakeWCF
         void DelItem(Item item);
 
         [OperationContract]
+        [WebGet(UriTemplate = "/getRepayment?totalMoney={totalMoney}&userMoney={userMoney}")]
         double getRepayment(double totalMoney, double userMoney);
-
-        // TODO: agregue aquí sus operaciones de servicio
     }
 
     // Utilice un contrato de datos, como se ilustra en el ejemplo siguiente, para agregar tipos compuestos a las operaciones de servicio.

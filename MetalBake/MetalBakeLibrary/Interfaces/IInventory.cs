@@ -2,7 +2,7 @@
 {
     public interface IInventory
     {
-        double calculateAmountPrice(double[] priceList, int[] amountList);
+        double calculateAmountPrice(double priceList, int amountList);
 
         Item checkItemByChar(char code);
 

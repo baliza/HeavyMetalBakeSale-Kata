@@ -24,15 +24,15 @@ namespace MetalBakeLibrary
             return item.Amount > 0;
         }
 
-        public double calculateAmountPrice(double[] priceList, int[] amountList)
+        public double calculateAmountPrice(double priceList, int amountList)
         {
-            double totalPrice = 0;
+            /*double totalPrice = 0;
             for (int i = 0; i < priceList.Length; i++)
             {
                 totalPrice += priceList[i] * amountList[i];
-            }
+            }*/
 
-            return totalPrice;
+            return priceList * amountList;
         }
 
         public Item checkItemByChar(char code)

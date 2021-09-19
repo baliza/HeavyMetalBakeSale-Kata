@@ -45,5 +45,11 @@ namespace MetalBakeWCF
         {
             return inventory.isOnStock(item);
         }
+
+        public override string ToString()
+        {
+            string first = string.Join("\n", inventory.ItemList.Select(e => e.ToString()).ToArray());
+            return first;
+        }
     }
 }

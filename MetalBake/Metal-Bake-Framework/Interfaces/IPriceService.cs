@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IPriceable
+    interface IPriceService
     {
         public decimal GetPrice(char key);
         public decimal CalculateOrderPrice(List<Tuple<char, int>> orderList);

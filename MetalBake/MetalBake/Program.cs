@@ -13,16 +13,16 @@ namespace MetalBake
         {
             //PriceService priceService = new PriceService();
             //StockService stockService = new StockService();
-            //ChangeService changeService = new ChangeService();
+            //ChangeService changeService = ChangeService.GetInstance();
             //ItemService itemService = new ItemService();
             //OrderService orderService = new OrderService();
 
             var containerProvider = Container.Build();
-            var itemService = containerProvider.GetService<IItemServable>();
+            var itemService = containerProvider.GetService<IItemService>();
             var orderService = containerProvider.GetService<IOrderable>();
-            var stockService = containerProvider.GetService<IStockable>();
-            var priceService = containerProvider.GetService<IPriceable>();
-            var changeService = containerProvider.GetService<IChangeable>();
+            var stockService = containerProvider.GetService<IStockService>();
+            var priceService = containerProvider.GetService<IPriceService>();
+            var changeService = containerProvider.GetService<IChangeService>();
             var option = "0";
             do
             {
@@ -37,8 +37,7 @@ namespace MetalBake
                         Console.WriteLine("Items to Purchase?");
                         itemService.PrintItemList();
                         var orderString = Console.ReadLine();
-                        var finalOrder = orderService.MakeOrder(orderString);  //pedido completo finalorder<Tuple<char, int>>                         
-                        //Check si hay stock
+                        var finalOrder = orderService.MakeOrder(orderString);
                         bool allStock = true;
                         foreach (var item in finalOrder)
                         {
@@ -52,7 +51,7 @@ namespace MetalBake
                         {
                             break;
                         }
-                        var priceToPay = priceService.CalculateOrderPrice(finalOrder); //precio a pagar del pedido
+                        var priceToPay = priceService.CalculateOrderPrice(finalOrder);
                         Console.WriteLine($@"Precio total a pagar: {priceToPay}
 Cuanto dinero entregará para pagar:");
                         Decimal.TryParse(Console.ReadLine(), out decimal amountPaid);

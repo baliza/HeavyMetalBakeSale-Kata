@@ -5,7 +5,31 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalBake", "MetalBake\MetalBake.csproj", "{29460A5F-A4B2-4BEF-B16B-45E2F0F70965}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake-Tests", "Metal-Bake-Tests\Metal-Bake-Tests.csproj", "{A785D062-ABEC-4E3F-B4E2-238D674BF9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metal-Bake-Tests", "Metal-Bake-Tests\Metal-Bake-Tests.csproj", "{A785D062-ABEC-4E3F-B4E2-238D674BF9F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake-Framework", "Metal-Bake-Framework\Metal-Bake-Framework.csproj", "{DE7D5C76-ED62-49F7-9E18-992C1AA167B2}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Metal-Bake-WCF", "Metal-Bake-WCF\", "{12CD5B5C-6570-41A3-B2E2-B5538D90468A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_56116"
+		Debug.AspNetCompiler.PhysicalPath = "Metal-Bake-WCF\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56116\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_56116"
+		Release.AspNetCompiler.PhysicalPath = "Metal-Bake-WCF\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_56116\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "56116"
+		SlnRelativePath = "Metal-Bake-WCF\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +45,14 @@ Global
 		{A785D062-ABEC-4E3F-B4E2-238D674BF9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A785D062-ABEC-4E3F-B4E2-238D674BF9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A785D062-ABEC-4E3F-B4E2-238D674BF9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE7D5C76-ED62-49F7-9E18-992C1AA167B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE7D5C76-ED62-49F7-9E18-992C1AA167B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE7D5C76-ED62-49F7-9E18-992C1AA167B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7D5C76-ED62-49F7-9E18-992C1AA167B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12CD5B5C-6570-41A3-B2E2-B5538D90468A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CD5B5C-6570-41A3-B2E2-B5538D90468A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CD5B5C-6570-41A3-B2E2-B5538D90468A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CD5B5C-6570-41A3-B2E2-B5538D90468A}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

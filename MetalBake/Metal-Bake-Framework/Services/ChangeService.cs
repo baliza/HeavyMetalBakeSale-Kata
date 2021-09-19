@@ -19,7 +19,7 @@ namespace MetalBake.Services
         }
         public decimal CalculateChange(decimal coste, decimal pago)
         {
-            return pago - coste;
+            return pago-coste;
         }
     }
 }

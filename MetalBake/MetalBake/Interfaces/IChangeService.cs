@@ -4,8 +4,8 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IOrderable    //Sobraria?
+    interface IChangeService
     {
-        public List<Tuple<char, int>> MakeOrder(string lectura);
+        public decimal CalculateChange(decimal coste, decimal pago);
     }
 }

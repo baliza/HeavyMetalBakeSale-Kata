@@ -7,12 +7,26 @@ namespace MetalBake.Models
     public class Products
     {
         public string _Name;
-        public string _Id;
-
-        public Products(string name, string id)
+        public char _Id;
+        private Dictionary<char, string> productNames = new Dictionary<char, string>
         {
-            _Name = name;
+            {'B', "Brownie" },
+            {'M', "Mufflin"},
+            {'C', "Cake Pop" },
+            {'W', "Water" }
+        };
+        public Products(char id)
+        {
+            _Name = productNames[id];
             _Id = id;
+        }
+        public string GetNameProd()
+        {
+            return _Name;
+        }
+        public string GetIdProd()
+        {
+            return _Id;
         }
     }
 }

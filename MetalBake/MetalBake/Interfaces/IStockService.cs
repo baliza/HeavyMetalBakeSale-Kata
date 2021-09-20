@@ -2,5 +2,6 @@
 {
     public interface IStockService
     {
+        void CheckStock(string[] itemId);
     }
 }

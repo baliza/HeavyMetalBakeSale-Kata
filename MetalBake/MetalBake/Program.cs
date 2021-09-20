@@ -3,25 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 namespace MetalBake
 {
-    class Program
+    class Program : PriceService
     {
-        public static Dictionary<string, decimal> productsPrice = new Dictionary<string, decimal>()
-        {
-            {"B",0.65m },
-            {"M",1.00m },
-            {"C",1.35m },
-            {"W",1.50m }
-
-        };
-
         static void Main(string[] args)
         {
             string[] keys = ItemsToPurchase();
             StockService stockService = new StockService();
             stockService.CheckStock(keys);
-            TotalToPay(keys);
+            PriceService priceService = new PriceService();
+            priceService.TotalToPay(keys);
             decimal amountToPay = AmountToPaid();
-            decimal totalToPay = TotalToPay(keys);
+            decimal totalToPay = priceService.TotalToPay(keys);
             CalculateChange(amountToPay,totalToPay);
         }
 
@@ -45,17 +37,6 @@ namespace MetalBake
             Console.WriteLine("Put amount to pay:");
             decimal amountToPay = Convert.ToDecimal(Console.ReadLine());
             return amountToPay;
-        }
-
-        public static decimal TotalToPay(string[] itemId)
-        {
-            decimal total = 0;
-            foreach (var item in itemId)
-            {
-                total = total + productsPrice[item];
-            }
-            Console.WriteLine($"Amount to paid:{total}$");
-            return total;
         }
 
         public static string[] ItemsToPurchase()

@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MetalBake.Models;
 namespace MetalBake
 {
     public class StockService : IStockService
     {
-        public static Dictionary<string, int> productsStock = new Dictionary<string, int>()
+        public  Dictionary<string, int> productsStock = new Dictionary<string, int>()
         {
             {"B",40 },
             {"M",36 },
@@ -13,20 +14,14 @@ namespace MetalBake
             {"W",3 }
 
         };
-        public static Dictionary<string, string> productsNames = new Dictionary<string, string>()
-        {
-            {"B","Brownie" },
-            {"M","Mofflin" },
-            {"C","Cake Pop" },
-            {"W","Water" }
-        };
+        Products products = new Products();
         public  void CheckStock(string[] itemId)
         {
             foreach (var item in itemId)
             {
                 if (productsStock[item] <= 0)
                 {
-                    Console.WriteLine($"Not enough stock of {productsNames[item]}");
+                    Console.WriteLine($"Not enough stock of {products.productsNames[item]}");
                     System.Environment.Exit(0);//Uso exit para parar aplicacion
                 }
                 else

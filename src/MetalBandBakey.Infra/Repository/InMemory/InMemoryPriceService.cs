@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace MetalBandBakey.Infra.Repository
 {
-	public class PriceService : IPriceService
+	public class InMemoryPriceService : IPriceService
 	{
 		private static Dictionary<string, decimal> _prices;
 
-		public PriceService()
+		public InMemoryPriceService()
 		{
 			_prices = new Dictionary<string, decimal>() { { "B", 0.65m }, { "M", 1.00m }, { "C", 1.35m }, { "W", 1.50m } };
 		}

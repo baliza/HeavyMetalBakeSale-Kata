@@ -1,0 +1,26 @@
+﻿using System.Collections.Generic;
+
+namespace MetalBandBakery
+{
+	public class PriceService : IPriceService
+	{
+		private static Dictionary<string, decimal> _prices;
+
+		public PriceService()
+		{
+			_prices = new Dictionary<string, decimal>() { { "B", 0.65m }, { "M", 1.00m }, { "C", 1.35m }, { "W", 1.50m } };
+		}
+
+		public decimal GetPrice(string itemId)
+		{
+			if (!Exists(itemId))
+				return 0m;
+			return _prices[itemId];
+		}
+
+		private static bool Exists(string itemId)
+		{
+			return _prices.ContainsKey(itemId);
+		}
+	}
+}

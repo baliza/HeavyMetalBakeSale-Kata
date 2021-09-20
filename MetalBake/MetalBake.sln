@@ -10,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.console", "MetalBake.frm\MetalBake.console.csproj", "{71C10C0D-F1E5-4740-8DA1-775912889B82}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.infra", "MetalBake.library\MetalBake.infra.csproj", "{09FF6125-7D2B-49F2-A3E8-3D03D989F1CC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{96B58C0B-BFD7-4504-90E3-F25C890BDC15} = {96B58C0B-BFD7-4504-90E3-F25C890BDC15}
+		{718E29AB-FEBA-4553-A19D-57E8392CAB04} = {718E29AB-FEBA-4553-A19D-57E8392CAB04}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.core", "MetalBake.core\MetalBake.core.csproj", "{5260234E-547F-419A-92E4-E45124871718}"
 EndProject

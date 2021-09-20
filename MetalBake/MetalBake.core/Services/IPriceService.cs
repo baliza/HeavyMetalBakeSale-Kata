@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetalBake.core.External_Services
+namespace MetalBake.core.Services
 {
     public interface IPriceService
     {

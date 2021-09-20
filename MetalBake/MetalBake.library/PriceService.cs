@@ -1,12 +1,13 @@
-﻿using System;
+﻿using MetalBake.core.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetalBake.library
+namespace MetalBake.infra
 {
-    public class PriceService
+    public class PriceService : IPriceService
     {
         private Dictionary<string, decimal> _itemsPrices = new Dictionary<string, decimal>
         {

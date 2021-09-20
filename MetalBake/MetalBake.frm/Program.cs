@@ -13,7 +13,6 @@ namespace MetalBake.frm
         {
             var aplication = new Application();
             aplication.MakeAnOrder();
-            Console.ReadLine();
         }
     }
 }

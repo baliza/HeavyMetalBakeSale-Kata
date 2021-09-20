@@ -18,7 +18,8 @@ public class Service : IService
 
     public int GetItemStock(string itemId)
     {
-        return _stockRepository.GetItemStock(itemId);
+        var stock = _stockRepository.GetItemStock(itemId);
+        return stock <= 0 ? stock : -1;
     }
 
     public bool ReduceItemStock(string itemId)

@@ -58,5 +58,15 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MetalBake.core\MetalBake.core.csproj">
+      <Project>{5260234e-547f-419a-92e4-e45124871718}</Project>
+      <Name>MetalBake.core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetalBake.library\MetalBake.infra.csproj">
+      <Project>{09ff6125-7d2b-49f2-a3e8-3d03d989f1cc}</Project>
+      <Name>MetalBake.infra</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

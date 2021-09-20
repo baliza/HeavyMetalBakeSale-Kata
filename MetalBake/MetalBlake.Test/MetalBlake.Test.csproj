@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MetalBake.frm\MetalBake.frm.csproj" />
+    <ProjectReference Include="..\MetalBake.frm\MetalBake.console.csproj" />
     <ProjectReference Include="..\MetalBake\MetalBake.csproj" />
   </ItemGroup>
 

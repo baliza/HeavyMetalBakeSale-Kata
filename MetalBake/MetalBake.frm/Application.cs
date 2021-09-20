@@ -1,20 +1,21 @@
 ﻿using MetalBake.frm.Interfaces;
 using MetalBake.frm.Models;
+using MetalBake.frm.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetalBake.frm.Services
+namespace MetalBake.frm
 {
-    public class OrderManagerService
+    public class Application
     {
         private readonly IStockService _stockService;
         private readonly IPriceService _priceService;
         private readonly IChangeService _changeService;
 
-        public OrderManagerService()
+        public Application()
         {
             _stockService = new StockService();
             _priceService = new PriceService();
@@ -23,15 +24,22 @@ namespace MetalBake.frm.Services
 
         public void MakeAnOrder()
         {
-            string[] itemsToBuy = StartOrderProcess();
-            Order order = new Order();
-            AddItemsInOrder(order, itemsToBuy);
-            Console.WriteLine($"Total price is {order.TotalPrice}");
-            Console.WriteLine($"How much money do you want to enter?");
-            decimal ammountForPay;
-            decimal.TryParse(Console.ReadLine(), out ammountForPay);
-            GetChange(order.TotalPrice, ammountForPay);
-            Console.WriteLine(order.CreateOrderSummary());
+            try
+            {
+                string[] itemsToBuy = StartOrderProcess();
+                Order order = new Order();
+                AddItemsInOrder(order, itemsToBuy);
+                Console.WriteLine($"Total price is {order.TotalPrice}");
+                Console.WriteLine($"How much money do you want to enter?");
+                decimal ammountForPay;
+                decimal.TryParse(Console.ReadLine(), out ammountForPay);
+                GetChange(order.TotalPrice, ammountForPay);
+                Console.WriteLine(order.CreateOrderSummary());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public string[] StartOrderProcess()

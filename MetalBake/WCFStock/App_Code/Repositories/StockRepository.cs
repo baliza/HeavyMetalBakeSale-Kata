@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+using System.Web;
 
-public class Service : IService
+public class StockRepository : IStockRepository
 {
     private static Dictionary<string, int> _itemsStock = new Dictionary<string, int>
         {
@@ -18,15 +15,19 @@ public class Service : IService
 
     public int GetItemStock(string itemId)
     {
-        if (_itemsStock[itemId] <= 0)
-        {
-            return -1;
-        }
         return _itemsStock[itemId];
     }
 
-    public void ReduceItemStock(string itemId)
+    public void SetItemStock(string itemId, int value)
     {
-        _itemsStock[itemId] -= 1;
+        if (!ContainsItem(itemId))
+        {
+            _itemsStock[itemId] = value;
+        }
+    }
+
+    public bool ContainsItem(string itemId)
+    {
+        return _itemsStock.ContainsKey(itemId);
     }
 }

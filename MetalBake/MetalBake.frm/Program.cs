@@ -1,5 +1,4 @@
-﻿using MetalBake.frm.ServiceReference1;
-using MetalBake.frm.Services;
+﻿using MetalBake.frm.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +11,9 @@ namespace MetalBake.frm
     {
         private static void Main(string[] args)
         {
-            var orderManagerService = new OrderManagerService();
-            try
-            {
-                orderManagerService.MakeAnOrder();
-                Console.ReadLine();
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
+            var aplication = new Application();
+            aplication.MakeAnOrder();
+            Console.ReadLine();
         }
     }
 }

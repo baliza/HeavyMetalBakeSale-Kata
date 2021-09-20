@@ -7,30 +7,53 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalBake", "MetalBake\Meta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalBlake.Test", "MetalBlake.Test\MetalBlake.Test.csproj", "{F204961C-38F3-420E-B01F-0A928B53AA64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.frm", "MetalBake.frm\MetalBake.frm.csproj", "{71C10C0D-F1E5-4740-8DA1-775912889B82}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8E1D921F-1A26-45F7-A7A6-2D2DC22B6637} = {8E1D921F-1A26-45F7-A7A6-2D2DC22B6637}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.console", "MetalBake.frm\MetalBake.console.csproj", "{71C10C0D-F1E5-4740-8DA1-775912889B82}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MetalBake.WCF", "MetalBake.WCF\", "{8E1D921F-1A26-45F7-A7A6-2D2DC22B6637}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.infra", "MetalBake.library\MetalBake.infra.csproj", "{09FF6125-7D2B-49F2-A3E8-3D03D989F1CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.core", "MetalBake.core\MetalBake.core.csproj", "{5260234E-547F-419A-92E4-E45124871718}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WCFPrices", "WCFPrices\", "{96B58C0B-BFD7-4504-90E3-F25C890BDC15}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_62862"
-		Debug.AspNetCompiler.PhysicalPath = "MetalBake.WCF\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62862\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53577"
+		Debug.AspNetCompiler.PhysicalPath = "WCFPrices\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53577\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_62862"
-		Release.AspNetCompiler.PhysicalPath = "MetalBake.WCF\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_62862\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53577"
+		Release.AspNetCompiler.PhysicalPath = "WCFPrices\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53577\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "62862"
-		SlnRelativePath = "MetalBake.WCF\"
+		VWDPort = "53577"
+		SlnRelativePath = "WCFPrices\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WCFStock", "WCFStock\", "{718E29AB-FEBA-4553-A19D-57E8392CAB04}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_59686"
+		Debug.AspNetCompiler.PhysicalPath = "WCFStock\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59686\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_59686"
+		Release.AspNetCompiler.PhysicalPath = "WCFStock\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59686\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "59686"
+		SlnRelativePath = "WCFStock\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
@@ -52,10 +75,22 @@ Global
 		{71C10C0D-F1E5-4740-8DA1-775912889B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71C10C0D-F1E5-4740-8DA1-775912889B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71C10C0D-F1E5-4740-8DA1-775912889B82}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E1D921F-1A26-45F7-A7A6-2D2DC22B6637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E1D921F-1A26-45F7-A7A6-2D2DC22B6637}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E1D921F-1A26-45F7-A7A6-2D2DC22B6637}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E1D921F-1A26-45F7-A7A6-2D2DC22B6637}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{09FF6125-7D2B-49F2-A3E8-3D03D989F1CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FF6125-7D2B-49F2-A3E8-3D03D989F1CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FF6125-7D2B-49F2-A3E8-3D03D989F1CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FF6125-7D2B-49F2-A3E8-3D03D989F1CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5260234E-547F-419A-92E4-E45124871718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5260234E-547F-419A-92E4-E45124871718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5260234E-547F-419A-92E4-E45124871718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5260234E-547F-419A-92E4-E45124871718}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96B58C0B-BFD7-4504-90E3-F25C890BDC15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B58C0B-BFD7-4504-90E3-F25C890BDC15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B58C0B-BFD7-4504-90E3-F25C890BDC15}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B58C0B-BFD7-4504-90E3-F25C890BDC15}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{718E29AB-FEBA-4553-A19D-57E8392CAB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{718E29AB-FEBA-4553-A19D-57E8392CAB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{718E29AB-FEBA-4553-A19D-57E8392CAB04}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{718E29AB-FEBA-4553-A19D-57E8392CAB04}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

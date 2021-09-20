@@ -62,13 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\WCFPriceService\MetalBake.library.WCFPriceService.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\WCFPriceService\Service.wsdl" />
-    <None Include="Connected Services\WCFPriceService\Service.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\WCFPriceService\Service1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -101,9 +95,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\WCFPriceService\Service.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\WCFPriceService\configuration91.svcinfo" />

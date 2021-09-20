@@ -8,14 +8,18 @@ namespace MetalBake.Services
 {
     public class PriceService : IPriceService
     {
-        private Dictionary<char, decimal> _listPrices = new Dictionary<char, decimal>
+        private Dictionary<string, decimal> _listPrices;
+        public PriceService()
         {
-            {'B', 0.65m },
-            {'M', 1.00m},
-            {'C', 1.35m },
-            {'W', 1.50m }
-        };
-        public decimal CalculateOrderPrice(List<Tuple<char, int>> orderList)
+            _listPrices = new Dictionary<string, decimal>
+            {
+            { "B", 0.65m },
+            { "M", 1.00m},
+            { "C", 1.35m },
+            { "W", 1.50m }
+            };
+        }
+        public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList)
         {
             decimal totalPrice = 0;
             foreach (var item in orderList)
@@ -24,7 +28,7 @@ namespace MetalBake.Services
             }
             return totalPrice;
         }
-        public decimal GetPrice(char key)
+        public decimal GetPrice(string key)
         {
             foreach (var item in _listPrices)
             {

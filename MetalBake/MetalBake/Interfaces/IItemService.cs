@@ -5,9 +5,9 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IItemService
+    public interface IItemService
     {
-        public void PrintItemList();
-        public List<Item> GetItemList();
+        void PrintItemList();
+        List<Item> GetItemList();
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    public interface IStockService
+    interface IStockService
     {
         bool Exist(char item);
         int GetStock(char key);

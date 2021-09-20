@@ -33,38 +33,8 @@ namespace MetalBake
                 option = Console.ReadLine();
                 switch (option)
                 {
-                    case "1":
-                        Console.WriteLine("Items to Purchase?");
-                        itemService.PrintItemList();
-                        var orderString = Console.ReadLine();
-                        var finalOrder = orderService.MakeOrder(orderString);
-                        bool allStock = true;
-                        foreach (var item in finalOrder)
-                        {
-                            if (!stockService.CheckStock(item.Item1, item.Item2))
-                            {
-                                Console.WriteLine($"Not enough stock of {item.Item1}, only {stockService.GetStock(item.Item1)} left");
-                                allStock = false;
-                            }
-                        }
-                        if (!allStock)
-                        {
-                            break;
-                        }
-                        var priceToPay = priceService.CalculateOrderPrice(finalOrder);
-                        Console.WriteLine($@"Precio total a pagar: {priceToPay}
-Cuanto dinero entregará para pagar:");
-                        Decimal.TryParse(Console.ReadLine(), out decimal amountPaid);
-                        if (amountPaid < priceToPay)
-                        {
-                            Console.WriteLine("Not enough money paid");
-                            break;
-                        }
-                        Console.WriteLine($"Su cambio es: {changeService.CalculateChange(priceToPay, amountPaid)}");
-                        foreach (var item in finalOrder)
-                        {
-                            stockService.ReduceStock(item.Item1, item.Item2);
-                        }
+                    case "1": var purchase = new Purchase(itemService, stockService, priceService, orderService, changeService);
+                        purchase.PurchaseOption();
                         break;
                     case "2":
                         itemService.PrintItemList();

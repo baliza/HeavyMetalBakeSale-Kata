@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MetalBake.Models
 {
-    class Item : IItemable
+    public class Item : IItemable
     {
         private string _short { get; set; }
         private string _name { get; set; }

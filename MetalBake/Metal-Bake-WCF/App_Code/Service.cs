@@ -18,7 +18,7 @@ public class Service : IService
         };
     public bool Exist(string item)
     {
-        return item.Equals(_inventory[item]);
+        return !item.Equals(_inventory[item]);  // ****!!
     }
     public int GetStock(string key)
     {
@@ -37,6 +37,6 @@ public class Service : IService
     }
     public void ReduceStock(string item, int amount)
     {
-        _inventory[item] -= amount;
+        _inventory[item] -= amount;  // metodo ConsumeItem()     item.ConsumeItem(); ??
     }
 }

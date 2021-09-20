@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IChangeService
+    public interface IChangeService
     {
         public decimal CalculateChange(decimal coste, decimal pago);
     }

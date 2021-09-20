@@ -8,18 +8,22 @@ namespace MetalBake.Services
 {
     public class StockService : IStockService
     {
-        private Dictionary<char, int> _inventory = new Dictionary<char, int>
+        public Dictionary<string, int> _inventory;
+        public StockService()
         {
-            {'B', 40 },
-            {'M', 36 },
-            {'C', 24 },
-            {'W', 30 }
-        };
-        public bool Exist(char item)
-        {
-           return item.Equals(_inventory[item]);       
+            _inventory = new Dictionary<string, int>
+           {
+            {"B", 40 },
+            {"M", 36 },
+            {"C", 24 },
+            {"W", 30 } 
+            };
         }
-        public int GetStock(char key)
+        public bool Exist(string item)
+        {
+            return item.Equals(_inventory[item]);
+        }
+        public int GetStock(string key)
         {
             foreach (var item in _inventory)
             {
@@ -30,13 +34,13 @@ namespace MetalBake.Services
             }
             return 0;
         }
-        public bool CheckStock(char item, int amount)
+        public bool CheckStock(string item, int amount)
         {
             return _inventory[item] > amount;
         }
-        public void ReduceStock(char item, int amount)
+        public void ReduceStock(string item, int amount)
         {
-            _inventory[item]-=amount;
+            _inventory[item] -= amount;
         }
         public void PrintStock()
         {
@@ -47,3 +51,4 @@ namespace MetalBake.Services
         }
     }
 }
+

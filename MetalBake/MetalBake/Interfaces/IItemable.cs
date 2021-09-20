@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IItemable
+    public interface IItemable
     {
-        public string GetShort();
-        public string GetName();
+        string GetShort();
+        string GetName();
     }
 }

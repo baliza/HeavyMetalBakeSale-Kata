@@ -10,7 +10,7 @@ namespace MetalBake.Services
         public List<Tuple<char, int>> MakeOrder(string lectura)
         {
             int b=0; int m=0; int c=0; int w=0;
-            string[] splitOrder = lectura.Split(@",");
+            string[] splitOrder = lectura.Split(',');
             foreach (var item in splitOrder)
             {
                 switch (item)

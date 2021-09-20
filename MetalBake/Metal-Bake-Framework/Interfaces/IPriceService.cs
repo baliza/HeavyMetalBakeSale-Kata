@@ -5,9 +5,9 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IPriceService
+    public interface IPriceService
     {
-        public decimal GetPrice(char key);
-        public decimal CalculateOrderPrice(List<Tuple<char, int>> orderList);
+        decimal GetPrice(char key);
+        decimal CalculateOrderPrice(List<Tuple<char, int>> orderList);
     }
 }

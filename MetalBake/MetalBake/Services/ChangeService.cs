@@ -7,7 +7,6 @@ namespace MetalBake.Services
 {
     public class ChangeService : IChangeService
     {
-        //Singleton   **implementarlo**
         private static ChangeService _changeService;
         public ChangeService GetInstance()
         {

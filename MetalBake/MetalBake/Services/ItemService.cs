@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MetalBake.Services
 {
-    class ItemService : IItemService
+    public class ItemService : IItemService
     {
         private readonly IStockService _stockService;
         private readonly IPriceService _priceService;
@@ -22,7 +22,7 @@ namespace MetalBake.Services
             //PriceService priceService = new PriceService();
             foreach (var item in GetItemList())
             {
-                Console.WriteLine($"Product: {item.GetShort()} - {item.GetName()} - Stock: {_stockService.GetStock(item.GetShort()[0])} - Price: {_priceService.GetPrice(item.GetShort()[0])} eur");
+                Console.WriteLine($"Product: {item.GetShort()} - {item.GetName()} - Stock: {_stockService.GetStock(item.GetShort())} - Price: {_priceService.GetPrice(item.GetShort())} eur");
             }
         }
         public List<Item> GetItemList()

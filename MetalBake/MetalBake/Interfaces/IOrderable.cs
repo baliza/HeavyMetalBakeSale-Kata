@@ -4,8 +4,8 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IOrderable    //Sobraria?
+    public interface IOrderable    //Sobraria?
     {
-        public List<Tuple<char, int>> MakeOrder(string lectura);
+        public List<Tuple<string, int>> MakeOrder(string lectura);
     }
 }

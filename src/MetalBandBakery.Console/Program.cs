@@ -1,4 +1,7 @@
-﻿namespace MetalBandBakery
+﻿using MetalBandBakery.Core.Services;
+using MetalBandBakey.Infra.Repository;
+
+namespace MetalBandBakery
 {
 	internal class Program
 	{

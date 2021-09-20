@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BAF55ABD-2FDE-433E-B3B8-5DAF93C2FFA0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>MetalBandBakery.Console</RootNamespace>
-    <AssemblyName>MetalBandBakery.Console</AssemblyName>
+    <ProjectGuid>{4C831473-32F2-4B53-970C-52DCFAD68C3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MetalBandBakey.Infra</RootNamespace>
+    <AssemblyName>MetalBandBakey.Infra</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,8 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,22 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application.cs" />
-    <Compile Include="Services\ChangeCalculator.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Repository\PriceService.cs" />
+    <Compile Include="Repository\StockService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MetalBandBakery.Core\MetalBandBakery.Core.csproj">
       <Project>{1077345e-0264-4b9f-b698-5fe754056aaa}</Project>
       <Name>MetalBandBakery.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MetalBandBakey.Infra\MetalBandBakey.Infra.csproj">
-      <Project>{4c831473-32f2-4b53-970c-52dcfad68c3a}</Project>
-      <Name>MetalBandBakey.Infra</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

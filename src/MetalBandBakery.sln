@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBandBakery.Console", "MetalBandBakery.Console\MetalBandBakery.Console.csproj", "{BAF55ABD-2FDE-433E-B3B8-5DAF93C2FFA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBandBakery.Core", "MetalBandBakery.Core\MetalBandBakery.Core.csproj", "{1077345E-0264-4B9F-B698-5FE754056AAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBandBakey.Infra", "MetalBandBakey.Infra\MetalBandBakey.Infra.csproj", "{4C831473-32F2-4B53-970C-52DCFAD68C3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BAF55ABD-2FDE-433E-B3B8-5DAF93C2FFA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAF55ABD-2FDE-433E-B3B8-5DAF93C2FFA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAF55ABD-2FDE-433E-B3B8-5DAF93C2FFA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1077345E-0264-4B9F-B698-5FE754056AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1077345E-0264-4B9F-B698-5FE754056AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1077345E-0264-4B9F-B698-5FE754056AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1077345E-0264-4B9F-B698-5FE754056AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C831473-32F2-4B53-970C-52DCFAD68C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C831473-32F2-4B53-970C-52DCFAD68C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C831473-32F2-4B53-970C-52DCFAD68C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C831473-32F2-4B53-970C-52DCFAD68C3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

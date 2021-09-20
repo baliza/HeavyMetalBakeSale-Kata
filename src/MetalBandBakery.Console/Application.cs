@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MetalBandBakery.Core.Domain;
+using MetalBandBakery.Core.Services;
+using MetalBandBakery.Services;
+using System;
 
 namespace MetalBandBakery
 {
-    public class Application
+	public class Application
     {
 		private IPriceService _priceService;
 		private IStockService _stockService;

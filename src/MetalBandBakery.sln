@@ -34,6 +34,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MetalBandBakery.InventoryWC
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBandBaket.PriceServicesWebAPI", "MetalBandBaket.PriceServicesWebAPI\MetalBandBaket.PriceServicesWebAPI.csproj", "{A8596225-6B22-42EC-A484-2307BBCC4C2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{0E9BDCF3-E001-4D0E-B716-9313B78B1773}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E9BDCF3-E001-4D0E-B716-9313B78B1773}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E9BDCF3-E001-4D0E-B716-9313B78B1773}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A8596225-6B22-42EC-A484-2307BBCC4C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8596225-6B22-42EC-A484-2307BBCC4C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8596225-6B22-42EC-A484-2307BBCC4C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8596225-6B22-42EC-A484-2307BBCC4C2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

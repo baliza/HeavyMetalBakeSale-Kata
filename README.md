@@ -63,7 +63,11 @@ Total > Not enough stock
 
 
 ## PARTE 2
-* mete un WCF que haga de servicio Externo, este servicio tiene su propia capa de gestion del inventario
+* mete un WCF que haga de servicio Externo, este servicio tiene su propia capa de gestión del inventario
 
+
+
+## PARTE 3
+* mete un servio RESTFull que haga de servicio Externo, este servicio tiene su propia capa de gestión de los precios
 
 	

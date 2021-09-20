@@ -13,26 +13,26 @@ namespace MetalBakeWCF
     // NOTE: para iniciar el Cliente de prueba WCF para probar este servicio, seleccione Service1.svc o Service1.svc.cs en el Explorador de soluciones e inicie la depuración.
     public class Service1 : IService1
     {
-        private Inventory inventory;
+        private Inventory _inventory;
 
         public Service1()
         {
-            inventory = new Inventory();
+            _inventory = new Inventory();
         }
 
         public double calculateAmountPrice(double priceList, int amountList)
         {
-            return inventory.calculateAmountPrice(priceList, amountList);
+            return _inventory.calculateAmountPrice(priceList, amountList);
         }
 
         public Item checkItemByChar(char code)
         {
-            return inventory.checkItemByChar(code);
+            return _inventory.checkItemByChar(code);
         }
 
         public void DelItem(Item item)
         {
-            inventory.DelItem(item);
+            _inventory.DelItem(item);
         }
 
         public double getRepayment(double totalMoney, double userMoney)
@@ -43,12 +43,12 @@ namespace MetalBakeWCF
 
         public bool isOnStock(Item item)
         {
-            return inventory.isOnStock(item);
+            return _inventory.isOnStock(item);
         }
 
         public override string ToString()
         {
-            string first = string.Join("\n", inventory.ItemList.Select(e => e.ToString()).ToArray());
+            string first = string.Join("\n", _inventory.ItemList.Select(e => e.ToString()).ToArray());
             return first;
         }
     }

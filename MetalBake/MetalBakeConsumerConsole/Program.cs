@@ -13,14 +13,14 @@ namespace MetalBakeConsumerConsole
         private static void Main(string[] args)
         {
             Service1 inventory = new Service1();
-            while (true)
+            int option = 0;
+            while (option != 3)
             {
                 Console.WriteLine(@"HI ROCKSTARS, WELCOME TO PIE-SHOP
     1.- BUY AN ITEM.
     2.- CHECK ITEM STORE.
     3.- EXIT.");
 
-                int option = 0;
                 Int32.TryParse(Console.ReadLine(), out option);
 
                 switch (option)

@@ -9,16 +9,21 @@ namespace MetalBake.infra
 {
     public class StockService : IStockService
     {
+        private library.WCFStockService.IService _wcfService;
+
+        public StockService()
+        {
+            _wcfService = new library.WCFStockService.ServiceClient();
+        }
+
         public int GetItemStock(string itemId)
         {
-            library.WCFStockService.IService wcfService = new library.WCFStockService.ServiceClient();
-            return wcfService.GetItemStock(itemId);
+            return _wcfService.GetItemStock(itemId);
         }
 
         public void ReduceItemStock(string itemId)
         {
-            library.WCFStockService.IService wcfService = new library.WCFStockService.ServiceClient();
-            wcfService.ReduceItemStock(itemId);
+            _wcfService.ReduceItemStock(itemId);
         }
     }
 }

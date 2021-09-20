@@ -10,7 +10,7 @@ public class StockRepository : IStockRepository
             {"B", 40 },
             {"M", 36},
             {"C", 24 },
-            {"W", 0 }
+            {"W", 2 }
         };
 
     public int GetItemStock(string itemId)
@@ -20,7 +20,7 @@ public class StockRepository : IStockRepository
 
     public void SetItemStock(string itemId, int value)
     {
-        if (!ContainsItem(itemId))
+        if (ContainsItem(itemId))
         {
             _itemsStock[itemId] = value;
         }

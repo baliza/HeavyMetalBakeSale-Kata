@@ -10,5 +10,11 @@ using System.Text;
 public interface IService
 {
     [OperationContract]
-    decimal GetItemPrice(string itemId);
+    List<ItemPrice> GetAllPrices();
+
+    [OperationContract]
+    ItemPrice GetItemPrice(string itemId);
+
+    [OperationContract]
+    bool UpdateItemPrice(ItemPrice item);
 }

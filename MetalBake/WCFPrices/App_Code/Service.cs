@@ -15,8 +15,18 @@ public class Service : IService
         _priceRepository = new PriceRepository();
     }
 
-    public decimal GetItemPrice(string itemId)
+    public List<ItemPrice> GetAllPrices()
+    {
+        return _priceRepository.GetAllPrices();
+    }
+
+    public ItemPrice GetItemPrice(string itemId)
     {
         return _priceRepository.GetItemPrice(itemId);
+    }
+
+    public bool UpdateItemPrice(ItemPrice item)
+    {
+        return _priceRepository.UpdateItemPrice(item.ItemId, item.Price);
     }
 }

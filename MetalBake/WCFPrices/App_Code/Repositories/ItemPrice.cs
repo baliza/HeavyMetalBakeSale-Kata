@@ -3,15 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Descripción breve de ItemPrice
-/// </summary>
 public class ItemPrice
 {
-    public ItemPrice()
-    {
-        //
-        // TODO: Agregar aquí la lógica del constructor
-        //
-    }
+    public string ItemId { get; set; }
+
+    public decimal Price { get; set; }
 }

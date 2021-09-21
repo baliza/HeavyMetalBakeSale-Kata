@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,12 @@ namespace WebApiPricesService.Controllers
         public ItemPrice GetItemPrice(string itemId)
         {
             return _priceRepository.GetItemPrice(itemId);
+        }
+
+        [HttpPost("updatePrice")]
+        public bool UpdateItemPrice(ItemPrice item)
+        {
+            return _priceRepository.UpdateItemPrice(item.ItemId, item.Price);
         }
     }
 }

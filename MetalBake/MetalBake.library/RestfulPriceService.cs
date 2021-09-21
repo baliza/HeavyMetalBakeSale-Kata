@@ -12,14 +12,15 @@ namespace MetalBake.infra
 {
     public class RestfulPriceService : IPriceService
     {
+        private readonly string _apiUrl = "https://localhost:44339/prices";
+
         public decimal GetItemPrice(string itemId)
         {
-            string apiUrl = "https://localhost:44339/prices";
             using (WebClient client = new WebClient())
             {
                 client.Headers["Content-type"] = "application/json";
                 client.Encoding = Encoding.UTF8;
-                string jsonResponse = client.DownloadString($"{apiUrl}/{itemId}");
+                string jsonResponse = client.DownloadString($"{_apiUrl}/{itemId}");
                 var itemPrice = JsonConvert.DeserializeObject<ItemPrice>(jsonResponse);
                 return itemPrice.Price;
             }
@@ -27,20 +28,29 @@ namespace MetalBake.infra
 
         public List<ItemPrice> GetAllPrices()
         {
-            string apiUrl = "https://localhost:44339/prices";
             using (WebClient client = new WebClient())
             {
                 client.Headers["Content-type"] = "application/json";
                 client.Encoding = Encoding.UTF8;
-                string jsonResponse = client.DownloadString($"{apiUrl}");
+                string jsonResponse = client.DownloadString($"{_apiUrl}");
                 var ListitemPrices = JsonConvert.DeserializeObject<List<ItemPrice>>(jsonResponse);
                 return ListitemPrices;
             }
         }
 
-        public bool UpdateItemPrice(string itemId, int stock)
+        public bool UpdateItemPrice(string itemId, decimal newPrice)
         {
-            throw new NotImplementedException();
+            using (WebClient client = new WebClient())
+            {
+                client.Headers["Content-type"] = "application/json";
+                client.Encoding = Encoding.UTF8;
+                var itemPrice = new ItemPrice();
+                itemPrice.ItemId = itemId;
+                itemPrice.Price = newPrice;
+                var bodyJson = JsonConvert.SerializeObject(itemPrice);
+                var ApiResponse = client.UploadString($"{_apiUrl}/updatePrice", bodyJson);
+                return bool.Parse(ApiResponse);
+            }
         }
     }
 }

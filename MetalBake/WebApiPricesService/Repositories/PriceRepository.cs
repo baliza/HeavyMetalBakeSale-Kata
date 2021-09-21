@@ -36,8 +36,13 @@ namespace WebApiPricesService.Repositories
             }).ToList();
         }
 
-        public bool UpdateItemPrice(string itemId, int stock)
+        public bool UpdateItemPrice(string itemId, decimal newPrice)
         {
+            if (!ExistsItem(itemId))
+            {
+                return false;
+            }
+            _itemsPrices[itemId] = newPrice;
             return true;
         }
 

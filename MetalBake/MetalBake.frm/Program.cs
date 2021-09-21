@@ -16,6 +16,8 @@ namespace MetalBake.frm
             Console.WriteLine(stockService.SetItemStock("W", 3));
             Console.WriteLine(stockService.GetItemStock("W"));
             Console.WriteLine(stockService.SetItemStock("h", 3));
+            var restfulPriceService = new RestfulPriceService();
+            restfulPriceService.UpdateItemPrice("B", 6);
             var aplication = new Application();
             aplication.MakeAnOrder();
         }

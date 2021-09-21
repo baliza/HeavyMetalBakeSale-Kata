@@ -20,7 +20,7 @@ namespace MetalBake.frm
         public Application()
         {
             _stockService = new StockService();
-            _priceService = new PriceService();
+            _priceService = new RestfulPriceService();
             _changeService = new ChangeService();
         }
 

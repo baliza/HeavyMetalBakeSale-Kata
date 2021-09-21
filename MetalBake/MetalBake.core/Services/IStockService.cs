@@ -11,5 +11,7 @@ namespace MetalBake.core.Services
         int GetItemStock(string itemId);
 
         void ReduceItemStock(string itemId);
+
+        string SetItemStock(string itemId, int cuantity);
     }
 }

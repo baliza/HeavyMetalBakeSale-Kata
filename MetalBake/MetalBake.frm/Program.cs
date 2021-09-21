@@ -1,4 +1,5 @@
 ﻿using MetalBake.frm.Services;
+using MetalBake.infra;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,10 @@ namespace MetalBake.frm
     {
         private static void Main(string[] args)
         {
+            var stockService = new StockService();
+            Console.WriteLine(stockService.SetItemStock("W", 3));
+            Console.WriteLine(stockService.GetItemStock("W"));
+            Console.WriteLine(stockService.SetItemStock("h", 3));
             var aplication = new Application();
             aplication.MakeAnOrder();
         }

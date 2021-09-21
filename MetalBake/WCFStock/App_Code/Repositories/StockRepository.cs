@@ -18,12 +18,14 @@ public class StockRepository : IStockRepository
         return _itemsStock[itemId];
     }
 
-    public void SetItemStock(string itemId, int value)
+    public bool SetItemStock(string itemId, int cuantity)
     {
         if (ContainsItem(itemId))
         {
-            _itemsStock[itemId] = value;
+            _itemsStock[itemId] += cuantity;
+            return true;
         }
+        return false;
     }
 
     public bool ContainsItem(string itemId)

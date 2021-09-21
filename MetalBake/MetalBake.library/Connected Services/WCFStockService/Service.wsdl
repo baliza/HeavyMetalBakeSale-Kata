@@ -18,6 +18,12 @@
   <wsdl:message name="IService_ReduceItemStock_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReduceItemStockResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_SetItemStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetItemStock" />
+  </wsdl:message>
+  <wsdl:message name="IService_SetItemStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetItemStockResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="GetItemStock">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetItemStock" message="tns:IService_GetItemStock_InputMessage" />
@@ -26,6 +32,10 @@
     <wsdl:operation name="ReduceItemStock">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/ReduceItemStock" message="tns:IService_ReduceItemStock_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ReduceItemStockResponse" message="tns:IService_ReduceItemStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetItemStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/SetItemStock" message="tns:IService_SetItemStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/SetItemStockResponse" message="tns:IService_SetItemStock_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -41,6 +51,15 @@
     </wsdl:operation>
     <wsdl:operation name="ReduceItemStock">
       <soap:operation soapAction="http://tempuri.org/IService/ReduceItemStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetItemStock">
+      <soap:operation soapAction="http://tempuri.org/IService/SetItemStock" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

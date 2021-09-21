@@ -26,6 +26,12 @@ namespace MetalBake.library.WCFStockService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReduceItemStock", ReplyAction="http://tempuri.org/IService/ReduceItemStockResponse")]
         System.Threading.Tasks.Task<bool> ReduceItemStockAsync(string itemId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetItemStock", ReplyAction="http://tempuri.org/IService/SetItemStockResponse")]
+        string SetItemStock(string itemId, int cuantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetItemStock", ReplyAction="http://tempuri.org/IService/SetItemStockResponse")]
+        System.Threading.Tasks.Task<string> SetItemStockAsync(string itemId, int cuantity);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace MetalBake.library.WCFStockService {
         
         public System.Threading.Tasks.Task<bool> ReduceItemStockAsync(string itemId) {
             return base.Channel.ReduceItemStockAsync(itemId);
+        }
+        
+        public string SetItemStock(string itemId, int cuantity) {
+            return base.Channel.SetItemStock(itemId, cuantity);
+        }
+        
+        public System.Threading.Tasks.Task<string> SetItemStockAsync(string itemId, int cuantity) {
+            return base.Channel.SetItemStockAsync(itemId, cuantity);
         }
     }
 }

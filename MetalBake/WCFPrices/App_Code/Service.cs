@@ -8,9 +8,15 @@ using System.Text;
 
 public class Service : IService
 {
+    private IPriceRepository _priceRepository;
+
+    public Service()
+    {
+        _priceRepository = new PriceRepository();
+    }
+
     public decimal GetItemPrice(string itemId)
     {
-        IPriceRepository priceRepository = new PriceRepository();
-        return priceRepository.GetItemPrice(itemId);
+        return _priceRepository.GetItemPrice(itemId);
     }
 }

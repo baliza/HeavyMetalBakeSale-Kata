@@ -10,5 +10,5 @@ public interface IStockRepository
 {
     int GetItemStock(string itemId);
 
-    void SetItemStock(string itemId, int value);
+    bool SetItemStock(string itemId, int cuantity);
 }

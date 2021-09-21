@@ -33,4 +33,9 @@ public class Service : IService
         }
         return false;
     }
+
+    public string SetItemStock(string itemId, int cuantity)
+    {
+        return (_stockRepository.SetItemStock(itemId, cuantity)) ? "stock added successfully" : "Cannot add stock to an item that does not exist";
+    }
 }

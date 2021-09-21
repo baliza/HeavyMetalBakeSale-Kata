@@ -25,5 +25,10 @@ namespace MetalBake.infra
         {
             _wcfService.ReduceItemStock(itemId);
         }
+
+        public string SetItemStock(string itemId, int cuantity)
+        {
+            return _wcfService.SetItemStock(itemId, cuantity);
+        }
     }
 }

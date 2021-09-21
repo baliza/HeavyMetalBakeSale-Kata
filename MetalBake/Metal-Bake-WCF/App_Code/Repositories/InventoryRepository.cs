@@ -1,27 +1,26 @@
 ﻿using MetalBake.Interfaces;
-using MetalBake.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MetalBake.Services
 {
-    public class StockService : IStockService
+    public class InventoryRepository : IInventoryRepository
     {
-        public Dictionary<string, int> _inventory;
-        public StockService()
+        private static Dictionary<string, int> _inventory;
+        static InventoryRepository()
         {
             _inventory = new Dictionary<string, int>
-            {
+           {
             {"B", 40 },
             {"M", 36 },
             {"C", 24 },
             {"W", 30 }
             };
         }
-        public bool Exist(string item)
+        public bool Exist(string id)
         {
-            return item.Equals(_inventory[item]);
+            return _inventory.ContainsKey(id);       
         }
         public int GetStock(string key)
         {
@@ -40,15 +39,11 @@ namespace MetalBake.Services
         }
         public void ReduceStock(string item, int amount)
         {
-            _inventory[item] -= amount;
+            _inventory[item]-=amount;
         }
-        public void PrintStock()
+        public void IncreaseStock(string item, int amount)
         {
-            foreach (var item in _inventory)
-            {
-                Console.WriteLine($"Sort: {item.Key}  Amount: {item.Value}");
-            }
+            _inventory[item] += amount;
         }
     }
 }
-

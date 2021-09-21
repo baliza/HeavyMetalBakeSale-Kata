@@ -15,7 +15,9 @@ public interface IService
 	int GetStock(string key);
 	[OperationContract]
 	bool CheckStock(string item, int amount);
+    [OperationContract]
+    bool ReduceStock(string item, int amount);
 	[OperationContract]
-	void ReduceStock(string item, int amount);
+	bool IncreaseStock(string item, int amount);
 }
 

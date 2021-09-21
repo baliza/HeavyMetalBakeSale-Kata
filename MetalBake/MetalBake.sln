@@ -34,6 +34,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Metal-Bake-WCF", "Metal-Bak
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake-Library", "Metal-Bake-Library\Metal-Bake-Library.csproj", "{DDD4D870-437F-4555-A957-BCA603E288FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake.Infra", "Metal-Bake.Infra\Metal-Bake.Infra.csproj", "{399B95EF-FFDE-4DAD-8991-114A88CF77FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBakey.PriceServicesWebAPI", "MetalBakey.PriceServicesWebAPI\MetalBakey.PriceServicesWebAPI.csproj", "{4E6954D1-9723-4737-9942-ED25C9713A22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +64,14 @@ Global
 		{DDD4D870-437F-4555-A957-BCA603E288FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDD4D870-437F-4555-A957-BCA603E288FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDD4D870-437F-4555-A957-BCA603E288FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{399B95EF-FFDE-4DAD-8991-114A88CF77FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{399B95EF-FFDE-4DAD-8991-114A88CF77FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{399B95EF-FFDE-4DAD-8991-114A88CF77FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{399B95EF-FFDE-4DAD-8991-114A88CF77FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6954D1-9723-4737-9942-ED25C9713A22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6954D1-9723-4737-9942-ED25C9713A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6954D1-9723-4737-9942-ED25C9713A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6954D1-9723-4737-9942-ED25C9713A22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

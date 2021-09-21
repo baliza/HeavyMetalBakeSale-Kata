@@ -11,7 +11,6 @@ namespace MetalBake
         private IItemService _itemService;
         private IStockService _stockService;
         private IPriceService _priceService;
-        private IItemable _itemable;
         private IOrderable _orderService;
         private IChangeService _changeService;
 

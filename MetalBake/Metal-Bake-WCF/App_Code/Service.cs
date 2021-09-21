@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MetalBake.Interfaces;
+using MetalBake.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,34 +11,49 @@ using System.Text;
 // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
 public class Service : IService
 {
-    private Dictionary<string, int> _inventory = new Dictionary<string, int>
-        {
-            {"B", 40 },
-            {"M", 36 },
-            {"C", 24 },
-            {"W", 30 }
-        };
     public bool Exist(string item)
     {
-        return !item.Equals(_inventory[item]);  // ****!!
+        IInventoryRepository svc = new InventoryRepository();
+        return svc.Exist(item);
+        //return !item.Equals(_inventory[item]);  // ****!!
     }
     public int GetStock(string key)
     {
-        foreach (var item in _inventory)
-        {
-            if (key.Equals(item.Key))
-            {
-                return item.Value;
-            }
-        }
-        return 0;
+        IInventoryRepository svc = new InventoryRepository();
+        return svc.GetStock(key);
+        //foreach (var item in _inventory)
+        //{
+        //    if (key.Equals(item.Key))
+        //    {
+        //        return item.Value;
+        //    }
+        //}
+        //return 0;
     }
-    public bool CheckStock(string item, int amount)
+    public bool CheckStock(string id, int amount)
     {
-        return _inventory[item] > amount;
+        IInventoryRepository svc = new InventoryRepository();
+        return svc.CheckStock(id, amount);
+        //return _inventory[id] > amount;
     }
-    public void ReduceStock(string item, int amount)
+    public bool ReduceStock(string id, int amount)
     {
-        _inventory[item] -= amount;  // metodo ConsumeItem()     item.ConsumeItem(); ??
+        if (id == null)
+            return false;
+        if (amount <= 0)
+            return false;
+        IInventoryRepository svc = new InventoryRepository();
+        svc.ReduceStock(id, amount);
+        return true;
+    }
+    public bool IncreaseStock(string id, int amount)
+    {
+        if (id == null)
+            return false;
+        if (amount <= 0)
+            return false;
+        IInventoryRepository svc = new InventoryRepository();
+        svc.IncreaseStock(id, amount);
+        return true;
     }
 }

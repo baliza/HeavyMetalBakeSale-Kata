@@ -1,15 +1,13 @@
-﻿using MetalBake.core.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace MetalBake.core.Services
+namespace WebApiPricesService.Repositories
 {
-    public interface IPriceService
+    public interface IPriceRepository
     {
-        decimal GetItemPrice(string itemId);
+        ItemPrice GetItemPrice(string itemId);
 
         List<ItemPrice> GetAllPrices();
 

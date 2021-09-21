@@ -5,13 +5,12 @@ using System.Web;
 
 public class StockRepository : IStockRepository
 {
-    private static Dictionary<string, int> _itemsStock = new Dictionary<string, int>
-        {
-            {"B", 40 },
-            {"M", 36},
-            {"C", 24 },
-            {"W", 2 }
-        };
+    private static Dictionary<string, int> _itemsStock;
+
+    static StockRepository()
+    {
+        _itemsStock = new Dictionary<string, int>() { { "B", 40 }, { "M", 36 }, { "C", 24 }, { "W", 2 } };
+    }
 
     public int GetItemStock(string itemId)
     {

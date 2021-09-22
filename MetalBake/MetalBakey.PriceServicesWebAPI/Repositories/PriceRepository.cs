@@ -46,9 +46,9 @@ namespace MetalBakey.PriceServicesWebAPI.Repositories
                 Price = x.Value
             }).ToList();
         }
-        public void SetPrice(string itemId, decimal itemPrice)
-        {
-            _listPrices[itemId] = itemPrice;
+        public void SetPrice(ItemPrice item)
+        {           
+            _listPrices[item.ItemId] = item.Price;
         }
     }
 }

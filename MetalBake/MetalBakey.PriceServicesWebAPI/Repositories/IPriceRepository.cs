@@ -9,7 +9,7 @@ namespace MetalBakey.PriceServicesWebAPI.Repositories
         public decimal GetPrice(string key);
         public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList);
         List<ItemPrice> GetAllPrices();
-        void SetPrice(string itemId, decimal itemPrice);
+        void SetPrice(ItemPrice item);
 
     }
 }

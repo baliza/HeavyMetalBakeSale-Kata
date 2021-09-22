@@ -25,12 +25,13 @@ namespace MetalBakey.PriceServicesWebAPI.Controllers
             IPriceRepository repository = new PriceRepository();
             return repository.GetPrice(itemId);
         }
-        [HttpPost("/{itemId}/{itemPrice}")]
-        public decimal SetPrice(string itemId, decimal itemPrice)
+        [Route("setPrice")]
+        [HttpPost]
+        public decimal Prices(ItemPrice item)
         {
             IPriceRepository repository = new PriceRepository();
-            repository.SetPrice(itemId, itemPrice);
-            return repository.GetPrice(itemId);
+            repository.SetPrice(item);
+            return repository.GetPrice(item.ItemId);
         }
     }
 }

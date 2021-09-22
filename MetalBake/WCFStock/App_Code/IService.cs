@@ -10,6 +10,9 @@ using System.Text;
 public interface IService
 {
     [OperationContract]
+    List<ItemStock> GetAllStock();
+
+    [OperationContract]
     int GetItemStock(string itemId);
 
     [OperationContract]

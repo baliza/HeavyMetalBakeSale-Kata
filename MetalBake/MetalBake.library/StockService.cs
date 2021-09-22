@@ -1,4 +1,5 @@
-﻿using MetalBake.core.Services;
+﻿using MetalBake.core.Models;
+using MetalBake.core.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ namespace MetalBake.infra
         public StockService()
         {
             _wcfService = new library.WCFStockService.ServiceClient();
+        }
+
+        public List<ItemStock> GetAllStock()
+        {
+            return _wcfService.GetAllStock().Select(item => new ItemStock { ItemId = item.ItemId, Stock = item.Stock }).ToList();
         }
 
         public int GetItemStock(string itemId)

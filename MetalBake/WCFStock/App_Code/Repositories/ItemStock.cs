@@ -8,10 +8,6 @@ using System.Web;
 /// </summary>
 public class ItemStock
 {
-    public ItemStock()
-    {
-        //
-        // TODO: Agregar aquí la lógica del constructor
-        //
-    }
+    public string ItemId { get; set; }
+    public int Stock { get; set; }
 }

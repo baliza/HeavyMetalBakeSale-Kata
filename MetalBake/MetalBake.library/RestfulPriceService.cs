@@ -33,8 +33,8 @@ namespace MetalBake.infra
                 client.Headers["Content-type"] = "application/json";
                 client.Encoding = Encoding.UTF8;
                 string jsonResponse = client.DownloadString($"{_apiUrl}");
-                var ListitemPrices = JsonConvert.DeserializeObject<List<ItemPrice>>(jsonResponse);
-                return ListitemPrices;
+                var ListItemPrices = JsonConvert.DeserializeObject<List<ItemPrice>>(jsonResponse);
+                return ListItemPrices;
             }
         }
 

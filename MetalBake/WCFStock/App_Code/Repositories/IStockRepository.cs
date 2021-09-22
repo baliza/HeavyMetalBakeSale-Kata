@@ -8,6 +8,8 @@ using System.Web;
 /// </summary>
 public interface IStockRepository
 {
+    List<ItemStock> GetAllStock();
+
     int GetItemStock(string itemId);
 
     bool SetItemStock(string itemId, int cuantity);

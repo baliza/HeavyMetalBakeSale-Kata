@@ -36,13 +36,13 @@ namespace WebApiPricesService.Repositories
             }).ToList();
         }
 
-        public bool UpdateItemPrice(string itemId, decimal newPrice)
+        public bool UpdateItemPrice(ItemPrice item)
         {
-            if (!ExistsItem(itemId))
+            if (!ExistsItem(item.ItemId))
             {
                 return false;
             }
-            _itemsPrices[itemId] = newPrice;
+            _itemsPrices[item.ItemId] = item.Price;
             return true;
         }
 

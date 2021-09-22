@@ -11,6 +11,6 @@ namespace WebApiPricesService.Repositories
 
         List<ItemPrice> GetAllPrices();
 
-        bool UpdateItemPrice(string itemId, decimal newPrice);
+        bool UpdateItemPrice(ItemPrice item);
     }
 }

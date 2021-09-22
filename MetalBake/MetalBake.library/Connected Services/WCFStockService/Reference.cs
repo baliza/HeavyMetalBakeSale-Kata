@@ -9,11 +9,80 @@
 //------------------------------------------------------------------------------
 
 namespace MetalBake.library.WCFStockService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ItemStock", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class ItemStock : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ItemIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StockField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemId {
+            get {
+                return this.ItemIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
+                    this.ItemIdField = value;
+                    this.RaisePropertyChanged("ItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Stock {
+            get {
+                return this.StockField;
+            }
+            set {
+                if ((this.StockField.Equals(value) != true)) {
+                    this.StockField = value;
+                    this.RaisePropertyChanged("Stock");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCFStockService.IService")]
     public interface IService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
+        MetalBake.library.WCFStockService.ItemStock[] GetAllStock();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
+        System.Threading.Tasks.Task<MetalBake.library.WCFStockService.ItemStock[]> GetAllStockAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetItemStock", ReplyAction="http://tempuri.org/IService/GetItemStockResponse")]
         int GetItemStock(string itemId);
@@ -59,6 +128,14 @@ namespace MetalBake.library.WCFStockService {
         
         public ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public MetalBake.library.WCFStockService.ItemStock[] GetAllStock() {
+            return base.Channel.GetAllStock();
+        }
+        
+        public System.Threading.Tasks.Task<MetalBake.library.WCFStockService.ItemStock[]> GetAllStockAsync() {
+            return base.Channel.GetAllStockAsync();
         }
         
         public int GetItemStock(string itemId) {

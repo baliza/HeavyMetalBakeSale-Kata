@@ -16,6 +16,11 @@ public class Service : IService
         _stockRepository = new StockRepository();
     }
 
+    public List<ItemStock> GetAllStock()
+    {
+        return _stockRepository.GetAllStock();
+    }
+
     public int GetItemStock(string itemId)
     {
         var stock = _stockRepository.GetItemStock(itemId);

@@ -34,10 +34,18 @@ namespace WebApiPricesService.Controllers
             return _priceRepository.GetItemPrice(itemId);
         }
 
-        [HttpPost("updatePrice")]
+        [Route("updatePrice")]
+        [HttpPost]
         public bool UpdateItemPrice(ItemPrice item)
         {
-            return _priceRepository.UpdateItemPrice(item.ItemId, item.Price);
+            return _priceRepository.UpdateItemPrice(item);
+        }
+
+        //Post Jesús
+        [HttpPost("setPrice")]
+        public bool SetPrice([FromBody] ItemPrice item)
+        {
+            return _priceRepository.UpdateItemPrice(item);
         }
     }
 }

@@ -10,10 +10,12 @@ using System.Text;
 [ServiceContract]
 public interface IService
 {
+    [OperationContract]
+    int CheckStock(string itemId);
 
-	[OperationContract]
-	int CheckStock(string itemId);
+    [OperationContract]
+    bool ReduceStock(string itemId);
 
-	[OperationContract]
-	bool ReduceStock(string itemId);
+    [OperationContract]
+    bool AddStock(string itemId, int quantity);
 }

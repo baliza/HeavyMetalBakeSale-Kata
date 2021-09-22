@@ -26,6 +26,12 @@ namespace MetalBandBakey.Infra.WCFStockService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReduceStock", ReplyAction="http://tempuri.org/IService/ReduceStockResponse")]
         System.Threading.Tasks.Task<bool> ReduceStockAsync(string itemId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddStock", ReplyAction="http://tempuri.org/IService/AddStockResponse")]
+        bool AddStock(string itemId, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddStock", ReplyAction="http://tempuri.org/IService/AddStockResponse")]
+        System.Threading.Tasks.Task<bool> AddStockAsync(string itemId, int quantity);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace MetalBandBakey.Infra.WCFStockService {
         
         public System.Threading.Tasks.Task<bool> ReduceStockAsync(string itemId) {
             return base.Channel.ReduceStockAsync(itemId);
+        }
+        
+        public bool AddStock(string itemId, int quantity) {
+            return base.Channel.AddStock(itemId, quantity);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddStockAsync(string itemId, int quantity) {
+            return base.Channel.AddStockAsync(itemId, quantity);
         }
     }
 }

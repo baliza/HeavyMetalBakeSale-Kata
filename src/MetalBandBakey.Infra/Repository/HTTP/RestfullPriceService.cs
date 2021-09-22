@@ -26,5 +26,19 @@ namespace MetalBandBakey.Infra.Repository
 				return itemPrice.price;
 			}
 		}
+
+		/*public decimal UpdatePrice(string itemId, decimal quantity)
+		{
+			string apiUrl = "https://localhost:44330/prices/UpdatePrice";
+
+			using (WebClient client = new WebClient())
+			{
+				client.Headers["Content-type"] = "application/json";
+				client.Encoding = Encoding.UTF8;
+				string json = client.DownloadString($"{apiUrl}/{itemId}");
+				var itemPrice = JsonConvert.DeserializeObject<ItemPrice>(json);
+				return itemPrice.price;
+			}
+		}*/
 	}
 }

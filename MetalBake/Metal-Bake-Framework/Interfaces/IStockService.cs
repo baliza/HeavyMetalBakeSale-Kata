@@ -6,10 +6,10 @@ namespace MetalBake.Interfaces
 {
     public interface IStockService
     {
-        bool Exist(char item);
-        int GetStock(char key);
-        bool CheckStock(char item, int amount);
-        void ReduceStock(char item, int amount);
-        void PrintStock();
+        bool Exist(string item);
+        int GetStock(string key);
+        bool CheckStock(string item, int amount);
+        void ReduceStock(string item, int amount);
+        Dictionary<string, int> GetAllStock();
     }
 }

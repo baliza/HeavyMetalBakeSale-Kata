@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static MetalBake.Services.PriceService;
 
 namespace MetalBake.Interfaces
 {
     public interface IPriceService
     {
-        decimal GetPrice(char key);
-        decimal CalculateOrderPrice(List<Tuple<char, int>> orderList);
+        decimal GetPrice(string key);
+        decimal CalculateOrderPrice(List<Tuple<string, int>> orderList);
+        List<ItemPrice> GetAllPrices();
     }
 }

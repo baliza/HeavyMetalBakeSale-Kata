@@ -35,10 +35,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake-Library", "Metal-Bake-Library\Metal-Bake-Library.csproj", "{DDD4D870-437F-4555-A957-BCA603E288FB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake.Infra", "Metal-Bake.Infra\Metal-Bake.Infra.csproj", "{399B95EF-FFDE-4DAD-8991-114A88CF77FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{12CD5B5C-6570-41A3-B2E2-B5538D90468A} = {12CD5B5C-6570-41A3-B2E2-B5538D90468A}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalBakey.PriceServicesWebAPI", "MetalBakey.PriceServicesWebAPI\MetalBakey.PriceServicesWebAPI.csproj", "{4E6954D1-9723-4737-9942-ED25C9713A22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake.MVC", "Metal-Bake.MVC\Metal-Bake.MVC.csproj", "{FDC8A928-D4E5-46B8-9D61-F4C901F62029}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBakeMVC", "MetalBakeMVC\MetalBakeMVC.csproj", "{E31599AC-8B3E-4051-853B-9B15F91FABD8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{12CD5B5C-6570-41A3-B2E2-B5538D90468A} = {12CD5B5C-6570-41A3-B2E2-B5538D90468A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake-Console", "Metal-Bake-Console\Metal-Bake-Console.csproj", "{FC57FCD8-BE41-4E0C-A3A0-9DC13F387FE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,10 +82,14 @@ Global
 		{4E6954D1-9723-4737-9942-ED25C9713A22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E6954D1-9723-4737-9942-ED25C9713A22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E6954D1-9723-4737-9942-ED25C9713A22}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDC8A928-D4E5-46B8-9D61-F4C901F62029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDC8A928-D4E5-46B8-9D61-F4C901F62029}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDC8A928-D4E5-46B8-9D61-F4C901F62029}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDC8A928-D4E5-46B8-9D61-F4C901F62029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E31599AC-8B3E-4051-853B-9B15F91FABD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E31599AC-8B3E-4051-853B-9B15F91FABD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E31599AC-8B3E-4051-853B-9B15F91FABD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E31599AC-8B3E-4051-853B-9B15F91FABD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC57FCD8-BE41-4E0C-A3A0-9DC13F387FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC57FCD8-BE41-4E0C-A3A0-9DC13F387FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC57FCD8-BE41-4E0C-A3A0-9DC13F387FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC57FCD8-BE41-4E0C-A3A0-9DC13F387FE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿@model List<MetalBake.core.Models.ItemPrice>
+﻿@model List<MetalBakeWeb.Models.ItemPrice>
 @{
     ViewBag.Title = "Index";
 }
@@ -15,6 +15,7 @@
         <tr>
             <td>@item.ItemId</td>
             <td>@item.Price</td>
+            <td>@Html.ActionLink("Editar precio", "Edit", "Price", new { itemId = item.ItemId }, null)</td>
         </tr>
     }
 </table>

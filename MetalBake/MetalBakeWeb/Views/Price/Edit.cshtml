@@ -1,0 +1,16 @@
+﻿@model MetalBakeWeb.Models.ItemPrice
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar precio</h2>
+
+@using (Html.BeginForm("SetNewPrice", "Price"))
+{
+    @Html.Label("Id")
+    @Html.TextBoxFor(item => item.ItemId, new { @readonly = "readonly" })
+    @Html.Label("Cambia el precio")
+    @Html.TextBoxFor(item => item.Price)
+
+    <input type="submit" value="Cambiar Nombre" />
+}

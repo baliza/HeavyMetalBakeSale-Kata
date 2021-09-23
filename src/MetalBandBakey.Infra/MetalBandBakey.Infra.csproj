@@ -65,11 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Connected Services\WCFStockService\MetalBandBakey.Infra.WCFStockService.Item.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\WCFStockService\Service.wsdl" />
     <None Include="Connected Services\WCFStockService\Service.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\WCFStockService\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WCFStockService\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -32,10 +32,10 @@ namespace MetalBandBakery.PriceServicesWebAPI.Repositories
             }).ToList();
         }
 
-        public void UpdatePrice(string itemId, decimal quantity)
+        public void UpdatePrice(ItemPrice itemPrice)
         {
-            if (Exists(itemId))
-                _prices[itemId] = quantity;
+            if (Exists(itemPrice.ItemId))
+                _prices[itemPrice.ItemId] = itemPrice.Price;
         }
 
         private bool Exists(string itemId)

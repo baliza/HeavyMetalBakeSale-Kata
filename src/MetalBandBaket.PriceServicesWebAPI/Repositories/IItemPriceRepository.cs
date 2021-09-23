@@ -4,7 +4,7 @@
     {
         ItemPrice Get(string itemId);
 
-        void UpdatePrice(string itemId, decimal quantity);
+        void UpdatePrice(ItemPrice itemPrice);
 
         System.Collections.Generic.List<ItemPrice> GetAll();
     }

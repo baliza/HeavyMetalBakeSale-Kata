@@ -37,7 +37,7 @@ namespace MetalBandBaket.PriceServicesWebAPI.Controllers
         public void UpdatePrice(ItemPrice itemPrice)
         {
             IItemPriceRepository repository = new ItemPriceRepository();
-            repository.UpdatePrice(itemPrice.ItemId, itemPrice.Price);
+            repository.UpdatePrice(itemPrice);
         }
     }
 }

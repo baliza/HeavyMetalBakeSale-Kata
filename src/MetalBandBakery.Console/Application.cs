@@ -77,11 +77,15 @@ namespace MetalBandBakery
             {
                 Tuple<string, int> tuple = AdminNewStock();
                 Console.WriteLine($"BEFORE: Item with code {tuple.Item1} has {_stockService.GetStock(tuple.Item1)} units.");
-                _stockService.AddStock(tuple.Item1, tuple.Item2);
+                _stockService.SetStock(tuple.Item1, tuple.Item2);
                 Console.WriteLine($"NOW: Item with code {tuple.Item1} has {_stockService.GetStock(tuple.Item1)} units.");
             }
             else if (option == 2)
             {
+                Tuple<string, int> tuple = AdminNewPrice();
+                Console.WriteLine($"BEFORE: Item with code {tuple.Item1} - ${_priceService.GetPrice(tuple.Item1)}");
+                _priceService.UpdatePrice(tuple.Item1, tuple.Item2);
+                Console.WriteLine($"AFTER: Item with code {tuple.Item1} - ${_priceService.GetPrice(tuple.Item1)}");
             }
         }
 
@@ -91,6 +95,18 @@ namespace MetalBandBakery
             string itemId = Console.ReadLine().Substring(0, 1);
             int itemQuantity = 0;
             Console.WriteLine("Quantity to add stock?");
+            int.TryParse(Console.ReadLine(), out itemQuantity);
+            Tuple<String, int> itemToAdd = new Tuple<string, int>(itemId, itemQuantity);
+
+            return itemToAdd;
+        }
+
+        private Tuple<string, int> AdminNewPrice()
+        {
+            Console.WriteLine("Item to edit price?");
+            string itemId = Console.ReadLine().Substring(0, 1);
+            int itemQuantity = 0;
+            Console.WriteLine($"New price to {itemId}?");
             int.TryParse(Console.ReadLine(), out itemQuantity);
             Tuple<String, int> itemToAdd = new Tuple<string, int>(itemId, itemQuantity);
 

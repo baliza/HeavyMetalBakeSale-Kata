@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MetalBandBakery.Core.Domain;
+using System;
+using System.Collections.Generic;
 
 namespace MetalBandBakery.Core.Services
 {
@@ -10,6 +12,8 @@ namespace MetalBandBakery.Core.Services
 
         void ReduceStock(string itemId);
 
-        void AddStock(string itemId, int quantity);
+        void SetStock(string itemId, int quantity);
+
+        List<OrderLine> GetAllStock();
     }
 }

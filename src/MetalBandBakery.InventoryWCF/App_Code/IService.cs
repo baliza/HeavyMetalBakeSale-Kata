@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetalBandBakery.InventoryWCF.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -11,11 +12,15 @@ using System.Text;
 public interface IService
 {
     [OperationContract]
+    [WebGet(UriTemplate = "/CheckStock?itemId={itemId}")]
     int CheckStock(string itemId);
 
     [OperationContract]
     bool ReduceStock(string itemId);
 
     [OperationContract]
-    bool AddStock(string itemId, int quantity);
+    bool SetStock(string itemId, int quantity);
+
+    [OperationContract]
+    List<Item> GetAllStock();
 }

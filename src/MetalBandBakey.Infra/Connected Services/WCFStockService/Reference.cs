@@ -9,7 +9,71 @@
 //------------------------------------------------------------------------------
 
 namespace MetalBandBakey.Infra.WCFStockService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Item", Namespace="http://schemas.datacontract.org/2004/07/MetalBandBakery.InventoryWCF.Repositories" +
+        "")]
+    [System.SerializableAttribute()]
+    public partial class Item : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ItemIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int QuantityField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemId {
+            get {
+                return this.ItemIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
+                    this.ItemIdField = value;
+                    this.RaisePropertyChanged("ItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WCFStockService.IService")]
@@ -27,11 +91,17 @@ namespace MetalBandBakey.Infra.WCFStockService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ReduceStock", ReplyAction="http://tempuri.org/IService/ReduceStockResponse")]
         System.Threading.Tasks.Task<bool> ReduceStockAsync(string itemId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddStock", ReplyAction="http://tempuri.org/IService/AddStockResponse")]
-        bool AddStock(string itemId, int quantity);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetStock", ReplyAction="http://tempuri.org/IService/SetStockResponse")]
+        bool SetStock(string itemId, int quantity);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/AddStock", ReplyAction="http://tempuri.org/IService/AddStockResponse")]
-        System.Threading.Tasks.Task<bool> AddStockAsync(string itemId, int quantity);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetStock", ReplyAction="http://tempuri.org/IService/SetStockResponse")]
+        System.Threading.Tasks.Task<bool> SetStockAsync(string itemId, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
+        MetalBandBakey.Infra.WCFStockService.Item[] GetAllStock();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
+        System.Threading.Tasks.Task<MetalBandBakey.Infra.WCFStockService.Item[]> GetAllStockAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -77,12 +147,20 @@ namespace MetalBandBakey.Infra.WCFStockService {
             return base.Channel.ReduceStockAsync(itemId);
         }
         
-        public bool AddStock(string itemId, int quantity) {
-            return base.Channel.AddStock(itemId, quantity);
+        public bool SetStock(string itemId, int quantity) {
+            return base.Channel.SetStock(itemId, quantity);
         }
         
-        public System.Threading.Tasks.Task<bool> AddStockAsync(string itemId, int quantity) {
-            return base.Channel.AddStockAsync(itemId, quantity);
+        public System.Threading.Tasks.Task<bool> SetStockAsync(string itemId, int quantity) {
+            return base.Channel.SetStockAsync(itemId, quantity);
+        }
+        
+        public MetalBandBakey.Infra.WCFStockService.Item[] GetAllStock() {
+            return base.Channel.GetAllStock();
+        }
+        
+        public System.Threading.Tasks.Task<MetalBandBakey.Infra.WCFStockService.Item[]> GetAllStockAsync() {
+            return base.Channel.GetAllStockAsync();
         }
     }
 }

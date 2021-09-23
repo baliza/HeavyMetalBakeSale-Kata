@@ -40,6 +40,7 @@ namespace MetalBandBakery.MVC.Controllers
         public ActionResult SetBake(Item item)
         {
             _stockService.SetStock(item.ItemId, item.Quantity);
+            _priceService.UpdatePrice(item.ItemId, item.Price);
             return Redirect("Index");
         }
     }

@@ -21,7 +21,7 @@ namespace MetalBandBakey.Infra.Repository
 
         public void UpdatePrice(string itemId, decimal newPrice)
         {
-            if (!Exists(itemId))
+            if (Exists(itemId))
                 _prices[itemId] = newPrice;
         }
 

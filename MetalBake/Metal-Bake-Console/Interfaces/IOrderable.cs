@@ -6,6 +6,6 @@ namespace MetalBake.Interfaces
 {
     public interface IOrderable    //Sobraria?
     {
-        List<Tuple<string, int>> MakeOrder(string lectura);
+        public List<Tuple<string, int>> MakeOrder(string lectura);
     }
 }

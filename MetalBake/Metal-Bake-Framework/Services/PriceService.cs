@@ -1,18 +1,18 @@
-﻿using MetalBake.Interfaces;
-using MetalBake.Models;
+﻿using MetalBake.core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MetalBake.Services
+namespace MetalBake.core.Services
 {
     public class PriceService : IPriceService
     {
-        private Dictionary<string, decimal> _listPrices;
+        private static Dictionary<string, decimal> _listPrices;
         public class ItemPrice
         {
-            public string itemId { get; set; }
-            public decimal price { get; set; }
+            public string Name { get; set; }
+            public string ItemId { get; set; }
+            public decimal Price { get; set; }
         }
         public PriceService()
         {
@@ -51,13 +51,13 @@ namespace MetalBake.Services
                 Console.WriteLine($"Sort: {item.Key} Price: {item.Value}");
             }
         }
-
         public List<ItemPrice> GetAllPrices()
         {
+            IItemService itemName = new ItemService();
             List<ItemPrice> listPrices = new List<ItemPrice>();
             foreach (var item in _listPrices)
             {
-                listPrices.Add(new ItemPrice() {itemId = item.Key, price = item.Value });
+                listPrices.Add(new ItemPrice() {ItemId = item.Key, Name = itemName.GetItem(item.Key).ToString(), Price = item.Value });
             }
             return listPrices;
         }

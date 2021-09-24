@@ -1,9 +1,9 @@
-﻿using MetalBake.Interfaces;
+﻿using MetalBake.core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MetalBake.Models
+namespace MetalBake.core.Models
 {
     public class Item : IItemable
     {

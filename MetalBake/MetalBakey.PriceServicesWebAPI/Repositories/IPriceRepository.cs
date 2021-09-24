@@ -10,6 +10,5 @@ namespace MetalBakey.PriceServicesWebAPI.Repositories
         public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList);
         List<ItemPrice> GetAllPrices();
         void SetPrice(ItemPrice item);
-
     }
 }

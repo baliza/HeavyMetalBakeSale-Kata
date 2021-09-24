@@ -9,7 +9,7 @@ namespace MetalBake.Services
     {
         public List<Tuple<string, int>> MakeOrder(string lectura)
         {
-            int b=0; int m=0; int c=0; int w=0;
+            int b = 0; int m = 0; int c = 0; int w = 0;
             string[] splitOrder = lectura.Split(',');
             foreach (var item in splitOrder)
             {
@@ -26,11 +26,11 @@ namespace MetalBake.Services
                 }
             }
             List<Tuple<string, int>> orderList = new List<Tuple<string, int>>();
-            orderList.Add(new Tuple<string,int>("B", b));
+            orderList.Add(new Tuple<string, int>("B", b));
             orderList.Add(new Tuple<string, int>("M", m));
             orderList.Add(new Tuple<string, int>("C", c));
             orderList.Add(new Tuple<string, int>("W", w));
             return orderList;
-        }                
+        }
     }
 }

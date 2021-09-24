@@ -1,6 +1,7 @@
 ﻿using MetalBake.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MetalBake.Services
@@ -44,6 +45,19 @@ namespace MetalBake.Services
         public void IncreaseStock(string item, int amount)
         {
             _inventory[item] += amount;
+        }
+        public bool SetItemStock(string itemId, int amount)
+        {
+            if (Exist(itemId))
+            {
+                _inventory[itemId] += amount;
+                return true;
+            }
+            return false;
+        }
+        public List<ItemStock> GetAllStock()
+        {
+            return _inventory.Select(item => new ItemStock { ItemId = item.Key, Stock = item.Value }).ToList();
         }
     }
 }

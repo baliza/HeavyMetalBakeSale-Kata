@@ -1,8 +1,9 @@
-﻿using System;
+﻿using MetalBake.core.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MetalBake.Interfaces
+namespace MetalBake.core.Interfaces
 {
     public interface IStockService
     {
@@ -10,6 +11,6 @@ namespace MetalBake.Interfaces
         int GetStock(string key);
         bool CheckStock(string item, int amount);
         void ReduceStock(string item, int amount);
-        Dictionary<string, int> GetAllStock();
+        List<ItemStock> GetAllStock();
     }
 }

@@ -1,21 +1,22 @@
-﻿using MetalBake.Interfaces;
-using MetalBake.Models;
+﻿using MetalBake.core.Interfaces;
+using MetalBake.core.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
-namespace MetalBake.Services
+namespace MetalBake.core.Services
 {
     public class ItemService : IItemService
     {
         private readonly IStockService _stockService;
         private readonly IPriceService _priceService;
 
-        public ItemService(IStockService stockService, IPriceService priceService)
-        {
-            _stockService = stockService;
-            _priceService = priceService;
-        }
+        //public ItemService(IStockService stockService, IPriceService priceService)
+        //{
+        //    _stockService = stockService;
+        //    _priceService = priceService;
+        //}
         public void PrintItemList()
         {
             //StockService stockService = new StockService();
@@ -33,6 +34,11 @@ namespace MetalBake.Services
             itemList.Add(new Item("W", "Water"));
             itemList.Add(new Item("M", "Muffin"));
             return itemList;
+        }
+        public string GetItem(string id)
+        {
+            Item item= GetItemList().FirstOrDefault(x => x.GetShort() == id);
+            return item.GetName();
         }
     }
 }

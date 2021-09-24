@@ -11,5 +11,7 @@ namespace MetalBake.Interfaces
         bool CheckStock(string item, int amount);
         void ReduceStock(string item, int amount);
         void IncreaseStock(string item, int amount);
+        bool SetItemStock(string itemId, int cuantity);
+        List<ItemStock> GetAllStock();
     }
 }

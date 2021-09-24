@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MetalBake.Interfaces
+namespace MetalBake.core.Interfaces
 {
     public interface IItemable
     {

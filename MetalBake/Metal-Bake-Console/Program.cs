@@ -5,19 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.ComponentModel;
+using MetalBake.core.Interfaces;
+using Metal_Bake_Console;
 using MetalBake.Interfaces;
-using MetalBake.Services;
-using Metal_Bake.Infra.HTTP;
-using MetalBake;
 
 namespace Metal
 {
+
     class Program
     {
-        private static IStockService _wcfStockService = new SoapStockService();
-        private static IPriceService _rfPriceService = new RestfullPriceService();
-        private static IStockService _stockService = new InMemoryStockService();
-        private static IPriceService _priceService = new InMemoryPriceService();
         static void Main(string[] args)
         {
             //PriceService priceService = new PriceService();
@@ -33,11 +29,14 @@ namespace Metal
             var priceService = containerProvider.GetService<IPriceService>();
             var changeService = containerProvider.GetService<IChangeService>();
 
+            //private static IStockService _wcfStockService = new SoapStockService();
+            //private static IPriceService _rfPriceService = new RestfullPriceService();
+            //private static IStockService _stockService = new InMemoryStockService();
+            //private static IPriceService _priceService = new InMemoryPriceService();
 
 
 
-
-        var option = "0";
+            var option = "0";
             do
             {
                 Console.WriteLine(@"Bienvenido a la tienda de pasteles: Seleccione la opción que desea realizar:
@@ -47,16 +46,18 @@ namespace Metal
                 option = Console.ReadLine();
                 switch (option)
                 {
-                    case "1": var purchase = new Purchase(itemService, stockService, priceService, orderService, changeService);
-        purchase.PurchaseOption();
+                    case "1":
+                        var purchase = new Purchase(itemService, stockService, priceService, orderService, changeService);
+                        purchase.PurchaseOption();
                         break;
                     case "2":
                         itemService.PrintItemList();
                         break;
                     case "3": break;
                 }
-    Console.WriteLine(Environment.NewLine);
-            } while (!option.Equals("3")) ;
+                Console.WriteLine(Environment.NewLine);
+            } while (!option.Equals("3"));
         }
     }
+
 }

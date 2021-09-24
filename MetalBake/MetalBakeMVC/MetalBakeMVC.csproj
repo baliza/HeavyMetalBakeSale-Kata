@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -100,9 +103,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -187,8 +187,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Price\PriceList.cshtml" />
     <Content Include="Views\Stock\StockList.cshtml" />
+    <Content Include="Views\Price\PriceList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -214,12 +214,12 @@
     <WCFMetadataStorage Include="Connected Services\WcfService\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Metal-Bake-Framework\Metal-Bake-Framework.csproj">
-      <Project>{DE7D5C76-ED62-49F7-9E18-992C1AA167B2}</Project>
-      <Name>Metal-Bake-Framework</Name>
+    <ProjectReference Include="..\Metal-Bake-Framework\MetalBake.core.csproj">
+      <Project>{de7d5c76-ed62-49f7-9e18-992c1aa167b2}</Project>
+      <Name>MetalBake.core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Metal-Bake.Infra\Metal-Bake.Infra.csproj">
-      <Project>{399B95EF-FFDE-4DAD-8991-114A88CF77FB}</Project>
+      <Project>{399b95ef-ffde-4dad-8991-114a88cf77fb}</Project>
       <Name>Metal-Bake.Infra</Name>
     </ProjectReference>
   </ItemGroup>

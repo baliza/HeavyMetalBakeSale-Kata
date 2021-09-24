@@ -1,12 +1,16 @@
-﻿using MetalBake.Models;
+﻿using MetalBake.core.Interfaces;
+using MetalBake.core.Services;
 using MetalBake.Interfaces;
-using MetalBake.Services;
-using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace MetalBake
+namespace Metal_Bake_Console
 {
-    public class Purchase
+    class Purchase
     {
         private IItemService _itemService;
         private IStockService _stockService;
@@ -67,4 +71,3 @@ Cuanto dinero entregará para pagar:");
         }
     }
 }
-

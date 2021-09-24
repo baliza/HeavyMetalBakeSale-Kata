@@ -11,30 +11,22 @@ using System.Text;
 // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "Service1" en el código, en svc y en el archivo de configuración.
 public class Service : IService
 {
+    IInventoryRepository _inventoryRepository = new InventoryRepository();
+    public Service(IInventoryRepository priceRepository)
+    {
+        _inventoryRepository = priceRepository;
+    }
     public bool Exist(string item)
     {
-        IInventoryRepository svc = new InventoryRepository();
-        return svc.Exist(item);
-        //return !item.Equals(_inventory[item]);  // ****!!
+        return _inventoryRepository.Exist(item);
     }
     public int GetStock(string key)
     {
-        IInventoryRepository svc = new InventoryRepository();
-        return svc.GetStock(key);
-        //foreach (var item in _inventory)
-        //{
-        //    if (key.Equals(item.Key))
-        //    {
-        //        return item.Value;
-        //    }
-        //}
-        //return 0;
+        return _inventoryRepository.GetStock(key);
     }
     public bool CheckStock(string id, int amount)
     {
-        IInventoryRepository svc = new InventoryRepository();
-        return svc.CheckStock(id, amount);
-        //return _inventory[id] > amount;
+        return _inventoryRepository.CheckStock(id, amount);
     }
     public bool ReduceStock(string id, int amount)
     {
@@ -42,8 +34,7 @@ public class Service : IService
             return false;
         if (amount <= 0)
             return false;
-        IInventoryRepository svc = new InventoryRepository();
-        svc.ReduceStock(id, amount);
+        _inventoryRepository.ReduceStock(id, amount);
         return true;
     }
     public bool IncreaseStock(string id, int amount)
@@ -52,8 +43,15 @@ public class Service : IService
             return false;
         if (amount <= 0)
             return false;
-        IInventoryRepository svc = new InventoryRepository();
-        svc.IncreaseStock(id, amount);
+        _inventoryRepository.IncreaseStock(id, amount);
         return true;
+    }
+    public string SetItemStock(string itemId, int cuantity)
+    {
+        return (_inventoryRepository.SetItemStock(itemId, cuantity)) ? "Stock Added" : "Item doesn't exist or amount is null";
+    }
+    public List<ItemStock> GetAllStock()
+    {
+        return _inventoryRepository.GetAllStock();
     }
 }

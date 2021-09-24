@@ -58,20 +58,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IChangeService.cs" />
+    <Compile Include="Interfaces\IOrderable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchase.cs" />
     <Compile Include="Services\ChangeService.cs" />
-    <Compile Include="Services\Container.cs" />
+    <Compile Include="Container.cs" />
+    <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Metal-Bake-Framework\Metal-Bake-Framework.csproj">
+    <ProjectReference Include="..\Metal-Bake-Framework\MetalBake.core.csproj">
       <Project>{de7d5c76-ed62-49f7-9e18-992c1aa167b2}</Project>
-      <Name>Metal-Bake-Framework</Name>
+      <Name>MetalBake.core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Metal-Bake.Infra\Metal-Bake.Infra.csproj">
       <Project>{399b95ef-ffde-4dad-8991-114a88cf77fb}</Project>

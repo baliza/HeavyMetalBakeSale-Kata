@@ -1,14 +1,19 @@
-﻿using MetalBake.Interfaces;
-using MetalBake.Models;
+﻿using MetalBake.core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MetalBake.Services
+namespace MetalBake.core.Services
 {
     public class StockService : IStockService
     {
-        private Dictionary<string, int> _inventory;
+        private static Dictionary<string, int> _inventory;
+        public class ItemStock
+        {
+            public string ItemId { get; set; }
+            public int Amount { get; set; }
+            public string Name { get; set; }
+        }
         public StockService()
         {
             _inventory = new Dictionary<string, int>
@@ -42,9 +47,15 @@ namespace MetalBake.Services
         {
             _inventory[item]-=amount;
         }
-        public Dictionary<string, int> GetAllStock()
+        public List<ItemStock> GetAllStock()
         {
-            return _inventory;
+            IItemService itemName = new ItemService();
+            List<ItemStock> allStock = new List<ItemStock>();
+            foreach (var item in _inventory)
+            {
+                allStock.Add(new ItemStock() { ItemId = item.Key, Name = itemName.GetItem(item.Key).ToString(), Amount = item.Value });
+            }
+            return allStock;
         }
     }
 }

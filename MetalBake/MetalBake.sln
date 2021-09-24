@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalBake", "MetalBake\Meta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Metal-Bake-Tests", "Metal-Bake-Tests\Metal-Bake-Tests.csproj", "{A785D062-ABEC-4E3F-B4E2-238D674BF9F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Metal-Bake-Framework", "Metal-Bake-Framework\Metal-Bake-Framework.csproj", "{DE7D5C76-ED62-49F7-9E18-992C1AA167B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBake.core", "Metal-Bake-Framework\MetalBake.core.csproj", "{DE7D5C76-ED62-49F7-9E18-992C1AA167B2}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Metal-Bake-WCF", "Metal-Bake-WCF\", "{12CD5B5C-6570-41A3-B2E2-B5538D90468A}"
 	ProjectSection(WebsiteProperties) = preProject

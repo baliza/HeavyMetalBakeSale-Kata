@@ -1,4 +1,5 @@
 ﻿using MetalBake.Interfaces;
+using MetalBake.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace Metal_Bake.Infra.HTTP
 {
-
     public class RestfullPriceService : IPriceService
     {
         public class ItemPrice
         {
-            public string itemId { get; set; }
-            public decimal price { get; set; }
+            public string ItemId { get; set; }
+            public decimal Price { get; set; }
+            public string Name { get; set; }
         }
 
         public decimal GetPrice(string itemId)
@@ -29,7 +30,7 @@ namespace Metal_Bake.Infra.HTTP
                 client.Encoding = Encoding.UTF8;
                 string json = client.DownloadString($"{apiUrl}/{itemId}");
                 var itemPrice = JsonConvert.DeserializeObject<ItemPrice>(json);
-                return itemPrice.price;
+                return itemPrice.Price;
             }
         }
         public List<ItemPrice> GetAllPrices()
@@ -46,11 +47,14 @@ namespace Metal_Bake.Infra.HTTP
                 return itemPrice;
             }
         }
-
         public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList)
         {
             throw new NotImplementedException();
         }
-    }
 
+        List<PriceService.ItemPrice> IPriceService.GetAllPrices()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

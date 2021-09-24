@@ -1,10 +1,9 @@
-﻿using MetalBake.Models;
+﻿using MetalBake.core.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using static MetalBake.Services.PriceService;
 
-namespace MetalBake.Interfaces
+namespace MetalBake.core.Interfaces
 {
     public interface IPriceService
     {

@@ -20,8 +20,6 @@ public interface IService
 	[OperationContract]
 	bool IncreaseStock(string item, int amount);
 	[OperationContract]
-	string SetItemStock(string itemId, int cuantity);
-	[OperationContract]
 	List<ItemStock> GetAllStock();
 }
 

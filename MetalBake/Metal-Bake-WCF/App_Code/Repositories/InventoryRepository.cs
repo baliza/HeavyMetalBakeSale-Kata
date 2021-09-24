@@ -36,7 +36,7 @@ namespace MetalBake.Services
         }
         public bool CheckStock(string item, int amount)
         {
-            return _inventory[item] > amount;
+            return _inventory[item] >= amount;
         }
         public void ReduceStock(string item, int amount)
         {
@@ -45,15 +45,6 @@ namespace MetalBake.Services
         public void IncreaseStock(string item, int amount)
         {
             _inventory[item] += amount;
-        }
-        public bool SetItemStock(string itemId, int amount)
-        {
-            if (Exist(itemId))
-            {
-                _inventory[itemId] += amount;
-                return true;
-            }
-            return false;
         }
         public List<ItemStock> GetAllStock()
         {

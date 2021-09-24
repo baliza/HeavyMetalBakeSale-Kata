@@ -8,11 +8,74 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Metal_Bake.Infra.ServiceReference1 {
+namespace Metal_Bake.Infra.WcfStockReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ItemStock", Namespace="http://schemas.datacontract.org/2004/07/")]
+    [System.SerializableAttribute()]
+    public partial class ItemStock : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ItemIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StockField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ItemId {
+            get {
+                return this.ItemIdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
+                    this.ItemIdField = value;
+                    this.RaisePropertyChanged("ItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Stock {
+            get {
+                return this.StockField;
+            }
+            set {
+                if ((this.StockField.Equals(value) != true)) {
+                    this.StockField = value;
+                    this.RaisePropertyChanged("Stock");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfStockReference.IService")]
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Exist", ReplyAction="http://tempuri.org/IService/ExistResponse")]
@@ -44,15 +107,27 @@ namespace Metal_Bake.Infra.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IncreaseStock", ReplyAction="http://tempuri.org/IService/IncreaseStockResponse")]
         System.Threading.Tasks.Task<bool> IncreaseStockAsync(string item, int amount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetItemStock", ReplyAction="http://tempuri.org/IService/SetItemStockResponse")]
+        string SetItemStock(string itemId, int cuantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetItemStock", ReplyAction="http://tempuri.org/IService/SetItemStockResponse")]
+        System.Threading.Tasks.Task<string> SetItemStockAsync(string itemId, int cuantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
+        Metal_Bake.Infra.WcfStockReference.ItemStock[] GetAllStock();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
+        System.Threading.Tasks.Task<Metal_Bake.Infra.WcfStockReference.ItemStock[]> GetAllStockAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : Metal_Bake.Infra.ServiceReference1.IService, System.ServiceModel.IClientChannel {
+    public interface IServiceChannel : Metal_Bake.Infra.WcfStockReference.IService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<Metal_Bake.Infra.ServiceReference1.IService>, Metal_Bake.Infra.ServiceReference1.IService {
+    public partial class ServiceClient : System.ServiceModel.ClientBase<Metal_Bake.Infra.WcfStockReference.IService>, Metal_Bake.Infra.WcfStockReference.IService {
         
         public ServiceClient() {
         }
@@ -111,6 +186,22 @@ namespace Metal_Bake.Infra.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> IncreaseStockAsync(string item, int amount) {
             return base.Channel.IncreaseStockAsync(item, amount);
+        }
+        
+        public string SetItemStock(string itemId, int cuantity) {
+            return base.Channel.SetItemStock(itemId, cuantity);
+        }
+        
+        public System.Threading.Tasks.Task<string> SetItemStockAsync(string itemId, int cuantity) {
+            return base.Channel.SetItemStockAsync(itemId, cuantity);
+        }
+        
+        public Metal_Bake.Infra.WcfStockReference.ItemStock[] GetAllStock() {
+            return base.Channel.GetAllStock();
+        }
+        
+        public System.Threading.Tasks.Task<Metal_Bake.Infra.WcfStockReference.ItemStock[]> GetAllStockAsync() {
+            return base.Channel.GetAllStockAsync();
         }
     }
 }

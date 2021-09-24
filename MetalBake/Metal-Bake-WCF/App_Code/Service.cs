@@ -12,9 +12,9 @@ using System.Text;
 public class Service : IService
 {
     IInventoryRepository _inventoryRepository = new InventoryRepository();
-    public Service(IInventoryRepository priceRepository)
+    public Service()
     {
-        _inventoryRepository = priceRepository;
+        _inventoryRepository = new InventoryRepository();
     }
     public bool Exist(string item)
     {
@@ -45,10 +45,6 @@ public class Service : IService
             return false;
         _inventoryRepository.IncreaseStock(id, amount);
         return true;
-    }
-    public string SetItemStock(string itemId, int cuantity)
-    {
-        return (_inventoryRepository.SetItemStock(itemId, cuantity)) ? "Stock Added" : "Item doesn't exist or amount is null";
     }
     public List<ItemStock> GetAllStock()
     {

@@ -1,4 +1,5 @@
 ﻿using MetalBake.core.Interfaces;
+using MetalBake.core.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,15 +25,15 @@ namespace MetalBake.core.Services
             { "W", 1.50m }
             };
         }
-        public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList)
-        {
-            decimal totalPrice = 0;
-            foreach (var item in orderList)
-            {
-                totalPrice += item.Item2 * _listPrices[item.Item1];
-            }
-            return totalPrice;
-        }
+        //public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList)
+        //{
+        //    decimal totalPrice = 0;
+        //    foreach (var item in orderList)
+        //    {
+        //        totalPrice += item.Item2 * _listPrices[item.Item1];
+        //    }
+        //    return totalPrice;
+        //}
         public decimal GetPrice(string key)
         {
             foreach (var item in _listPrices)
@@ -43,13 +44,6 @@ namespace MetalBake.core.Services
                 }
             }
             return 0;
-        }
-        public void PrintPrice()
-        {
-            foreach (var item in _listPrices)
-            {
-                Console.WriteLine($"Sort: {item.Key} Price: {item.Value}");
-            }
         }
         public List<ItemPrice> GetAllPrices()
         {

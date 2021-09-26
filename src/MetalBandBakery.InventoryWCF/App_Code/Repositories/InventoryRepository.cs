@@ -48,6 +48,8 @@ namespace MetalBandBakery.InventoryWCF.Repositories
             if (!Exists(item.ItemId))
                 return false;
             _stock[item.ItemId] = item.Quantity;
+            File.WriteAllText(@"C:\Users\gteam\source\repos\Etapa2\HeavyMetalBakeSale-Project\src\MetalBandBakery.InventoryWCF\App_Code\Archives\Stock.json",
+                        JsonConvert.SerializeObject(_stock));
             return true;
         }
 

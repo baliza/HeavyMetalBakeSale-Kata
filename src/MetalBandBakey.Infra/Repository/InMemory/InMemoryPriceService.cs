@@ -12,6 +12,11 @@ namespace MetalBandBakey.Infra.Repository
             _prices = new Dictionary<string, decimal>() { { "B", 0.65m }, { "M", 1.00m }, { "C", 1.35m }, { "W", 1.50m } };
         }
 
+        public IEnumerable<Recipe> GetAllRepices()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public decimal GetPrice(string itemId)
         {
             if (!Exists(itemId))
@@ -19,10 +24,14 @@ namespace MetalBandBakey.Infra.Repository
             return _prices[itemId];
         }
 
-        public void UpdatePrice(string itemId, decimal newPrice)
+        public Recipe GetRepice(string itemId)
         {
-            if (Exists(itemId))
-                _prices[itemId] = newPrice;
+            throw new System.NotImplementedException();
+        }
+
+        public void UpdateRecipe(string itemId, Dictionary<string, int> ingredients, decimal extra)
+        {
+            throw new System.NotImplementedException();
         }
 
         private bool Exists(string itemId)

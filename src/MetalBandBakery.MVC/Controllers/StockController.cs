@@ -22,25 +22,29 @@ namespace MetalBandBakery.MVC.Controllers
             List<OrderLine> orderList = _stockService.GetAllStock();
             foreach (var order in orderList)
             {
-                itemList.Add(new Item(order.ItemId, order.Amount, _priceService.GetPrice(order.ItemId)));
+                var repice = _priceService.GetRepice(order.ItemId);
+                itemList.Add(new Item(order.ItemId, order.Amount, _priceService.GetPrice(order.ItemId),
+                                    repice.Ingredients, repice.Extra));
             }
             return View(itemList);
         }
 
         public ActionResult Edit(string id)
         {
-            var price = _priceService.GetPrice(id);
+            var repice = _priceService.GetRepice(id);
             var stock = (from s in _stockService.GetAllStock()
                          where s.ItemId == id
                          select s).FirstOrDefault();
-            Item item = new Item() { ItemId = id, Price = price, Quantity = stock.Amount };
+            Item item = new Item(stock.ItemId, stock.Amount, _priceService.GetPrice(stock.ItemId),
+                                   repice.Ingredients, repice.Extra);
+
             return View(item);
         }
 
         public ActionResult SetBake(Item item)
         {
             _stockService.SetStock(item.ItemId, item.Quantity);
-            _priceService.UpdatePrice(item.ItemId, item.Price);
+            _priceService.UpdateRecipe(item.ItemId, item.Ingredients, item.Extra);
             return Redirect("Index");
         }
     }

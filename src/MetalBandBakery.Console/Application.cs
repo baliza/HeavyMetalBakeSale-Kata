@@ -84,7 +84,7 @@ namespace MetalBandBakery
             {
                 Tuple<string, int> tuple = AdminNewPrice();
                 Console.WriteLine($"BEFORE: Item with code {tuple.Item1} - ${_priceService.GetPrice(tuple.Item1)}");
-                _priceService.UpdatePrice(tuple.Item1, tuple.Item2);
+                //_priceService.UpdatePrice(tuple.Item1, tuple.Item2);
                 Console.WriteLine($"AFTER: Item with code {tuple.Item1} - ${_priceService.GetPrice(tuple.Item1)}");
             }
         }

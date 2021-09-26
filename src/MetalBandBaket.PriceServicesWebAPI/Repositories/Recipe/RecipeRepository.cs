@@ -44,6 +44,8 @@ public class RecipeRepository : IRecipeRepository
                 if (_recipeList[i].ItemId == recipe.ItemId)
                 {
                     _recipeList[i] = recipe;
+                    File.WriteAllText(@$"C:\Users\gteam\source\repos\Etapa2\HeavyMetalBakeSale-Project\src\MetalBandBaket.PriceServicesWebAPI\Repositories\Archives\StockWithIngredients.json",
+                        JsonConvert.SerializeObject(_recipeList));
                     return true;
                 }
             }

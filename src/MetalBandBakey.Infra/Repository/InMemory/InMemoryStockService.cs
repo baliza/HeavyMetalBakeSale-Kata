@@ -27,7 +27,11 @@ namespace MetalBandBakey.Infra.Repository
         public void SetStock(string itemId, int quantity)
         {
             if (Exists(itemId))
+            {
                 _stock[itemId] = quantity;
+                File.WriteAllText(@"C:\Users\gteam\source\repos\Etapa2\HeavyMetalBakeSale-Project\src\MetalBandBakery.InventoryWCF\App_Code\Archives\Stock.json",
+                        JsonConvert.SerializeObject(_stock));
+            }
         }
 
         public bool CheckStock(string itemId)

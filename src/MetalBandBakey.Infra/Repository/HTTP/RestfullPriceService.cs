@@ -15,7 +15,7 @@ namespace MetalBandBakey.Infra.Repository
 
         public decimal GetPrice(string itemId)
         {
-            string apiUrl = "https://localhost:44330/prices";
+            string apiUrl = "https://localhost:44350/prices";
 
             using (WebClient client = new WebClient())
             {
@@ -31,7 +31,7 @@ namespace MetalBandBakey.Infra.Repository
 
         public void UpdatePrice(string itemId, decimal newPrice)
         {
-            string apiUrl = "https://localhost:44330/prices/UpdatePrice";
+            string apiUrl = "https://localhost:44350/prices/UpdatePrice";
 
             using (WebClient client = new WebClient())
             {

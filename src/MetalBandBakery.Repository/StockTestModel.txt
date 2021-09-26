@@ -1,0 +1,25 @@
+ProductList[0]
+  Id=B
+  Ingredients
+    Sugar n= 23
+    Cocoa n= 70
+    Butter n= 36
+  Extra n=4
+ProductList[1]
+  Id=M
+  Ingredients
+    Sugar n= 32
+    Cocoa n= 23
+    Butter n= 89
+  Extra n=3.4
+ProductList[2]
+  Id=C
+  Ingredients
+    Sugar n= 89
+    Cocoa n= 67
+    Butter n= 45
+  Extra n=7
+ProductList[3]
+  Id=W
+  Ingredients
+  Extra n=2

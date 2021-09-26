@@ -1,0 +1,24 @@
+﻿@model MetalBandBakery.MVC.Models.Recipe
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.ItemId</h2>
+@foreach (var recipeUnit in Model.Ingredients)
+{
+    <h2>@recipeUnit.Key</h2>
+}
+<h2>@Model.Extra</h2>
+
+@using (Html.BeginForm("SetRecipeBake", "Recipe", FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.ItemId, new { @readonly = "readonly" })
+    foreach (var recipeUnit in Model.Ingredients)
+    {
+        @Html.TextBoxFor(model => recipeUnit.Value)
+    }
+    @Html.TextBoxFor(model => model.Extra)
+
+    <input type="submit" value="Save" />
+}

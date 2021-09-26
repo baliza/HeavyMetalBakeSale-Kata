@@ -8,15 +8,17 @@
         <td>ItemId</td>
         <td>Price</td>
         <td>Quantity</td>
-        <td>Action</td>
+        <td>Stock Action</td>
+        <td>Recipe Action</td>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.ItemId</td>
-            <td>@item.Price</td>
-            <td>@item.Quantity</td>
-            <td>@Html.ActionLink("Edit Item", "Edit", "Stock", new { id = item.ItemId }, null)</td>
-        </tr>
+    <tr>
+        <td>@item.ItemId</td>
+        <td>@item.Price</td>
+        <td>@item.Quantity</td>
+        <td>@Html.ActionLink("Edit Stock", "Edit", "Stock", new { id = item.ItemId }, null)</td>
+        <td>@Html.ActionLink("Edit Recipe", "Edit", "Recipe", new { id = item.ItemId }, null)</td>
+    </tr>
     }
 </table>

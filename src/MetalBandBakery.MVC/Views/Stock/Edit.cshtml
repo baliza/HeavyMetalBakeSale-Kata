@@ -8,11 +8,11 @@
 <h2>@Model.Quantity</h2>
 <h2>@Model.Price</h2>
 
-@using (Html.BeginForm("SetBake", "Stock", FormMethod.Post))
+@using (Html.BeginForm("SetStockBake", "Stock", FormMethod.Post))
 {
-    @Html.TextBoxFor(model => model.ItemId, new { @readonly = "readonly" })
-    @Html.TextBoxFor(model => model.Quantity)
-    @Html.TextBoxFor(model => model.Price)
+@Html.TextBoxFor(model => model.ItemId, new { @readonly = "readonly" })
+@Html.TextBoxFor(model => model.Quantity)
+@Html.TextBoxFor(model => model.Price,  new { @readonly = "readonly" })
 
-    <input type="submit" value="Save" />
+<input type="submit" value="Save" />
 }

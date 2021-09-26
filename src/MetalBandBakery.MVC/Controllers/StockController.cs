@@ -23,8 +23,7 @@ namespace MetalBandBakery.MVC.Controllers
             foreach (var order in orderList)
             {
                 var repice = _priceService.GetRepice(order.ItemId);
-                itemList.Add(new Item(order.ItemId, order.Amount, _priceService.GetPrice(order.ItemId),
-                                    repice.Ingredients, repice.Extra));
+                itemList.Add(new Item(order.ItemId, order.Amount, _priceService.GetPrice(order.ItemId)));
             }
             return View(itemList);
         }
@@ -35,16 +34,14 @@ namespace MetalBandBakery.MVC.Controllers
             var stock = (from s in _stockService.GetAllStock()
                          where s.ItemId == id
                          select s).FirstOrDefault();
-            Item item = new Item(stock.ItemId, stock.Amount, _priceService.GetPrice(stock.ItemId),
-                                   repice.Ingredients, repice.Extra);
+            Item item = new Item(stock.ItemId, stock.Amount, _priceService.GetPrice(stock.ItemId));
 
             return View(item);
         }
 
-        public ActionResult SetBake(Item item)
+        public ActionResult SetStockBake(Item item)
         {
             _stockService.SetStock(item.ItemId, item.Quantity);
-            _priceService.UpdateRecipe(item.ItemId, item.Ingredients, item.Extra);
             return Redirect("Index");
         }
     }

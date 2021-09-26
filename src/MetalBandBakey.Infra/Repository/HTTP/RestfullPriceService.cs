@@ -73,7 +73,7 @@ namespace MetalBandBakey.Infra.Repository
                     Extra = extra
                 };
                 string json = JsonConvert.SerializeObject(recipe);
-                client.UploadString($"{apiUrl}/UpdatePrice", json);
+                client.UploadString($"{apiUrl}/UpdateRecipe", json);
             }
         }
     }

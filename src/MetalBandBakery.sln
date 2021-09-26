@@ -38,6 +38,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MetalBandBaket.PriceService
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBandBakery.MVC", "MetalBandBakery.MVC\MetalBandBakery.MVC.csproj", "{D0310176-79FE-4A8C-B7D5-C27947C384B2}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MetalBandBakery.RecipeWCF", "MetalBandBakery.RecipeWCF\", "{F5233865-D820-4B7E-81E4-C0D9597EA78F}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_65396"
+		Debug.AspNetCompiler.PhysicalPath = "MetalBandBakery.RecipeWCF\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65396\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_65396"
+		Release.AspNetCompiler.PhysicalPath = "MetalBandBakery.RecipeWCF\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65396\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "65396"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +89,10 @@ Global
 		{D0310176-79FE-4A8C-B7D5-C27947C384B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0310176-79FE-4A8C-B7D5-C27947C384B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0310176-79FE-4A8C-B7D5-C27947C384B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5233865-D820-4B7E-81E4-C0D9597EA78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5233865-D820-4B7E-81E4-C0D9597EA78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5233865-D820-4B7E-81E4-C0D9597EA78F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5233865-D820-4B7E-81E4-C0D9597EA78F}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

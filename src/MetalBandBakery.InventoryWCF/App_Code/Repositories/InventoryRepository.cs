@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace MetalBandBakery.InventoryWCF.Repositories
 {
@@ -8,7 +11,15 @@ namespace MetalBandBakery.InventoryWCF.Repositories
 
         static InventoryRepository()
         {
-            _stock = new Dictionary<string, int>() { { "B", 30 }, { "M", 36 }, { "C", 24 }, { "W", 0 } };
+            ReadStock();
+        }
+
+        private static void ReadStock()
+        {
+            StreamReader sReader = new StreamReader(@"C:\Users\gteam\source\repos\Etapa2\HeavyMetalBakeSale-Project\src\MetalBandBakery.InventoryWCF\App_Code\Archives\Stock.json");
+            var json = sReader.ReadToEnd();
+            _stock = JsonConvert.DeserializeObject<Dictionary<string, int>>(json);
+            sReader.Close();
         }
 
         public List<Item> GetAllItems()

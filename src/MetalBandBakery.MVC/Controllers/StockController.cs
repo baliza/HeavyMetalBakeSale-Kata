@@ -12,7 +12,7 @@ namespace MetalBandBakery.MVC.Controllers
 {
     public class StockController : Controller
     {
-        private static IStockService _stockService = new SoapStockService();
+        private static IStockService _stockService = new InMemoryStockService();
         private static IPriceService _priceService = new RestfullPriceService();
 
         // GET: Stock

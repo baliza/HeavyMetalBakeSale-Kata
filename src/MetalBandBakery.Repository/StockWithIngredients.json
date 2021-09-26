@@ -1,7 +1,8 @@
 {
   "ProductList": [
     {
-      "Id": "B",
+      "ItemId": "B",
+	  "Quantity": 15,
       "Ingredients": {
         "Sugar": 23,
         "Cocoa": 70,
@@ -10,7 +11,8 @@
       "Extra": 4
     },
     {
-      "Id": "M",
+      "ItemId": "M",
+	  "Quantity": 25,
       "Ingredients": {
         "Sugar": 32,
         "Cocoa": 23,
@@ -19,7 +21,8 @@
       "Extra": 3.4
     },
     {
-      "Id": "C",
+      "ItemId": "C",
+	  "Quantity": 5,
       "Ingredients": {
         "Sugar": 89,
         "Cocoa": 67,
@@ -28,7 +31,8 @@
       "Extra": 7
     },
     {
-      "Id": "W",
+      "ItemId": "W",
+	  "Quantity": 1,
       "Ingredients": {},
       "Extra": 2
     }

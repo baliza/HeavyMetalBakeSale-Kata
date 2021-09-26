@@ -1,7 +1,9 @@
 ﻿using MetalBandBakery.Core.Domain;
 using MetalBandBakery.Core.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace MetalBandBakey.Infra.Repository
 {
@@ -11,7 +13,15 @@ namespace MetalBandBakey.Infra.Repository
 
         public InMemoryStockService()
         {
-            _stock = new Dictionary<string, int>() { { "B", 30 }, { "M", 36 }, { "C", 24 }, { "W", 0 } };
+            ReadStock();
+        }
+
+        private void ReadStock()
+        {
+            StreamReader sReader = new StreamReader(@"C:\Users\gteam\source\repos\Etapa2\HeavyMetalBakeSale-Project\src\MetalBandBakery.InventoryWCF\App_Code\Archives\Stock.json");
+            var json = sReader.ReadToEnd();
+            _stock = JsonConvert.DeserializeObject<Dictionary<string, int>>(json);
+            sReader.Close();
         }
 
         public void SetStock(string itemId, int quantity)

@@ -1,5 +1,4 @@
-{
-  "_recipeList": [
+[
     {
       "ItemId": "B",
       "Ingredients": {
@@ -22,8 +21,7 @@
       "ItemId": "C",
       "Ingredients": {
         "Sugar": 89,
-        "Cocoa": 67,
-        "Butter": 45
+        "Cocoa": 67
       },
       "Extra": 7
     },
@@ -33,4 +31,3 @@
       "Extra": 2
     }
   ]
-}

@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MetalBandBakery.Core.Services
 {
     public interface IRecipeService
     {
-        List<Dictionary<string, int>> GetPriceOfIngredients();
+        Recipe GetRecipe(string itemId);
 
-        void UpdatePriceOfIngredients(List<Dictionary<string, int>> ingredientsList);
+        bool SaveRecipe(Recipe recipe);
+
+        List<Recipe> GetAllRecipes();
     }
 }

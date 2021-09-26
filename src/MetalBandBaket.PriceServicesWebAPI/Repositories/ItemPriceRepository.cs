@@ -5,11 +5,23 @@ namespace MetalBandBakery.PriceServicesWebAPI.Repositories
 {
     public class ItemPriceRepository : IItemPriceRepository
     {
-        private static Dictionary<string, decimal> _prices;
+        static ItemPriceRepository()
+        {
+        }
+
+        private static Dictionary<string, int> _recipeList;
 
         static ItemPriceRepository()
         {
-            _prices = new Dictionary<string, decimal>() { { "B", 0.65m }, { "M", 1.00m }, { "C", 1.35m }, { "W", 1.50m } };
+            ReadStock();
+        }
+
+        private static void ReadStock()
+        {
+            StreamReader sReader = new StreamReader(@"C:\Users\gteam\source\repos\Etapa2\HeavyMetalBakeSale-Project\src\MetalBandBakery.RecipeWCF\App_Code\Archives\StockWithIngredients.json");
+            var json = sReader.ReadToEnd();
+            _recipeList = JsonConvert.DeserializeObject<List<Recipe>>(json);
+            sReader.Close();
         }
 
         public ItemPrice Get(string itemId)

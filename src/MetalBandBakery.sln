@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBandBakery.Core", "Met
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBandBakey.Infra", "MetalBandBakey.Infra\MetalBandBakey.Infra.csproj", "{4C831473-32F2-4B53-970C-52DCFAD68C3A}"
 	ProjectSection(ProjectDependencies) = postProject
+		{F5233865-D820-4B7E-81E4-C0D9597EA78F} = {F5233865-D820-4B7E-81E4-C0D9597EA78F}
 		{0E9BDCF3-E001-4D0E-B716-9313B78B1773} = {0E9BDCF3-E001-4D0E-B716-9313B78B1773}
 	EndProjectSection
 EndProject
@@ -56,6 +57,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MetalBandBakery.RecipeWCF",
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "65396"
+		SlnRelativePath = "MetalBandBakery.RecipeWCF\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject

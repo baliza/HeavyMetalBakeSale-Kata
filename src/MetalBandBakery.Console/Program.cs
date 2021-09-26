@@ -1,4 +1,4 @@
-﻿using MetalBandBakery.Core.Services;
+﻿/*using MetalBandBakery.Core.Services;
 using MetalBandBakey.Infra.Repository;
 
 namespace MetalBandBakery
@@ -16,4 +16,4 @@ namespace MetalBandBakery
 			application.Run();
 		}
 	}
-}
+}*/

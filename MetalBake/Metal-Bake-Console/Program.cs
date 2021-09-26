@@ -14,7 +14,7 @@ namespace Metal
 
     class Program
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
             //PriceService priceService = new PriceService();
             //StockService stockService = new StockService();
@@ -57,7 +57,7 @@ namespace Metal
                 }
                 Console.WriteLine(Environment.NewLine);
             } while (!option.Equals("3"));
-        }
+        }*/
     }
 
 }

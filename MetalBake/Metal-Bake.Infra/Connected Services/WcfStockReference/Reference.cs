@@ -108,12 +108,6 @@ namespace Metal_Bake.Infra.WcfStockReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/IncreaseStock", ReplyAction="http://tempuri.org/IService/IncreaseStockResponse")]
         System.Threading.Tasks.Task<bool> IncreaseStockAsync(string item, int amount);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetItemStock", ReplyAction="http://tempuri.org/IService/SetItemStockResponse")]
-        string SetItemStock(string itemId, int cuantity);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetItemStock", ReplyAction="http://tempuri.org/IService/SetItemStockResponse")]
-        System.Threading.Tasks.Task<string> SetItemStockAsync(string itemId, int cuantity);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
         Metal_Bake.Infra.WcfStockReference.ItemStock[] GetAllStock();
         
@@ -186,14 +180,6 @@ namespace Metal_Bake.Infra.WcfStockReference {
         
         public System.Threading.Tasks.Task<bool> IncreaseStockAsync(string item, int amount) {
             return base.Channel.IncreaseStockAsync(item, amount);
-        }
-        
-        public string SetItemStock(string itemId, int cuantity) {
-            return base.Channel.SetItemStock(itemId, cuantity);
-        }
-        
-        public System.Threading.Tasks.Task<string> SetItemStockAsync(string itemId, int cuantity) {
-            return base.Channel.SetItemStockAsync(itemId, cuantity);
         }
         
         public Metal_Bake.Infra.WcfStockReference.ItemStock[] GetAllStock() {

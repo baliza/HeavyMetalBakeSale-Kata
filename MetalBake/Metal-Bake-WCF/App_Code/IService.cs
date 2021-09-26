@@ -21,5 +21,8 @@ public interface IService
 	bool IncreaseStock(string item, int amount);
 	[OperationContract]
 	List<ItemStock> GetAllStock();
+	[OperationContract]
+	void TxtListStock();
+
 }
 

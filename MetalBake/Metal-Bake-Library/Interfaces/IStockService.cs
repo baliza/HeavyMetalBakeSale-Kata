@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetalBake.core.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,10 +7,10 @@ namespace MetalBake.Interfaces
 {
     interface IStockService
     {
-        bool Exist(char item);
-        int GetStock(char key);
-        bool CheckStock(char item, int amount);
-        void ReduceStock(char item, int amount);
-        void PrintStock();
+        bool Exist(string item);
+        int GetStock(string key);
+        bool CheckStock(string item, int amount);
+        void ReduceStock(string item, int amount);
+        List<ItemStock> GetAllStock();
     }
 }

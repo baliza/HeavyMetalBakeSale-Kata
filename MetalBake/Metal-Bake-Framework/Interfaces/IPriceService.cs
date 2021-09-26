@@ -8,7 +8,8 @@ namespace MetalBake.core.Interfaces
     public interface IPriceService
     {
         decimal GetPrice(string key);
-        //decimal CalculateOrderPrice(List<Tuple<string, int>> orderList);
+        decimal CalculateOrderPrice(Dictionary<string, int> orderList);
         List<ItemPrice> GetAllPrices();
+        decimal SetPrice(ItemPrice item);
     }
 }

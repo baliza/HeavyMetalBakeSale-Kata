@@ -46,17 +46,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\WcfPriceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\WcfStockReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="HTTP\RestfullPriceService.cs" />
+    <Compile Include="HTTP\SoapPriceService.cs" />
     <Compile Include="HTTP\SoapStockService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Connected Services\WcfPriceReference\Metal_Bake.Infra.WcfPriceReference.ItemPrice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WcfPriceReference\Service.wsdl" />
+    <None Include="Connected Services\WcfPriceReference\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WcfPriceReference\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WcfPriceReference\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WcfPriceReference\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\WcfStockReference\Metal_Bake.Infra.WcfStockReference.ItemStock.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -85,6 +107,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\WcfPriceReference\" />
     <WCFMetadataStorage Include="Connected Services\WcfStockReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +121,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\WcfStockReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WcfPriceReference\Service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WcfPriceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WcfPriceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WcfPriceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

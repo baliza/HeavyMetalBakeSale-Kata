@@ -1,4 +1,5 @@
 ﻿using Metal_Bake.Infra.HTTP;
+using MetalBake.core.Interfaces;
 using MetalBake.Interfaces;
 using MetalBakeMVC.Models;
 using System;

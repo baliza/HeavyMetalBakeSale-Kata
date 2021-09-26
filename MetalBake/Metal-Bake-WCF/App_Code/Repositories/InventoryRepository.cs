@@ -1,8 +1,10 @@
 ﻿using MetalBake.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Web.Script.Serialization;
 
 namespace MetalBake.Services
 {
@@ -49,6 +51,12 @@ namespace MetalBake.Services
         public List<ItemStock> GetAllStock()
         {
             return _inventory.Select(item => new ItemStock { ItemId = item.Key, Stock = item.Value }).ToList();
+        }
+        public void TxtListStock()
+        {
+            string json = new JavaScriptSerializer().Serialize(GetAllStock());
+            string url = @"C:\Users\nettrim\Documents\Writer\Local\StockList.txt";
+            File.WriteAllText(url, json);
         }
     }
 }

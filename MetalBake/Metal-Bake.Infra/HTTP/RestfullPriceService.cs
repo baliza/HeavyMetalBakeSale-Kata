@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Metal_Bake.Infra.HTTP
 {
-    public class RestfullPriceService : IPriceService
+    public class RestfullPriceService //: IPriceService
     {
-        private readonly string _apiUrl = "https://localhost:44330/prices";
+        /*private readonly string _apiUrl = "https://localhost:44330/prices";
 
         public class ItemPrice
         {
@@ -45,10 +45,7 @@ namespace Metal_Bake.Infra.HTTP
                 return itemPrice;
             }
         }
-        public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList)
-        {
-            throw new NotImplementedException();
-        }
+
         public bool UpdateItemPrice(string itemId, decimal newPrice)
         {
             using (WebClient client = new WebClient())
@@ -63,5 +60,14 @@ namespace Metal_Bake.Infra.HTTP
                 return bool.Parse(ApiResponse);
             }
         }
+        public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList)
+        {
+            throw new NotImplementedException();
+        }
+        List<MetalBake.core.Models.ItemPrice> IPriceService.GetAllPrices()
+        {
+            throw new NotImplementedException();
+        }
+        */
     }
 }

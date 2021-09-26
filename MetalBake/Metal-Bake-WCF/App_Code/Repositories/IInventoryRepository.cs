@@ -12,5 +12,6 @@ namespace MetalBake.Interfaces
         void ReduceStock(string item, int amount);
         void IncreaseStock(string item, int amount);
         List<ItemStock> GetAllStock();
+        void TxtListStock();
     }
 }

@@ -9,5 +9,6 @@ namespace MetalBake.Interfaces
     {
         public decimal GetPrice(string key);
         public decimal CalculateOrderPrice(List<Tuple<string, int>> orderList);
+        public List<ItemPrice> GetAllPrices();
     }
 }

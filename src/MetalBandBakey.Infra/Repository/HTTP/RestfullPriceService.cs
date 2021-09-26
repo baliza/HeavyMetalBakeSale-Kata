@@ -1,5 +1,6 @@
 ﻿using MetalBandBakery.Core.Services;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
@@ -29,30 +30,51 @@ namespace MetalBandBakey.Infra.Repository
             }
         }
 
-        public void UpdatePrice(string itemId, decimal newPrice)
+        public IEnumerable<Recipe> GetAllRepices()
         {
-            string apiUrl = "https://localhost:44350/prices/UpdatePrice";
+            string apiUrl = "https://localhost:44350/recipes/getRecipes";
 
             using (WebClient client = new WebClient())
             {
                 client.Headers["Content-type"] = "application/json";
                 client.Encoding = Encoding.UTF8;
-                ItemPrice iPrice = new ItemPrice() { itemId = itemId, price = newPrice };
-                string json = client.UploadString($"{apiUrl}", JsonConvert.SerializeObject(iPrice));
+                string json = client.DownloadString($"{apiUrl}");
+                var recipeList = JsonConvert.DeserializeObject<List<Recipe>>(json);
+                return recipeList;
             }
         }
 
-        /*public void UpdatePrice(string itemId, decimal quantity)
-		{
-			string apiUrl = "https://localhost:44330/prices/UpdatePrice";
+        public Recipe GetRepice(string itemId)
+        {
+            string apiUrl = "https://localhost:44350/recipes/getRecipes";
 
-			using (WebClient client = new WebClient())
-			{
-				client.Headers["Content-type"] = "application/json";
-				client.Encoding = Encoding.UTF8;
-				string json = client.DownloadString($"{apiUrl}/UpdatePrice");
-				var itemPrice = JsonConvert.DeserializeObject<ItemPrice>(json);
-			}
-		}*/
+            using (WebClient client = new WebClient())
+            {
+                client.Headers["Content-type"] = "application/json";
+                client.Encoding = Encoding.UTF8;
+                string json = client.DownloadString($"{apiUrl}/{itemId}");
+                var recipe = JsonConvert.DeserializeObject<Recipe>(json);
+                return recipe;
+            }
+        }
+
+        public void UpdateRecipe(string itemId, Dictionary<string, int> ingredients, decimal extra)
+        {
+            string apiUrl = "https://localhost:44330/recipes/UpdateIngredientList";
+
+            using (WebClient client = new WebClient())
+            {
+                client.Headers["Content-type"] = "application/json";
+                client.Encoding = Encoding.UTF8;
+                Recipe recipe = new Recipe()
+                {
+                    ItemId = itemId,
+                    Ingredients = ingredients,
+                    Extra = extra
+                };
+                string json = JsonConvert.SerializeObject(recipe);
+                client.UploadString($"{apiUrl}/UpdatePrice", json);
+            }
+        }
     }
 }

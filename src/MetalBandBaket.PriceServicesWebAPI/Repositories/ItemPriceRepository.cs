@@ -1,26 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace MetalBandBakery.PriceServicesWebAPI.Repositories
 {
     public class ItemPriceRepository : IItemPriceRepository
     {
-        static ItemPriceRepository()
+        private Dictionary<string, decimal> _ingredientsPrice;
+        private RecipeRepository _recipeRepository;
+
+        public ItemPriceRepository()
         {
+            ReadIngredients();
+            UpdateRecpeRepository();
         }
 
-        private static Dictionary<string, int> _recipeList;
-
-        static ItemPriceRepository()
+        private void UpdateRecpeRepository()
         {
-            ReadStock();
+            _recipeRepository = new RecipeRepository();
         }
 
-        private static void ReadStock()
+        private void ReadIngredients()
         {
-            StreamReader sReader = new StreamReader(@"C:\Users\gteam\source\repos\Etapa2\HeavyMetalBakeSale-Project\src\MetalBandBakery.RecipeWCF\App_Code\Archives\StockWithIngredients.json");
+            StreamReader sReader = new StreamReader(@"C:\Users\gteam\source\repos\Etapa2\HeavyMetalBakeSale-Project\src\MetalBandBaket.PriceServicesWebAPI\Repositories\Archives\Ingredients.json");
             var json = sReader.ReadToEnd();
-            _recipeList = JsonConvert.DeserializeObject<List<Recipe>>(json);
+            _ingredientsPrice = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(json);
             sReader.Close();
         }
 
@@ -31,28 +36,42 @@ namespace MetalBandBakery.PriceServicesWebAPI.Repositories
             return new ItemPrice
             {
                 ItemId = itemId,
-                Price = _prices[itemId]
+                Price = CalculatePriceById(itemId)
             };
+        }
+
+        private decimal CalculatePriceById(string itemId)
+        {
+            Recipe recipeItem = _recipeRepository.GetRecipe(itemId);
+            decimal totalPrice = recipeItem.Extra;
+            decimal ingredientPrice = -1;
+            foreach (var item in recipeItem.Ingredients)
+            {
+                ingredientPrice = _ingredientsPrice[item.Key];
+                if (ingredientPrice != null)
+                    totalPrice += ingredientPrice * (item.Value/1000);
+            }
+            return totalPrice;
         }
 
         public List<ItemPrice> GetAll()
         {
-            return _prices.Select(x => new ItemPrice
+            var priceList = new List<ItemPrice>();
+            foreach (var recipe in _recipeRepository.GetAllRecipes())
             {
-                ItemId = x.Key,
-                Price = x.Value
-            }).ToList();
-        }
+                priceList.Add(new ItemPrice()
+                {
+                    ItemId = recipe.ItemId,
+                    Price = CalculatePriceById(recipe.ItemId)
+                });
+            }
 
-        public void UpdatePrice(ItemPrice itemPrice)
-        {
-            if (Exists(itemPrice.ItemId))
-                _prices[itemPrice.ItemId] = itemPrice.Price;
+            return priceList;
         }
 
         private bool Exists(string itemId)
         {
-            return _prices.ContainsKey(itemId);
+            return _recipeRepository.GetRecipe(itemId) != null;
         }
     }
 }

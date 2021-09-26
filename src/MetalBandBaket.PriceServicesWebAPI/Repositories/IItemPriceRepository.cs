@@ -4,7 +4,7 @@
     {
         ItemPrice Get(string itemId);
 
-        void UpdatePrice(ItemPrice itemPrice);
+        //void UpdatePrice(ItemPrice itemPrice);
 
         System.Collections.Generic.List<ItemPrice> GetAll();
     }

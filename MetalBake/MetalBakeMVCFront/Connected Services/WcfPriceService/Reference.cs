@@ -9,86 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace MetalBakeMVCFront.WcfPriceService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ItemPrice", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class ItemPrice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ItemIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PriceField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ItemId {
-            get {
-                return this.ItemIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
-                    this.ItemIdField = value;
-                    this.RaisePropertyChanged("ItemId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfPriceService.IService")]
@@ -107,16 +28,22 @@ namespace MetalBakeMVCFront.WcfPriceService {
         System.Threading.Tasks.Task<decimal> GetPriceAsync(string key);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllPrices", ReplyAction="http://tempuri.org/IService/GetAllPricesResponse")]
-        MetalBakeMVCFront.WcfPriceService.ItemPrice[] GetAllPrices();
+        Metal_Bake.Infra.WcfPriceReference.ItemPrice[] GetAllPrices();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllPrices", ReplyAction="http://tempuri.org/IService/GetAllPricesResponse")]
-        System.Threading.Tasks.Task<MetalBakeMVCFront.WcfPriceService.ItemPrice[]> GetAllPricesAsync();
+        System.Threading.Tasks.Task<Metal_Bake.Infra.WcfPriceReference.ItemPrice[]> GetAllPricesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetPrice", ReplyAction="http://tempuri.org/IService/SetPriceResponse")]
-        decimal SetPrice(MetalBakeMVCFront.WcfPriceService.ItemPrice item);
+        decimal SetPrice(Metal_Bake.Infra.WcfPriceReference.ItemPrice item);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetPrice", ReplyAction="http://tempuri.org/IService/SetPriceResponse")]
-        System.Threading.Tasks.Task<decimal> SetPriceAsync(MetalBakeMVCFront.WcfPriceService.ItemPrice item);
+        System.Threading.Tasks.Task<decimal> SetPriceAsync(Metal_Bake.Infra.WcfPriceReference.ItemPrice item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TxtListPrice", ReplyAction="http://tempuri.org/IService/TxtListPriceResponse")]
+        void TxtListPrice();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TxtListPrice", ReplyAction="http://tempuri.org/IService/TxtListPriceResponse")]
+        System.Threading.Tasks.Task TxtListPriceAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -162,20 +89,28 @@ namespace MetalBakeMVCFront.WcfPriceService {
             return base.Channel.GetPriceAsync(key);
         }
         
-        public MetalBakeMVCFront.WcfPriceService.ItemPrice[] GetAllPrices() {
+        public Metal_Bake.Infra.WcfPriceReference.ItemPrice[] GetAllPrices() {
             return base.Channel.GetAllPrices();
         }
         
-        public System.Threading.Tasks.Task<MetalBakeMVCFront.WcfPriceService.ItemPrice[]> GetAllPricesAsync() {
+        public System.Threading.Tasks.Task<Metal_Bake.Infra.WcfPriceReference.ItemPrice[]> GetAllPricesAsync() {
             return base.Channel.GetAllPricesAsync();
         }
         
-        public decimal SetPrice(MetalBakeMVCFront.WcfPriceService.ItemPrice item) {
+        public decimal SetPrice(Metal_Bake.Infra.WcfPriceReference.ItemPrice item) {
             return base.Channel.SetPrice(item);
         }
         
-        public System.Threading.Tasks.Task<decimal> SetPriceAsync(MetalBakeMVCFront.WcfPriceService.ItemPrice item) {
+        public System.Threading.Tasks.Task<decimal> SetPriceAsync(Metal_Bake.Infra.WcfPriceReference.ItemPrice item) {
             return base.Channel.SetPriceAsync(item);
+        }
+        
+        public void TxtListPrice() {
+            base.Channel.TxtListPrice();
+        }
+        
+        public System.Threading.Tasks.Task TxtListPriceAsync() {
+            return base.Channel.TxtListPriceAsync();
         }
     }
 }

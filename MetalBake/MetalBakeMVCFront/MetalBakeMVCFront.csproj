@@ -133,13 +133,15 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\PriceController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Change.cs" />
-    <Compile Include="Models\Chart.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\ItemIndex.cs" />
     <Compile Include="Models\ItemOrder.cs" />
     <Compile Include="Models\ItemPrice.cs" />
     <Compile Include="Models\ItemStock.cs" />
@@ -147,9 +149,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connected Services\WcfPriceService\MetalBakeMVCFront.WcfPriceService.ItemPrice.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\WcfPriceService\Service.disco" />
     <None Include="Connected Services\WcfPriceService\configuration91.svcinfo" />
     <None Include="Connected Services\WcfPriceService\configuration.svcinfo" />
@@ -157,9 +156,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Connected Services\WcfStockService\MetalBakeMVCFront.WcfStockService.ItemStock.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Connected Services\WcfPriceService\Service.wsdl" />
     <None Include="Connected Services\WcfPriceService\Service.xsd">
       <SubType>Designer</SubType>
@@ -200,6 +196,8 @@
     <None Include="Connected Services\WcfStockService\Service2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Properties\DataSources\Metal_Bake.Infra.WcfStockReference.ItemStock.datasource" />
+    <Content Include="Properties\DataSources\Metal_Bake.Infra.WcfPriceReference.ItemPrice.datasource" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -227,6 +225,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Price\PriceList.cshtml" />
     <Content Include="Views\Stock\StockList.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\AddToCart.cshtml" />
+    <Content Include="Views\Order\MakeOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

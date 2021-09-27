@@ -1,12 +1,12 @@
-﻿using MetalBake.Interfaces;
-using MetalBake;
+﻿using Metal.Services;
+using MetalBake.core.Interfaces;
+using MetalBake.core.Services;
+using MetalBake.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Metal.Services;
-using MetalBake.core.Interfaces;
-using MetalBake.core.Services;
+
 
 namespace MetalBake.Services
 {

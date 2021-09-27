@@ -117,6 +117,12 @@ namespace Metal_Bake.Infra.WcfPriceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/SetPrice", ReplyAction="http://tempuri.org/IService/SetPriceResponse")]
         System.Threading.Tasks.Task<decimal> SetPriceAsync(Metal_Bake.Infra.WcfPriceReference.ItemPrice item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TxtListPrice", ReplyAction="http://tempuri.org/IService/TxtListPriceResponse")]
+        void TxtListPrice();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TxtListPrice", ReplyAction="http://tempuri.org/IService/TxtListPriceResponse")]
+        System.Threading.Tasks.Task TxtListPriceAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -176,6 +182,14 @@ namespace Metal_Bake.Infra.WcfPriceReference {
         
         public System.Threading.Tasks.Task<decimal> SetPriceAsync(Metal_Bake.Infra.WcfPriceReference.ItemPrice item) {
             return base.Channel.SetPriceAsync(item);
+        }
+        
+        public void TxtListPrice() {
+            base.Channel.TxtListPrice();
+        }
+        
+        public System.Threading.Tasks.Task TxtListPriceAsync() {
+            return base.Channel.TxtListPriceAsync();
         }
     }
 }

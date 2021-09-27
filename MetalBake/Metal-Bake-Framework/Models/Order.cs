@@ -8,15 +8,15 @@ namespace Metal_Bake_Framework.Models
 {
     public class Order
     {
-        public List<ItemOrder> itemsInChart;
+        public List<ItemOrder> itemsInCart;
         public Order()
         {
-            itemsInChart = new List<ItemOrder>();
+            itemsInCart = new List<ItemOrder>();
         }
         public decimal CalculateOrderPrice()
         {
             decimal totalPrice = 0;
-            foreach (var item in itemsInChart)
+            foreach (var item in itemsInCart)
             {
                 totalPrice += (item.Amount * item.Price);
             }
@@ -24,11 +24,11 @@ namespace Metal_Bake_Framework.Models
         }
         public void AddItemOrder(ItemOrder order)
         {
-            itemsInChart.Add(order);
+            itemsInCart.Add(order);
         }
         public void RemoveItemOrder(ItemOrder order)
         {
-            itemsInChart.Remove(order);
+            itemsInCart.Remove(order);
         }
     }
 }

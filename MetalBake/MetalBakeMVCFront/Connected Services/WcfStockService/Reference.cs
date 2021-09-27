@@ -9,70 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace MetalBakeMVCFront.WcfStockService {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ItemStock", Namespace="http://schemas.datacontract.org/2004/07/")]
-    [System.SerializableAttribute()]
-    public partial class ItemStock : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ItemIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StockField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ItemId {
-            get {
-                return this.ItemIdField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
-                    this.ItemIdField = value;
-                    this.RaisePropertyChanged("ItemId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Stock {
-            get {
-                return this.StockField;
-            }
-            set {
-                if ((this.StockField.Equals(value) != true)) {
-                    this.StockField = value;
-                    this.RaisePropertyChanged("Stock");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfStockService.IService")]
@@ -109,10 +46,16 @@ namespace MetalBakeMVCFront.WcfStockService {
         System.Threading.Tasks.Task<bool> IncreaseStockAsync(string item, int amount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
-        MetalBakeMVCFront.WcfStockService.ItemStock[] GetAllStock();
+        Metal_Bake.Infra.WcfStockReference.ItemStock[] GetAllStock();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
-        System.Threading.Tasks.Task<MetalBakeMVCFront.WcfStockService.ItemStock[]> GetAllStockAsync();
+        System.Threading.Tasks.Task<Metal_Bake.Infra.WcfStockReference.ItemStock[]> GetAllStockAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TxtListStock", ReplyAction="http://tempuri.org/IService/TxtListStockResponse")]
+        void TxtListStock();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TxtListStock", ReplyAction="http://tempuri.org/IService/TxtListStockResponse")]
+        System.Threading.Tasks.Task TxtListStockAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -182,12 +125,20 @@ namespace MetalBakeMVCFront.WcfStockService {
             return base.Channel.IncreaseStockAsync(item, amount);
         }
         
-        public MetalBakeMVCFront.WcfStockService.ItemStock[] GetAllStock() {
+        public Metal_Bake.Infra.WcfStockReference.ItemStock[] GetAllStock() {
             return base.Channel.GetAllStock();
         }
         
-        public System.Threading.Tasks.Task<MetalBakeMVCFront.WcfStockService.ItemStock[]> GetAllStockAsync() {
+        public System.Threading.Tasks.Task<Metal_Bake.Infra.WcfStockReference.ItemStock[]> GetAllStockAsync() {
             return base.Channel.GetAllStockAsync();
+        }
+        
+        public void TxtListStock() {
+            base.Channel.TxtListStock();
+        }
+        
+        public System.Threading.Tasks.Task TxtListStockAsync() {
+            return base.Channel.TxtListStockAsync();
         }
     }
 }

@@ -26,6 +26,9 @@ namespace Metal_Bake.Infra.WcfStockReference {
         private string ItemIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int StockField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -47,6 +50,19 @@ namespace Metal_Bake.Infra.WcfStockReference {
                 if ((object.ReferenceEquals(this.ItemIdField, value) != true)) {
                     this.ItemIdField = value;
                     this.RaisePropertyChanged("ItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -113,6 +129,12 @@ namespace Metal_Bake.Infra.WcfStockReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAllStock", ReplyAction="http://tempuri.org/IService/GetAllStockResponse")]
         System.Threading.Tasks.Task<Metal_Bake.Infra.WcfStockReference.ItemStock[]> GetAllStockAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TxtListStock", ReplyAction="http://tempuri.org/IService/TxtListStockResponse")]
+        void TxtListStock();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TxtListStock", ReplyAction="http://tempuri.org/IService/TxtListStockResponse")]
+        System.Threading.Tasks.Task TxtListStockAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -188,6 +210,14 @@ namespace Metal_Bake.Infra.WcfStockReference {
         
         public System.Threading.Tasks.Task<Metal_Bake.Infra.WcfStockReference.ItemStock[]> GetAllStockAsync() {
             return base.Channel.GetAllStockAsync();
+        }
+        
+        public void TxtListStock() {
+            base.Channel.TxtListStock();
+        }
+        
+        public System.Threading.Tasks.Task TxtListStockAsync() {
+            return base.Channel.TxtListStockAsync();
         }
     }
 }

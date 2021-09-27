@@ -6,15 +6,15 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.ComponentModel;
 using MetalBake.core.Interfaces;
-using Metal_Bake_Console;
 using MetalBake.Interfaces;
+using Metal_Bake_Console;
 
 namespace Metal
 {
 
     class Program
     {
-        /*static void Main(string[] args)
+        static void Main(string[] args)
         {
             //PriceService priceService = new PriceService();
             //StockService stockService = new StockService();
@@ -57,7 +57,7 @@ namespace Metal
                 }
                 Console.WriteLine(Environment.NewLine);
             } while (!option.Equals("3"));
-        }*/
+        }
     }
 
 }

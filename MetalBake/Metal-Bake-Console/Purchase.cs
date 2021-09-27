@@ -1,12 +1,11 @@
-﻿using MetalBake.core.Interfaces;
-using MetalBake.core.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+using MetalBake.core.Interfaces;
 using MetalBake.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Metal_Bake_Console
 {

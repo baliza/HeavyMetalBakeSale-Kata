@@ -9,16 +9,21 @@ namespace MetalBake.Services
 {
     public class StockService : IStockService
     {
-        private static Dictionary<string, int> _inventory = new Dictionary<string, int>
+
+        private static Dictionary<string, int> _inventory;
+        static StockService()
         {
+            _inventory = new Dictionary<string, int>
+            {
             {"B", 40 },
             {"M", 36 },
             {"C", 24 },
             {"W", 30 }
-        };
+            };
+        }
         public bool Exist(string item)
         {
-           return item.Equals(_inventory[item]);       
+            return item.Equals(_inventory[item]);
         }
         public int GetStock(string key)
         {
@@ -33,11 +38,11 @@ namespace MetalBake.Services
         }
         public bool CheckStock(string item, int amount)
         {
-            return _inventory[item] > amount;
+            return _inventory[item] >= amount;
         }
         public void ReduceStock(string item, int amount)
         {
-            _inventory[item]-=amount;
+            _inventory[item] -= amount;
         }
         public List<ItemStock> GetAllStock()
         {

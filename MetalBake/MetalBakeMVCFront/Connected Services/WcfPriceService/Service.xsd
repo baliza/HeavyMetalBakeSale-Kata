@@ -56,4 +56,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="TxtListPrice">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TxtListPriceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

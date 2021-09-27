@@ -1,6 +1,7 @@
-﻿using MetaBake.Services;
+﻿
 using MetalBake.core.Interfaces;
-using MetalBake.core.Models;
+using MetalBake.Services;
+using MetalBakeMVCFront.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,9 @@ namespace MetalBakeMVCFront.Controllers
         private IPriceService _wcfPriceService = new PriceService();
         public ActionResult PriceList()
         {
-            List<ItemPrice> stockList = new List<ItemPrice>(_wcfPriceService.GetAllPrices()
+            List<ItemPrice> priceList = new List<ItemPrice>(_wcfPriceService.GetAllPrices()
                 .Select(item => new ItemPrice() { ItemId = item.ItemId, Name = item.Name, Price = item.Price }));
-            return View(stockList);
-
+            return View(priceList);
 
 
             /*private IPriceService _restPriceService = new RestfullPriceService();

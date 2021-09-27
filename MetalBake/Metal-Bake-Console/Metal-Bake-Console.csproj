@@ -76,6 +76,10 @@
       <Project>{de7d5c76-ed62-49f7-9e18-992c1aa167b2}</Project>
       <Name>MetalBake.core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Metal-Bake-Library\Metal-Bake-Library.csproj">
+      <Project>{ddd4d870-437f-4555-a957-bca603e288fb}</Project>
+      <Name>Metal-Bake-Library</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Metal-Bake.Infra\Metal-Bake.Infra.csproj">
       <Project>{399b95ef-ffde-4dad-8991-114a88cf77fb}</Project>
       <Name>Metal-Bake.Infra</Name>

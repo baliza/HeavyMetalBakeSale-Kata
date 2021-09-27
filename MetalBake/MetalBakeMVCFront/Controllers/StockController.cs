@@ -1,6 +1,7 @@
-﻿using MetalBake.core.Interfaces;
-using MetalBake.core.Models;
+﻿
+using MetalBake.core.Interfaces;
 using MetalBake.Services;
+using MetalBakeMVCFront.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

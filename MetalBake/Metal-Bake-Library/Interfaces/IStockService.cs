@@ -5,12 +5,12 @@ using System.Text;
 
 namespace MetalBake.Interfaces
 {
-    interface IStockService
+    /*interface IStockService
     {
         bool Exist(string item);
         int GetStock(string key);
         bool CheckStock(string item, int amount);
         void ReduceStock(string item, int amount);
         List<ItemStock> GetAllStock();
-    }
+    }*/
 }

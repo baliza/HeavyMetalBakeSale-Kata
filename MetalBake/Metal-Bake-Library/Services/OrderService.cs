@@ -25,9 +25,9 @@ namespace Metal_Bake_Library.Services
                 {
                     return null;
                 }
-                if (order.itemsInChart.Exists(i => i.Id == item.Item1))
+                if (order.itemsInCart.Exists(i => i.Id == item.Item1))
                 {
-                    ItemOrder product = order.itemsInChart.FirstOrDefault(i => i.Id == item.Item1);
+                    ItemOrder product = order.itemsInCart.FirstOrDefault(i => i.Id == item.Item1);
                     product.Amount += item.Item2;
                 }
                 else
@@ -40,12 +40,12 @@ namespace Metal_Bake_Library.Services
         }
         public List<string> CompletePurchaseChart(Order order)
         {
-            ReduceOrderStock(order.itemsInChart);
+            ReduceOrderStock(order.itemsInCart);
             return null;
         }
-        private void ReduceOrderStock(List<ItemOrder> chart)
+        private void ReduceOrderStock(List<ItemOrder> cart)
         {
-            foreach (var orderLine in chart)
+            foreach (var orderLine in cart)
             {
                 _stockService.ReduceStock(orderLine.Id, orderLine.Amount);
             }

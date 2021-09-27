@@ -64,6 +64,7 @@
     <Compile Include="Interfaces\IPriceService.cs" />
     <Compile Include="Interfaces\IStockService.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemFull.cs" />
     <Compile Include="Models\ItemOrder.cs" />
     <Compile Include="Models\ItemPrice.cs" />
     <Compile Include="Models\ItemStock.cs" />

@@ -53,8 +53,16 @@ namespace MetalBandBakery.MVC.Controllers
 
         public ActionResult SetRecipeBake(string itemId, string ingredientId, int ingredientQuantity, decimal extra)
         {
+            ingredientQuantity = 1;
             EditIngredient(ingredientId, ingredientQuantity);
             _priceService.UpdateRecipe(itemId, ingredientsTest, extra);
+            return RedirectToAction("Index", "Stock");
+        }
+
+        [HttpPost]
+        public ActionResult setIngredientRecipe(Ingredient ingredient)
+        {
+            SetRecipeBake(ingredient.ItemId, ingredient.IngredientId, ingredient.IngredientQuantity, ingredient.Extra);
             return RedirectToAction("Index", "Stock");
         }
     }

@@ -11,7 +11,7 @@ namespace KataMuffin.Controllers
 {
     public class StockController : Controller
     {
-        private string PathJason = @"C:\Users\Nobody\source\repos\KataMuffin\KataMuffin\App_Data\Stock.json";
+        private string PathJason = @"C:\Users\Nobody\source\repos\HeavyMetalBakeSale-Kata\KataMuffin\App_Data\Stock.json";
 
         // GET: Stocks
         public ActionResult Index()

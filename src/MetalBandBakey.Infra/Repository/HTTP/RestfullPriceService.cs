@@ -60,7 +60,7 @@ namespace MetalBandBakey.Infra.Repository
 
         public void UpdateRecipe(string itemId, Dictionary<string, int> ingredients, decimal extra)
         {
-            string apiUrl = "https://localhost:44330/recipes/UpdateIngredientList";
+            string apiUrl = "https://localhost:44350/recipes/UpdateIngredientList";
 
             using (WebClient client = new WebClient())
             {
@@ -73,7 +73,7 @@ namespace MetalBandBakey.Infra.Repository
                     Extra = extra
                 };
                 string json = JsonConvert.SerializeObject(recipe);
-                client.UploadString($"{apiUrl}/UpdateRecipe", json);
+                client.UploadString(apiUrl, json);
             }
         }
     }

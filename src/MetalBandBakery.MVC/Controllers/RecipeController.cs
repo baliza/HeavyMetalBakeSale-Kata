@@ -12,6 +12,7 @@ namespace MetalBandBakery.MVC.Controllers
     public class RecipeController : Controller
     {
         private static IPriceService _priceService = new Infra.RestfullPriceService();
+        private static Dictionary<string, int> ingredientsTest = new Dictionary<string, int>();
 
         // GET: Recipe
         public ActionResult Index()
@@ -29,18 +30,31 @@ namespace MetalBandBakery.MVC.Controllers
         public ActionResult Edit(string id)
         {
             var recipeApi = _priceService.GetRepice(id);
+            ingredientsTest = recipeApi.Ingredients;
+
             MetalBandBakery.MVC.Models.Recipe recipeMVC = new MetalBandBakery.MVC.Models.Recipe()
             {
                 ItemId = recipeApi.ItemId,
                 Ingredients = recipeApi.Ingredients,
                 Extra = recipeApi.Extra
             };
+            ViewBag.Ingredients = recipeMVC.Ingredients;
+            //ViewBag.RecipeTest = recipeMVC;
             return View(recipeMVC);
         }
 
-        public ActionResult SetRecipeBake(Models.Recipe recipe)
+        public void EditIngredient(string id, int quantity)
         {
-            _priceService.UpdateRecipe(recipe.ItemId, recipe.Ingredients, recipe.Extra);
+            if (ingredientsTest.ContainsKey(id))
+            {
+                ingredientsTest[id] = quantity;
+            }
+        }
+
+        public ActionResult SetRecipeBake(string itemId, string ingredientId, int ingredientQuantity, decimal extra)
+        {
+            EditIngredient(ingredientId, ingredientQuantity);
+            _priceService.UpdateRecipe(itemId, ingredientsTest, extra);
             return RedirectToAction("Index", "Stock");
         }
     }

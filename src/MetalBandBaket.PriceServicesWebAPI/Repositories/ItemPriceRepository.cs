@@ -40,18 +40,22 @@ namespace MetalBandBakery.PriceServicesWebAPI.Repositories
             };
         }
 
+        //HAVE TO FIX :(
         private decimal CalculatePriceById(string itemId)
         {
             Recipe recipeItem = _recipeRepository.GetRecipe(itemId);
-            decimal totalPrice = recipeItem.Extra;
-            decimal ingredientPrice = -1;
+            double totalPrice = (double)recipeItem.Extra;
+            double ingredientPrice = -1;
             foreach (var item in recipeItem.Ingredients)
             {
-                ingredientPrice = _ingredientsPrice[item.Key];
+                ingredientPrice = (double)_ingredientsPrice[item.Key];
                 if (ingredientPrice != null)
-                    totalPrice += ingredientPrice * (item.Value/1000);
+                {
+                    double vl = item.Value / 10;
+                    totalPrice = totalPrice + (ingredientPrice * vl);
+                }
             }
-            return totalPrice;
+            return (decimal)totalPrice;
         }
 
         public List<ItemPrice> GetAll()

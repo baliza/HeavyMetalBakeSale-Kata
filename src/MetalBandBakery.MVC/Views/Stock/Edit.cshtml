@@ -10,9 +10,9 @@
 
 @using (Html.BeginForm("SetStockBake", "Stock", FormMethod.Post))
 {
-@Html.TextBoxFor(model => model.ItemId, new { @readonly = "readonly" })
-@Html.TextBoxFor(model => model.Quantity)
-@Html.TextBoxFor(model => model.Price,  new { @readonly = "readonly" })
+    @Html.TextBoxFor(model => model.ItemId, new { @readonly = "readonly" })
+    @Html.TextBoxFor(model => model.Quantity)
+    @Html.TextBoxFor(model => model.Price, new { @readonly = "readonly" })
 
-<input type="submit" value="Save" />
+    <input type="submit" value="Save" />
 }

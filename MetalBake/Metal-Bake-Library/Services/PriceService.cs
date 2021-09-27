@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetaBake.Services
+namespace MetalBake.Services
 {
     public class PriceService : IPriceService
     {

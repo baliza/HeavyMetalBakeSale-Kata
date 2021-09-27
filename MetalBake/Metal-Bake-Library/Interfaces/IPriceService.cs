@@ -1,7 +1,7 @@
 ﻿using MetalBake.core.Models;
 using System.Collections.Generic;
 
-namespace MetalBake.Services
+namespace MetalBake.Interfaces
 {
     public interface IPriceService
     {

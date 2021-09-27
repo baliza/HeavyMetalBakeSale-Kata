@@ -189,6 +189,16 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MetalBandBakery.Core\MetalBandBakery.Core.csproj">
+      <Project>{83C3C6A5-9D26-44B4-85D1-67788DFE0E50}</Project>
+      <Name>MetalBandBakery.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MetalBandBakery.Infra\MetalBandBakery.Infra.csproj">
+      <Project>{90C5BFB4-1427-4D1C-B4AB-FA148139240F}</Project>
+      <Name>MetalBandBakery.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

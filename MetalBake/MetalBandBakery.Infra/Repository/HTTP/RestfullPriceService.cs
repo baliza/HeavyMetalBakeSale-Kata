@@ -19,7 +19,7 @@ namespace MetalBandBakery.Infra.Repository.HTTP
 
         public decimal GetPrice(string itemId)
         {
-            string apiUrl = "https://localhost:44330/prices";
+            string apiUrl = "https://localhost:44351/prices";
 
             using (WebClient client = new WebClient())
             {
@@ -28,6 +28,33 @@ namespace MetalBandBakery.Infra.Repository.HTTP
                 string json = client.DownloadString($"{apiUrl}/{itemId}");
                 var itemPrice = JsonConvert.DeserializeObject<ItemPrice>(json);
                 return itemPrice.price;
+            }
+        }
+
+        public List<ItemPrice> GetAllItems()
+        {
+            string apiUrl = "https://localhost:44351/prices";
+            using (WebClient client = new WebClient())
+            {
+                client.Headers["Content-type"] = "application/json";
+                client.Encoding = Encoding.UTF8;
+                string json = client.DownloadString(apiUrl);
+                var itemList = JsonConvert.DeserializeObject<List<ItemPrice>>(json);
+                return itemList;
+            }
+        }
+
+        public bool UpdatePrice(string id, decimal newPrice)
+        {
+            string apiUrl = "https://localhost:44351/prices/setPrice";
+            using (WebClient client = new WebClient())
+            {
+                client.Headers["Content-type"] = "application/json";
+                client.Encoding = Encoding.UTF8;
+                ItemPrice itemToUpdate = new ItemPrice() { itemId = id, price = newPrice };
+                string data = JsonConvert.SerializeObject(itemToUpdate);
+                client.UploadString(apiUrl, data);
+                return true;
             }
         }
     }

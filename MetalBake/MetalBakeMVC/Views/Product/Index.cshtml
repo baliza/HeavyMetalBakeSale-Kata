@@ -12,11 +12,11 @@
     </tr>
     @foreach (var prod in Model.prices)
     {
-        var sort = prod.Key;
+        var sort = prod.itemId;
         <tr>
             <td>@sort</td>
             <td>@Model.stock[sort]</td>
-            <td>@Model.prices[sort]</td>
+            <td>@prod.price</td>
             <td>
                 @Html.ActionLink("Edit", "Edit", "Product", new { id = sort }, null)
                 @Html.ActionLink("Add to cart", "Add", "AddToCart", new { id = sort }, null)

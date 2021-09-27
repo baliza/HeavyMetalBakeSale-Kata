@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@using KataMuffin.Models
+@model List<Stock>
+
+<br />
+@foreach (var item in Model)
+{
+    <h3>
+        @item.Name with
+        @item.Amount items
+    </h3>
+    <p>@Html.ActionLink("Add to stock", "AddItemToStock", "Stock", new { IdToStock = item.Id }, null)</p>
+    <p>@Html.ActionLink("Remove from stock", "RemoveItemFromStock", "Stock", new { IdToStock = item.Id }, null)</p>
+    <br />
+}

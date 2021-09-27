@@ -1,1 +1,22 @@
-[{"Id":"B","Name":"Brownie","Amount":67},{"Id":"M","Name":"Muffin","Amount":37},{"Id":"C","Name":"Cake Pop","Amount":22},{"Id":"W","Name":"Water","Amount":28}]
+[
+  {
+    "Id": "B",
+    "Name": "Brownie",
+    "Amount": 40
+  },
+  {
+    "Id": "M",
+    "Name": "Muffin",
+    "Amount": 30
+  },
+  {
+    "Id": "C",
+    "Name": "Cake Pop",
+    "Amount": 20
+  },
+  {
+    "Id": "W",
+    "Name": "Water",
+    "Amount": 25
+  }
+]

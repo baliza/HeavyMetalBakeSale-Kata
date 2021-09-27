@@ -13,7 +13,7 @@ namespace KataMuffin.Controllers
     {
         private string PathJason = @"C:\Users\Nobody\source\repos\KataMuffin\KataMuffin\App_Data\Stock.json";
 
-        // GET: Stock
+        // GET: Stocks
         public ActionResult Index()
         {
             return View(GetStock());

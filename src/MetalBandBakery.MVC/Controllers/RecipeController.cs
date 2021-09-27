@@ -38,8 +38,6 @@ namespace MetalBandBakery.MVC.Controllers
                 Ingredients = recipeApi.Ingredients,
                 Extra = recipeApi.Extra
             };
-            ViewBag.Ingredients = recipeMVC.Ingredients;
-            //ViewBag.RecipeTest = recipeMVC;
             return View(recipeMVC);
         }
 
@@ -51,18 +49,15 @@ namespace MetalBandBakery.MVC.Controllers
             }
         }
 
-        public ActionResult SetRecipeBake(string itemId, string ingredientId, int ingredientQuantity, decimal extra)
-        {
-            ingredientQuantity = 1;
-            EditIngredient(ingredientId, ingredientQuantity);
-            _priceService.UpdateRecipe(itemId, ingredientsTest, extra);
-            return RedirectToAction("Index", "Stock");
-        }
-
         [HttpPost]
-        public ActionResult setIngredientRecipe(Ingredient ingredient)
+        public ActionResult SetRecipeBake(Recipe recipe)
         {
-            SetRecipeBake(ingredient.ItemId, ingredient.IngredientId, ingredient.IngredientQuantity, ingredient.Extra);
+            //ingredientQuantity = 1;
+            foreach (var r in recipe.Ingredients)
+            {
+                EditIngredient(r.Key, r.Value);
+            }
+            _priceService.UpdateRecipe(recipe.ItemId, ingredientsTest, recipe.Extra);
             return RedirectToAction("Index", "Stock");
         }
     }

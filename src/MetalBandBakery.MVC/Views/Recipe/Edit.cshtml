@@ -17,14 +17,14 @@
     @foreach (var ingredient in Model.Ingredients)
     {
         <tr>
-            <td>
-                @ingredient.Key
-            </td>
-            <td>
-                @Html.EditorFor(model => model.Ingredients[ingredient.Key])
-            </td>
-            <td>
-                @Html.ActionLink("Save", "SetRecipeBake", "Recipe",
+            @*<td>
+                    @ingredient.Key
+                </td>
+                <td>
+                    @Html.EditorFor(model => model.Ingredients[ingredient.Key])
+                </td>
+                <td>
+                    @Html.ActionLink("Save", "SetRecipeBake", "Recipe",
                     new
                     {
                         itemId = Model.ItemId,
@@ -32,16 +32,18 @@
                         ingredientQuantity = Model.Ingredients[ingredient.Key],
                         extra = Model.Extra
                     }, new { @class = "btn btn-primary" })
-            </td>
-            @*@using (Html.BeginForm("setIngredientRecipe", "Recipe", FormMethod.Post))
-                {
-                    @Html.Hidden(Model.ItemId)
+                </td>*@
+            @using (Html.BeginForm("SetRecipeBake", "Recipe", FormMethod.Post))
+            {
+                <fieldset>
+                    <td>@Html.HiddenFor(model => model.ItemId)</td>
                     <td>@Html.TextBoxFor(model => ingredient.Key, new { @readonly = "readonly" })</td>
                     <td>@Html.TextBoxFor(model => model.Ingredients[ingredient.Key])</td>
-                    @Html.Hidden(Model.Extra + "")
+                    <td>@Html.HiddenFor(model => model.Extra)</td>
 
                     <td><input type="submit" value="Save" /></td>
-                }*@
+                </fieldset>
+            }
         </tr>
     }
 </table>

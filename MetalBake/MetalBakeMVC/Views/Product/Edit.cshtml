@@ -1,0 +1,14 @@
+﻿@model MetalBakeMVC.Models.Product
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<form action="/Product/EditPrice" method="post">
+    <p>Producto</p>
+    <input type="text" name="id" value="@Model.id" readonly />
+    <p>Precio actual: @Model.price</p>
+    <p>Nuevo Precio</p>
+    <input type="text" name="newPrice" value="" />
+    <input type="submit" value="Aceptar" />
+</form>

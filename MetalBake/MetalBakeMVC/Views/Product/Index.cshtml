@@ -1,0 +1,33 @@
+﻿@model MetalBakeMVC.ViewModels.ProductList
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Item List</h2>
+<table class="table">
+    <tr>
+        <th>Item</th>
+        <th>Stock</th>
+        <th>Price</th>
+    </tr>
+    @foreach (var prod in Model.prices)
+    {
+        var sort = prod.Key;
+        <tr>
+            <td>@sort</td>
+            <td>@Model.stock[sort]</td>
+            <td>@Model.prices[sort]</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Product", new { id = sort }, null)
+                @Html.ActionLink("Add to cart", "Add", "AddToCart", new { id = sort }, null)
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Shop", "Index", "ShoppingCart")
+    @if (Session["count"] != null)
+    {
+        <span>(@Session["count"] items)</span>
+    }
+</p>

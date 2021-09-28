@@ -1,17 +1,17 @@
 ﻿using MetalBandBakery.Core.Services;
 using MetalBandBakery.MVC.Models;
-using Infra = MetalBandBakey.Infra.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MetalBandBakery.ManagerLibrary.RestFull;
 
 namespace MetalBandBakery.MVC.Controllers
 {
     public class RecipeController : Controller
     {
-        private static IPriceService _priceService = new Infra.RestfullPriceService();
+        private static IPriceService _priceService = new RestFullPrice();
         private static Dictionary<string, int> ingredientsTest = new Dictionary<string, int>();
 
         // GET: Recipe

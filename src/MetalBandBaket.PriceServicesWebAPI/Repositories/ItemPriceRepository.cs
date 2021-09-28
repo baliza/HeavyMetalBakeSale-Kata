@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -45,17 +46,21 @@ namespace MetalBandBakery.PriceServicesWebAPI.Repositories
         {
             Recipe recipeItem = _recipeRepository.GetRecipe(itemId);
             double totalPrice = (double)recipeItem.Extra;
+            double vl;
             double ingredientPrice = -1;
             foreach (var item in recipeItem.Ingredients)
             {
-                ingredientPrice = (double)_ingredientsPrice[item.Key];
+                decimal s = _ingredientsPrice[item.Key];
+                double.TryParse(s + "", out ingredientPrice);
                 if (ingredientPrice != null)
                 {
-                    double vl = item.Value / 10;
+                    vl = double.Parse(item.Value + "") / 1000;
                     totalPrice = totalPrice + (ingredientPrice * vl);
                 }
             }
-            return (decimal)totalPrice;
+            decimal x = -1;
+            decimal.TryParse(totalPrice + "", out x);
+            return Math.Round(x, 2);
         }
 
         public List<ItemPrice> GetAll()

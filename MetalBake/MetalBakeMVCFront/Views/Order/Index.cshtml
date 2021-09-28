@@ -1,0 +1,19 @@
+﻿@model List<MetalBakeMVCFront.Models.ItemIndex>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+    <li>@item.ItemId, @item.Name, @item.Amount, @item.Price, @Html.ActionLink("Añadir al carrito", "AddToCart", "Order", null, new { @class = "btn btn-primary" })</li>
+    }
+</ul>
+
+
+<ul>
+    <li>
+        @Html.ActionLink("Ir al carrito", "MakeOrder", "Order", null, null)
+    </li>
+</ul>

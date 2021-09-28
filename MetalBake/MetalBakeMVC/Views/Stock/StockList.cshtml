@@ -1,0 +1,12 @@
+﻿@model List<MetalBakeMVC.Models.ItemStock>
+@{
+    ViewBag.Title = "StockList";
+}
+
+<h2>StockList</h2>
+@{
+    foreach (var item in Model)
+    {
+        <p>@item.ItemId, @item.Name, @item.Amount</p>
+    }
+}

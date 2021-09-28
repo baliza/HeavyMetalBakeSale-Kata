@@ -1,0 +1,13 @@
+﻿@model List<MetalBakeMVCFront.Models.ItemPrice>
+
+@{
+    ViewBag.Title = "PriceList";
+}
+
+<h2>PriceList</h2>
+@{
+    foreach (var item in Model)
+    {
+        <p>@item.ItemId, @item.Name, @item.Price</p>
+    }
+}

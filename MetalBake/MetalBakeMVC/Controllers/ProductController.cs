@@ -17,11 +17,9 @@ namespace MetalBakeMVC.Controllers
     {
         //No me funcionan las rutas relativas por algún motivo
 
-        private static string _url = @"https://localhost:44330/";
-        private static string _pricePath = @"C:\Users\nettrim\Source\Repos\HeavyMetalBakeSale-Kata2\src\MetalBakeMVC\App_Data\price.json";
         private static string _stockPath = @"C:\Users\nettrim\Source\Repos\HeavyMetalBakeSale-Kata2\src\MetalBakeMVC\App_Data\stock.json";
-        private static Dictionary<string, int> _stock = SetUpStock();
-        private static List<ItemPrice> _prices = SetUpPrice();
+        private static Dictionary<string, int> _stock;
+        private static List<ItemPrice> _prices;
 
         private static Dictionary<string, int> SetUpStock()
         {
@@ -42,6 +40,8 @@ namespace MetalBakeMVC.Controllers
         // GET: Product
         public ActionResult Index()
         {
+            _prices = SetUpPrice();
+            _stock = SetUpStock();
             var prodList = new ProductList() { stock = _stock, prices = _prices };
             return View(prodList);
         }

@@ -11,6 +11,6 @@ namespace WebApplication1.Repositories
 
         System.Collections.Generic.List<ItemPrice> GetAll();
 
-        void PostUpdatePrice(ItemPrice item);
+        void PostUpdatePrice(string item);
     }
 }

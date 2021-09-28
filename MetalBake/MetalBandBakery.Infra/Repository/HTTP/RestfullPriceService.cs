@@ -2,8 +2,11 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -49,11 +52,10 @@ namespace MetalBandBakery.Infra.Repository.HTTP
             string apiUrl = "https://localhost:44351/prices/setPrice";
             using (WebClient client = new WebClient())
             {
-                client.Headers["Content-type"] = "application/json";
-                client.Encoding = Encoding.UTF8;
+                client.Headers.Add("Content-Type", "text/json");
                 ItemPrice itemToUpdate = new ItemPrice() { itemId = id, price = newPrice };
-                string data = JsonConvert.SerializeObject(itemToUpdate);
-                client.UploadString(apiUrl, data);
+                var data = JsonConvert.SerializeObject(itemToUpdate);
+                client.UploadString(apiUrl, "POST", data);
                 return true;
             }
         }

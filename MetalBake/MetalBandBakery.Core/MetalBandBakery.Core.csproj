@@ -47,6 +47,8 @@
     <Compile Include="Services\IPriceService.cs" />
     <Compile Include="Services\IStockService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App_Data\price.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

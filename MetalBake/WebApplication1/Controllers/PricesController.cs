@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,8 @@ namespace WebApplication1.Controllers
         public void SetItemPrice([FromBody] ItemPrice item)
         {
             ItemPriceRepository repository = new ItemPriceRepository();
-            repository.PostUpdatePrice(item);
+            var itemJson = JsonConvert.SerializeObject(item);
+            repository.PostUpdatePrice(itemJson);
         }
     }
 }

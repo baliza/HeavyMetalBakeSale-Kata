@@ -1,17 +1,22 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace WebApplication1.Repositories
 {
     public class ItemPriceRepository : IItemPriceRepository
     {
         private static Dictionary<string, decimal> _prices;
+        private static string _priceJsonPath = @"C:\Users\nettrim\source\repos\HeavyMetalBakeSale-Kata\MetalBake\MetalBandBakery.Core\App_Data\price.json";
 
         static ItemPriceRepository()
         {
-            _prices = new Dictionary<string, decimal>() { { "B", 0.65m }, { "M", 1.00m }, { "C", 1.35m }, { "W", 1.50m } };
+            var dictJson = File.ReadAllText(_priceJsonPath);
+            var dict = JsonConvert.DeserializeObject<Dictionary<string, decimal>>(dictJson);
+            _prices = dict;
         }
 
         public ItemPrice Get(string itemId)
@@ -34,11 +39,14 @@ namespace WebApplication1.Repositories
             }).ToList();
         }
 
-        public void PostUpdatePrice(ItemPrice item)
+        public void PostUpdatePrice(string itemData)
         {
+            ItemPrice item = JsonConvert.DeserializeObject<ItemPrice>(itemData);
             if (!Exists(item.ItemId))
                 return;
             _prices[item.ItemId] = item.Price;
+            var dict = JsonConvert.SerializeObject(_prices);
+            File.WriteAllText(_priceJsonPath, dict);
         }
 
         private bool Exists(string itemId)

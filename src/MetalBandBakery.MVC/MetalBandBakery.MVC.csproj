@@ -192,9 +192,9 @@
       <Project>{1077345E-0264-4B9F-B698-5FE754056AAA}</Project>
       <Name>MetalBandBakery.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MetalBandBakey.Infra\MetalBandBakey.Infra.csproj">
-      <Project>{4C831473-32F2-4B53-970C-52DCFAD68C3A}</Project>
-      <Name>MetalBandBakey.Infra</Name>
+    <ProjectReference Include="..\MetalBandBakery.ManagerLibrary\MetalBandBakery.ManagerLibrary.csproj">
+      <Project>{a2060dcb-d3c5-4cfa-a5b3-1fa822e3aefa}</Project>
+      <Name>MetalBandBakery.ManagerLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

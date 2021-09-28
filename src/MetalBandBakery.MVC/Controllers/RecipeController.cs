@@ -1,6 +1,6 @@
 ﻿using MetalBandBakery.Core.Services;
+using MetalBandBakery.ManagerLibrary;
 using MetalBandBakery.MVC.Models;
-using Infra = MetalBandBakey.Infra.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +11,13 @@ namespace MetalBandBakery.MVC.Controllers
 {
     public class RecipeController : Controller
     {
-        private static IPriceService _priceService = new Infra.RestfullPriceService();
+        private static ManagerBandBakery _managerBandBakery = new ManagerBandBakery();
         private static Dictionary<string, int> ingredientsTest = new Dictionary<string, int>();
 
         // GET: Recipe
         public ActionResult Index()
         {
-            var recipeApi = _priceService.GetRepice("B");
+            var recipeApi = _managerBandBakery.GetRepice("B");
             Recipe recipeMVC = new Recipe()
             {
                 ItemId = recipeApi.ItemId,
@@ -29,7 +29,7 @@ namespace MetalBandBakery.MVC.Controllers
 
         public ActionResult Edit(string id)
         {
-            var recipeApi = _priceService.GetRepice(id);
+            var recipeApi = _managerBandBakery.GetRepice(id);
             ingredientsTest = recipeApi.Ingredients;
 
             MetalBandBakery.MVC.Models.Recipe recipeMVC = new MetalBandBakery.MVC.Models.Recipe()
@@ -57,7 +57,7 @@ namespace MetalBandBakery.MVC.Controllers
             {
                 EditIngredient(r.Key, r.Value);
             }
-            _priceService.UpdateRecipe(recipe.ItemId, ingredientsTest, recipe.Extra);
+            _managerBandBakery.UpdateRecipe(recipe.ItemId, ingredientsTest, recipe.Extra);
             return RedirectToAction("Index", "Stock");
         }
     }

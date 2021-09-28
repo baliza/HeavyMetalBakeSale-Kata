@@ -61,6 +61,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MetalBandBakery.RecipeWCF",
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetalBandBakery.ManagerLibrary", "MetalBandBakery.ManagerLibrary\MetalBandBakery.ManagerLibrary.csproj", "{A2060DCB-D3C5-4CFA-A5B3-1FA822E3AEFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{F5233865-D820-4B7E-81E4-C0D9597EA78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5233865-D820-4B7E-81E4-C0D9597EA78F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{F5233865-D820-4B7E-81E4-C0D9597EA78F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A2060DCB-D3C5-4CFA-A5B3-1FA822E3AEFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2060DCB-D3C5-4CFA-A5B3-1FA822E3AEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2060DCB-D3C5-4CFA-A5B3-1FA822E3AEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2060DCB-D3C5-4CFA-A5B3-1FA822E3AEFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

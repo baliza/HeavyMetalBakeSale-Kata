@@ -1,0 +1,36 @@
+{
+  "ProductList": [
+    {
+      "ItemId": "B",
+      "Ingredients": {
+        "Sugar": 23,
+        "Cocoa": 70,
+        "Butter": 36
+      },
+      "Extra": 4
+    },
+    {
+      "ItemId": "M",
+      "Ingredients": {
+        "Sugar": 32,
+        "Cocoa": 23,
+        "Butter": 89
+      },
+      "Extra": 3.4
+    },
+    {
+      "ItemId": "C",
+      "Ingredients": {
+        "Sugar": 89,
+        "Cocoa": 67,
+        "Butter": 45
+      },
+      "Extra": 7
+    },
+    {
+      "ItemId": "W",
+      "Ingredients": {},
+      "Extra": 2
+    }
+  ]
+}

@@ -61,4 +61,13 @@ Total > Not enough stock
 *	No os compliquéis
 * 	Intentad hacerlo y luego lo refactorizais
 
+
+## PARTE 2
+* mete un WCF que haga de servicio Externo, este servicio tiene su propia capa de gestión del inventario
+
+
+
+## PARTE 3
+* mete un servio RESTFull que haga de servicio Externo, este servicio tiene su propia capa de gestión de los precios
+
 	

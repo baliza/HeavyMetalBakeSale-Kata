@@ -1,0 +1,24 @@
+﻿@model List<MetalBandBakery.MVC.Models.Item>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <tr>
+        <td>ItemId</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>Stock Action</td>
+        <td>Recipe Action</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.ItemId</td>
+        <td>@item.Price</td>
+        <td>@item.Quantity</td>
+        <td>@Html.ActionLink("Edit Stock", "Edit", "Stock", new { id = item.ItemId }, null)</td>
+        <td>@Html.ActionLink("Edit Recipe", "Edit", "Recipe", new { id = item.ItemId }, null)</td>
+    </tr>
+    }
+</table>

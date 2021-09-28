@@ -1,0 +1,33 @@
+[
+    {
+      "ItemId": "B",
+      "Ingredients": {
+        "Sugar": 23,
+        "Cocoa": 22,
+        "Butter": 36
+      },
+      "Extra": 4
+    },
+    {
+      "ItemId": "M",
+      "Ingredients": {
+        "Sugar": 32,
+        "Cocoa": 23,
+        "Butter": 89
+      },
+      "Extra": 3.4
+    },
+    {
+      "ItemId": "C",
+      "Ingredients": {
+        "Sugar": 23,
+        "Cocoa": 19
+      },
+      "Extra": 7
+    },
+    {
+      "ItemId": "W",
+      "Ingredients": {},
+      "Extra": 2
+    }
+  ]

@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="ManagerBandBakery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HTTP\RestFull\RestFullPrice.cs" />
+    <Compile Include="HTTP\SOAP\SoapStockService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MetalBandBakery.Core\MetalBandBakery.Core.csproj">

@@ -1,0 +1,21 @@
+﻿@model List<MetalBakeWeb.Models.ItemPrice>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de precios</h2>
+
+<table style="width:200px">
+    <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ItemId</td>
+            <td>@item.Price</td>
+            <td>@Html.ActionLink("Editar precio", "Edit", "Price", new { itemId = item.ItemId }, null)</td>
+        </tr>
+    }
+</table>

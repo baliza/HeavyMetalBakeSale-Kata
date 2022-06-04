@@ -1,0 +1,20 @@
+﻿@model List<MetalBakeWeb.Models.ItemStock>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Inventario</h2>
+<table style="width:200px">
+    <tr>
+        <th>Producto</th>
+        <th>Stock</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ItemId</td>
+            <td>@item.Stock</td>
+            <td>@Html.ActionLink("Editar stock", "Edit", "Stock", new { itemId = item.ItemId }, null)</td>
+        </tr>
+    }
+</table>

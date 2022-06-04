@@ -1,0 +1,15 @@
+﻿@model MetalBakeWeb.Models.ItemStock
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar stock</h2>
+@using (Html.BeginForm("SetNewStock", "Stock"))
+{
+    @Html.Label("Id")
+    @Html.TextBoxFor(item => item.ItemId, new { @readonly = "readonly" })
+    @Html.Label("Cambia el stock")
+    @Html.TextBoxFor(item => item.Stock)
+
+    <input type="submit" value="Cambiar Nombre" />
+}
